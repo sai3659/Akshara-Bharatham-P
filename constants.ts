@@ -188,11 +188,11 @@ export const BLOG_POSTS = [
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?auto=format&fit=crop&q=80&w=800", // Stage/Function 
-  "https://images.unsplash.com/photo-1596386461350-326e974853b6?auto=format&fit=crop&q=80&w=800", // Man talking to students/Crafts
-  "https://images.unsplash.com/photo-1544928147-79a774562149?auto=format&fit=crop&q=80&w=800", // Circle/Group discussion
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800", // Blue uniforms/Standing
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800"  // Meeting/Gathering Hall
+  "/IMG-20251214-WA0003.png", // Stage/Function 
+  "/IMG-20251214-WA0004.png", // Man talking to students/Crafts
+  "/IMG-20251214-WA0002.png", // Circle/Group discussion
+  "/IMG-20251214-WA0001.png", // Blue uniforms/Standing
+  "/IMG-20251214-WA0000.png"  // Meeting/Gathering Hall
 ];
 
 export const TESTIMONIALS = [
