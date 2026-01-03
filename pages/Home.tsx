@@ -16,6 +16,9 @@ const NOTIFICATIONS = [
 ];
 
 const NotificationBox = () => {
+  // Combine notifications twice for a seamless infinite loop
+  const duplicatedNotifications = [...NOTIFICATIONS, ...NOTIFICATIONS];
+
   return (
     <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col w-full max-w-[260px] mx-auto lg:ml-auto h-[380px] relative z-20">
       <div className="bg-[#003B5C] dark:bg-[#020617] p-3 flex justify-between items-center z-10 border-b-4 border-yellow-400">
@@ -23,19 +26,28 @@ const NotificationBox = () => {
           EVENTS AND NOTIFICATIONS
         </h3>
         <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
         </span>
       </div>
-      <div className="flex-1 overflow-y-auto relative bg-white dark:bg-slate-950 custom-scrollbar">
-        <div className="py-2">
-          {NOTIFICATIONS.map((note, index) => (
-            <div key={`${note.id}-${index}`} className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors group/item">
+      
+      {/* Scroll Container */}
+      <div className="flex-1 overflow-hidden relative bg-white dark:bg-slate-950 group">
+        <div 
+          className="animate-vertical-scroll hover:[animation-play-state:paused] py-2 cursor-pointer"
+          style={{ animationDuration: '30s' }}
+        >
+          {duplicatedNotifications.map((note, index) => (
+            <div 
+              key={`${note.id}-${index}`} 
+              className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors group/item"
+            >
               <div className="flex items-start gap-2">
                  <div className="mt-1 min-w-[14px]">
                    <ArrowRight size={14} className="text-[#06B6D4] group-hover/item:translate-x-1 transition-transform" />
                  </div>
                  <div className="flex-1">
-                    <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
+                    <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors">
                       {note.text}
                     </p>
                     <div className="flex items-center gap-2">
@@ -51,8 +63,13 @@ const NotificationBox = () => {
             </div>
           ))}
         </div>
+        
+        {/* Subtle Fades for visual polish */}
+        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-slate-950 to-transparent pointer-events-none z-10 opacity-60"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-slate-950 to-transparent pointer-events-none z-10 opacity-60"></div>
       </div>
-      <div className="p-2 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-center flex justify-between items-center px-4">
+
+      <div className="p-2 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-center flex justify-between items-center px-4 shrink-0">
          <a href="#" className="text-[10px] font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white uppercase tracking-wider">View All</a>
          <a href="#" className="text-[10px] font-bold text-[#06B6D4] hover:text-[#0891b2] uppercase tracking-wider flex items-center gap-1">
            Archive <ExternalLink size={10} />
