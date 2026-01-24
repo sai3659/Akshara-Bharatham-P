@@ -1,3 +1,4 @@
+
 import { Founder, Program, Event, Stat } from './types';
 import { BookOpen, Users, Heart, GraduationCap, Globe, Lightbulb } from 'lucide-react';
 
@@ -188,38 +189,43 @@ export const BLOG_POSTS = [
 ];
 
 export const GALLERY_IMAGES = [
-  "/IMG-20251214-WA0003.png", // Stage/Function 
-  "/IMG-20251214-WA0004.png", // Man talking to students/Crafts
-  "/IMG-20251214-WA0002.png", // Circle/Group discussion
-  "/IMG-20251214-WA0001.png", // Blue uniforms/Standing
-  "/IMG-20251214-WA0000.png"  // Meeting/Gathering Hall
+  "https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?auto=format&fit=crop&q=80&w=800", // Stage/Function 
+  "https://images.unsplash.com/photo-1596386461350-326e974853b6?auto=format&fit=crop&q=80&w=800", // Man talking to students/Crafts
+  "https://images.unsplash.com/photo-1544928147-79a774562149?auto=format&fit=crop&q=80&w=800", // Circle/Group discussion
+  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800", // Blue uniforms/Standing
+  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800"  // Meeting/Gathering Hall
 ];
 
 export const TESTIMONIALS = [
   {
-    quote: "The scholarship I received changed my life. I am now the first graduate in my family.",
-    author: "Ravi Teja",
-    role: "Engineering Student"
+    quote: "It wasn't just about books or computers; it was about believing that we mattered. The mentors from Akshara Bharatham looked us in the eye and told us we could be scientists, writers, and leaders. That belief changed my life more than any textbook ever could. I am now pursuing my engineering degree.",
+    author: "Sunita Rao",
+    role: "Alumni, Class of 2018"
   },
   {
-    quote: "Volunteering with Akshara Bharatham helped me realize the power of community.",
-    author: "Sarah Jenkins",
-    role: "Volunteer"
+    quote: "Our school in Rambilli was on the verge of closing down due to lack of funds and attendance. The Society stepped in, renovated the building, and introduced digital classrooms. Today, we have a waiting list for admissions. They revived the heart of our community.",
+    author: "M. Venkata Ramana",
+    role: "Village Elder & School Committee"
   },
   {
-    quote: "Their dedication to rural education is unmatched. A truly transparent organization.",
-    author: "Mr. Rao",
-    role: "Local Donor"
+    quote: "I have volunteered with many NGOs, but the dedication I see here is unmatched. Whether it's the midnight fundraising calls or the early morning drives to remote hamlets, the team's passion is infectious. It's an honor to serve alongside them.",
+    author: "David Fernandez",
+    role: "Senior Volunteer"
   },
   {
-    quote: "I saw firsthand how the computer labs transformed the confidence of these village kids.",
-    author: "Vikram Singh",
-    role: "Tech Sponsor"
+    quote: "The scholarship didn't just pay for my college fees; it bought me the freedom to dream. I come from a family of daily wage laborers. Today, I work at a multinational bank. My success is a testament to Akshara Bharatham's vision.",
+    author: "P. Ganesh",
+    role: "Financial Analyst"
   },
   {
-    quote: "Education is the only way forward, and this team knows how to deliver it where it matters.",
-    author: "Dr. Anitha",
-    role: "Educationist"
+    quote: "As a mother, my only wish was for my daughter to have a better life than me. Akshara Bharatham's 'Girl Child Initiative' ensured she stayed in school when we couldn't afford it. She is now preparing for her medical entrance exams.",
+    author: "Lakshmi Devi",
+    role: "Parent"
+  },
+  {
+    quote: "The digital literacy camp opened a new world for me. I had never touched a laptop before. Now I can code basic websites and I'm helping my father digitize his small shop's accounts. Technology is truly a great equalizer.",
+    author: "K. Arjun",
+    role: "Student, Grade 10"
   }
 ];
 

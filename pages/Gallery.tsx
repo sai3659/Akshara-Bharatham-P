@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
@@ -21,10 +20,10 @@ const Gallery: React.FC = () => {
       <SideNavigation items={MEDIA_SECTIONS} />
       
       {/* 1. Photo Gallery Section */}
-      <Section id="photo-gallery" className="pt-32 md:pt-40 bg-slate-50 dark:bg-dark">
+      <Section id="photo-gallery" className="pt-40 md:pt-52 bg-slate-50 dark:bg-dark">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-[#06B6D4] font-bold text-sm uppercase tracking-widest mb-6">
-            <ImageIcon size={16} /> Section 1: Photo Gallery
+            <ImageIcon size={16} /> Photo Gallery
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Capturing the Impact</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -49,7 +48,7 @@ const Gallery: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-wider mb-4">
-              Section 2: Impact Stories
+              Impact Stories
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Success Testimonials</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2">Hear directly from the students and volunteers whose lives have been transformed.</p>
@@ -82,7 +81,7 @@ const Gallery: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
-              Section 3: Upcoming Events
+              Upcoming Events
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Community Calendar</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2">Join our workshops, fairs, and charity events scheduled for the coming months.</p>
@@ -113,7 +112,7 @@ const Gallery: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
-              Section 4: Blog & News
+              Blog & News
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">NGO Updates</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-2">Latest news, program launches, and insights from our team.</p>
@@ -139,7 +138,7 @@ const Gallery: React.FC = () => {
       <Section id="achievements" className="bg-slate-50 dark:bg-dark py-20 md:py-32">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
-            Section 5: Hall of Fame
+            Hall of Fame
           </div>
           <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Celebrating Excellence</h2>
           <p className="text-slate-600 dark:text-slate-400 mb-12 text-lg">Honoring our students who have achieved extraordinary success against all odds.</p>

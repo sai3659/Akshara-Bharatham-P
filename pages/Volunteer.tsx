@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Section, Card, Button, Input, Select, DecorativeShapes, SideNavigation } from '../components/UI';
@@ -34,10 +33,10 @@ const Volunteer: React.FC = () => {
       <SideNavigation items={VOLUNTEER_SECTIONS} />
       
       {/* 1. Volunteer with Us Section */}
-      <Section id="volunteer" className="bg-slate-50 dark:bg-dark pt-32 md:pt-40">
+      <Section id="volunteer" className="bg-slate-50 dark:bg-dark pt-40 md:pt-52">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 font-bold text-sm uppercase tracking-widest mb-6">
-            <Users size={16} /> Section 1: Volunteer with Us
+            <Users size={16} /> Volunteer with Us
           </div>
           <h1 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Be the Change</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -87,7 +86,7 @@ const Volunteer: React.FC = () => {
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-wider">
-              Section 2: Donate Now
+              Donate Now
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Fuel Our Mission</h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
@@ -117,7 +116,7 @@ const Volunteer: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 text-[#06B6D4] text-xs font-bold uppercase tracking-wider mb-4">
-              Section 3: Partner with us
+              Partner with us
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Start a Conversation</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-4">Have specific questions? Reach out to our dedicated coordinators to discuss partnerships.</p>

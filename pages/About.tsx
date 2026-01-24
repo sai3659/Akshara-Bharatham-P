@@ -17,10 +17,10 @@ const About: React.FC = () => {
       <SideNavigation items={ABOUT_SECTIONS} />
       
       {/* 1. Our Mission & History Section */}
-      <Section id="mission-history" className="bg-slate-50 dark:bg-dark pt-32 md:pt-40">
+      <Section id="mission-history" className="bg-slate-50 dark:bg-dark pt-40 md:pt-52">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 font-bold text-sm uppercase tracking-widest mb-6">
-            <Target size={16} /> Section 1: Our Mission & History
+            <Target size={16} /> Our Mission & History
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Empowering Rural India</h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -85,7 +85,7 @@ const About: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 text-[#06B6D4] text-xs font-bold uppercase tracking-wider">
-              Section 2: Leadership Team
+              Leadership Team
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Our Leadership</h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
@@ -113,7 +113,7 @@ const About: React.FC = () => {
       <Section id="team" className="bg-slate-50/50 dark:bg-dark-card/50">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
-            Section 3: Extended Team
+            Extended Team
           </div>
           <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Our Extended Team</h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg">
@@ -146,7 +146,7 @@ const About: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
-              Section 4: Financial Reports
+              Financial Reports
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Transparency & Stewardship</h2>
             <p className="text-slate-600 dark:text-slate-400 mt-4">We are committed to total transparency. Every rupee you donate is tracked and audited.</p>

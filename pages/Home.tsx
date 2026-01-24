@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowRight, Star, Quote, MapPin, X, ChevronLeft, ChevronRight, ExternalLink, Trophy } from 'lucide-react';
-import { Section, Button, Card, RGBCard, Typewriter } from '../components/UI';
+import { Section, Button, Card, RGBCard, Typewriter, CountUp } from '../components/UI';
 import { STATS, PROGRAMS, NGO_DETAILS, TESTIMONIALS, STUDENT_ACHIEVEMENTS } from '../constants';
 
 const NOTIFICATIONS = [
@@ -16,9 +15,6 @@ const NOTIFICATIONS = [
 ];
 
 const NotificationBox = () => {
-  // Combine notifications twice for a seamless infinite loop
-  const duplicatedNotifications = [...NOTIFICATIONS, ...NOTIFICATIONS];
-
   return (
     <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col w-full max-w-[260px] mx-auto lg:ml-auto h-[380px] relative z-20">
       <div className="bg-[#003B5C] dark:bg-[#020617] p-3 flex justify-between items-center z-10 border-b-4 border-yellow-400">
@@ -26,28 +22,19 @@ const NotificationBox = () => {
           EVENTS AND NOTIFICATIONS
         </h3>
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
         </span>
       </div>
-      
-      {/* Scroll Container */}
       <div className="flex-1 overflow-hidden relative bg-white dark:bg-slate-950 group">
-        <div 
-          className="animate-vertical-scroll hover:[animation-play-state:paused] py-2 cursor-pointer"
-          style={{ animationDuration: '30s' }}
-        >
-          {duplicatedNotifications.map((note, index) => (
-            <div 
-              key={`${note.id}-${index}`} 
-              className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors group/item"
-            >
+        <div className="py-2 animate-vertical-scroll group-hover:[animation-play-state:paused]">
+          {[...NOTIFICATIONS, ...NOTIFICATIONS].map((note, index) => (
+            <div key={`${note.id}-${index}`} className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors group/item">
               <div className="flex items-start gap-2">
                  <div className="mt-1 min-w-[14px]">
                    <ArrowRight size={14} className="text-[#06B6D4] group-hover/item:translate-x-1 transition-transform" />
                  </div>
                  <div className="flex-1">
-                    <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors">
+                    <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
                       {note.text}
                     </p>
                     <div className="flex items-center gap-2">
@@ -63,13 +50,8 @@ const NotificationBox = () => {
             </div>
           ))}
         </div>
-        
-        {/* Subtle Fades for visual polish */}
-        <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white dark:from-slate-950 to-transparent pointer-events-none z-10 opacity-60"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white dark:from-slate-950 to-transparent pointer-events-none z-10 opacity-60"></div>
       </div>
-
-      <div className="p-2 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-center flex justify-between items-center px-4 shrink-0">
+      <div className="p-2 bg-slate-100 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-center flex justify-between items-center px-4 z-10 relative">
          <a href="#" className="text-[10px] font-bold text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white uppercase tracking-wider">View All</a>
          <a href="#" className="text-[10px] font-bold text-[#06B6D4] hover:text-[#0891b2] uppercase tracking-wider flex items-center gap-1">
            Archive <ExternalLink size={10} />
@@ -94,7 +76,8 @@ const Home: React.FC = () => {
   return (
     <>
       {/* Hero Section - Colorful static background with Typewriter animation */}
-      <section className="relative min-h-[95vh] flex items-center justify-center overflow-x-clip bg-transparent pt-48 md:pt-56 pb-24 transition-colors duration-500">
+      {/* Increased padding-top to account for larger header */}
+      <section className="relative min-h-[95vh] flex items-center justify-center overflow-x-clip bg-transparent pt-44 md:pt-60 pb-24 transition-colors duration-500">
         {/* Layered Colorful Static Background */}
         <div className="absolute inset-0 -z-10 overflow-hidden">
           <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-cyan-400/20 dark:bg-cyan-900/10 rounded-full blur-[120px] mix-blend-multiply dark:mix-blend-overlay" />
@@ -122,23 +105,9 @@ const Home: React.FC = () => {
             <p className="text-lg md:text-2xl font-semibold max-w-xl mx-auto lg:mx-0 leading-relaxed text-slate-700 dark:text-slate-300 drop-shadow-sm">
               Akshara Bharatham Society is dedicated to supporting students and improving educational standards. Join our mission today to create a brighter future.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start pt-4">
-              <NavLink to="/donate">
-                <Button size="lg" className="shadow-2xl shadow-purple-500/30 w-full sm:w-auto px-10 text-xl h-16 group">
-                   Join Us Now
-                   <span className="ml-2">→</span>
-                </Button>
-              </NavLink>
-              <NavLink to="/founders">
-                <Button variant="outline" size="lg" className="border-2 border-slate-900 text-slate-900 dark:border-white dark:text-white hover:bg-slate-900 hover:text-white dark:hover:bg-white dark:hover:text-black w-full sm:w-auto backdrop-blur-md h-16 px-8 text-xl">
-                  Book Meeting
-                </Button>
-              </NavLink>
-            </div>
           </div>
           
-          <div className="relative mt-16 lg:mt-0 transform lg:translate-x-[90px] translate-y-[2cm]">
+          <div className="relative mt-16 lg:mt-0 transform lg:translate-x-[140px] translate-y-[2cm]">
              <div className="absolute inset-0 bg-cyan-400/20 dark:bg-cyan-900/30 blur-[60px] rounded-full scale-125 -z-10" />
              <NotificationBox />
           </div>
@@ -152,7 +121,7 @@ const Home: React.FC = () => {
              <div className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
                 <Trophy size={14} /> Hall of Fame
              </div>
-             <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Student Achievements</h2>
+             <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Akshara Bharatham Society Achievers</h2>
              <p className="text-slate-600 dark:text-slate-400 mt-2 text-lg">Celebrating the academic and extracurricular brilliance of our young minds.</p>
           </div>
           <NavLink to="/achievements">
@@ -160,30 +129,42 @@ const Home: React.FC = () => {
           </NavLink>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {STUDENT_ACHIEVEMENTS.slice(0, 3).map((student) => (
-            <RGBCard key={student.id} className="h-full">
-               <div className="flex flex-col h-full">
-                 <div className="h-56 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
-                   <img 
-                     src={student.image} 
-                     alt={student.name} 
-                     className="w-full h-full object-cover" 
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-5">
-                      <h3 className="text-white font-bold font-heading text-2xl">{student.name}</h3>
-                   </div>
-                 </div>
-                 <div className="p-6 flex flex-col flex-1 bg-white/60 dark:bg-dark-card/60 backdrop-blur-md">
-                    <div className="flex items-start gap-2 mb-3">
-                       <Trophy size={20} className="text-yellow-500 shrink-0 mt-0.5" />
-                       <h4 className="font-bold text-slate-800 dark:text-slate-100 text-lg leading-tight pt-1">{student.achievement}</h4>
-                    </div>
-                    <p className="text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">{student.description}</p>
-                 </div>
-               </div>
-            </RGBCard>
-          ))}
+        {/* Infinite Scroll / Marquee Layout for Achievers */}
+        <div className="relative w-full overflow-hidden py-8 -mx-4 px-4 md:-mx-8 md:px-8 group">
+           {/* Side Gradients for smooth fade */}
+           <div className="absolute left-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-r from-white/60 dark:from-slate-950/60 to-transparent pointer-events-none" />
+           <div className="absolute right-0 top-0 bottom-0 w-16 z-20 bg-gradient-to-l from-white/60 dark:from-slate-950/60 to-transparent pointer-events-none" />
+
+           <div className="flex gap-8 w-max animate-horizontal-scroll group-hover:[animation-play-state:paused] items-stretch">
+              {[...STUDENT_ACHIEVEMENTS, ...STUDENT_ACHIEVEMENTS].map((student, index) => {
+                 // Determine original index to apply badges correctly to the duplicates as well
+                 const originalIndex = index % STUDENT_ACHIEVEMENTS.length;
+                 
+                 return (
+                    <RGBCard key={`${student.id}-${index}`} className="w-[320px] md:w-[420px] h-full relative group/card flex-shrink-0">
+                       <div className="flex flex-col h-full">
+                         <div className="h-60 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
+                           <img 
+                             src={student.image} 
+                             alt={student.name} 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover/card:scale-110" 
+                           />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-5">
+                              <h3 className="text-white font-bold font-heading text-2xl mb-1">{student.name}</h3>
+                           </div>
+                         </div>
+                         <div className="p-6 flex flex-col flex-1 bg-white/60 dark:bg-dark-card/60 backdrop-blur-md">
+                            <div className="flex items-start gap-2 mb-3">
+                               <Trophy size={20} className={`shrink-0 mt-0.5 ${originalIndex === 0 ? 'text-yellow-500 fill-yellow-500' : originalIndex === 1 ? 'text-slate-400 fill-slate-400' : 'text-yellow-500'}`} />
+                               <h4 className="font-bold text-slate-800 dark:text-slate-100 text-lg leading-tight pt-1">{student.achievement}</h4>
+                            </div>
+                            <p className="text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3 text-sm">{student.description}</p>
+                         </div>
+                       </div>
+                    </RGBCard>
+                 );
+              })}
+           </div>
         </div>
       </Section>
 
@@ -197,7 +178,7 @@ const Home: React.FC = () => {
                   <stat.icon size={40} />
                 </div>
                 <h3 className="text-5xl font-bold font-heading text-slate-900 dark:text-white">
-                  {parseInt(stat.value).toLocaleString()}+
+                  <CountUp end={stat.value} duration={2000} suffix="+" />
                 </h3>
                 <p className="text-slate-500 dark:text-slate-400 font-bold tracking-widest uppercase text-xs">{stat.label}</p>
               </div>
@@ -206,15 +187,17 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Featured Programs */}
+      {/* Featured Programs - Horizontal Scroll Layout */}
       <Section className="py-24">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-4">Our Key Initiatives</h2>
           <p className="text-slate-600 dark:text-slate-400 text-xl">We run targeted programs to address specific gaps in the education system.</p>
         </div>
-        <div className="grid md:grid-cols-3 gap-10">
-          {PROGRAMS.slice(0, 3).map(prog => (
-            <Card key={prog.id} className="overflow-hidden group h-full flex flex-col shadow-xl">
+        
+        {/* Horizontal Scroll Layout for Programs */}
+        <div className="flex overflow-x-auto gap-6 pb-8 -mx-4 px-4 md:-mx-8 md:px-8 snap-x hide-scrollbar">
+          {PROGRAMS.map(prog => (
+            <Card key={prog.id} className="min-w-[300px] md:min-w-[400px] snap-center overflow-hidden group h-full flex flex-col shadow-xl">
               <div className="h-64 overflow-hidden relative">
                 <img src={prog.image} alt={prog.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <span className="absolute top-5 left-5 z-20 bg-white/95 dark:bg-black/80 backdrop-blur text-[#06B6D4] text-xs font-black px-4 py-1.5 rounded-full uppercase tracking-widest shadow-lg">
@@ -251,7 +234,7 @@ const Home: React.FC = () => {
                   </div>
                   <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white leading-tight">Voices from the Field</h2>
                   <div className="relative p-1 rounded-[32px] bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 shadow-2xl">
-                     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-[28px] overflow-hidden p-10 min-h-[320px] relative flex flex-col justify-center">
+                     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-[28px] overflow-hidden p-10 min-h-[400px] relative flex flex-col justify-center">
                         <div className="relative overflow-hidden h-full">
                           {TESTIMONIALS.map((t, idx) => (
                              <div 
@@ -312,34 +295,6 @@ const Home: React.FC = () => {
             </div>
          </div>
       </Section>
-
-      {/* Map Section */}
-      <section className="h-[650px] w-full relative bg-slate-200/50 dark:bg-slate-800/50">
-         <iframe 
-            width="100%" 
-            height="100%" 
-            style={{ border: 0 }}
-            loading="lazy" 
-            allowFullScreen 
-            src={`https://www.google.com/maps?q=${NGO_DETAILS.coordinates.lat},${NGO_DETAILS.coordinates.lng}&hl=en;z=14&output=embed`}
-            title="NGO Location"
-            className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700 mix-blend-multiply dark:mix-blend-normal"
-          ></iframe>
-           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 bg-white/90 dark:bg-dark-card/90 backdrop-blur-xl p-10 rounded-[40px] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)] flex flex-col md:flex-row gap-10 items-center text-center md:text-left max-w-5xl w-[92%] border border-white/50 dark:border-slate-700/50">
-             <div className="w-20 h-20 rounded-3xl bg-cta-gradient flex items-center justify-center text-white shrink-0 shadow-2xl shadow-purple-500/50 rotate-3">
-               <MapPin size={40} />
-             </div>
-             <div>
-               <h3 className="font-bold text-slate-900 dark:text-white text-3xl mb-3">Visit Akshara Bharatham Society</h3>
-               <p className="text-slate-600 dark:text-slate-300 text-xl font-medium">{NGO_DETAILS.location}</p>
-             </div>
-             <div className="md:ml-auto">
-               <NavLink to="/contact">
-                <Button variant="outline" size="lg" className="border-2 font-black px-8 h-14 text-lg">Get Directions</Button>
-               </NavLink>
-             </div>
-          </div>
-      </section>
 
       {/* Sticky Donate Bar (Bottom) */}
       {showStickyBar && (

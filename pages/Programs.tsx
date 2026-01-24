@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
 import { PROGRAMS } from '../constants';
@@ -24,10 +23,10 @@ const Programs: React.FC = () => {
       <SideNavigation items={PROGRAM_SECTIONS} />
       
       {/* 1. All Programs Section */}
-      <Section id="all-programs" className="pt-32 md:pt-40 bg-slate-50 dark:bg-dark">
+      <Section id="all-programs" className="pt-40 md:pt-52 bg-slate-50 dark:bg-dark">
         <div className="text-center max-w-4xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-[#06B6D4] font-bold text-sm uppercase tracking-widest mb-6">
-            <Layers size={16} /> Section 1: All Programs
+            <Layers size={16} /> All Programs
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Our Impact Portfolio</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
@@ -55,7 +54,7 @@ const Programs: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
            <div>
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
-               Section 2: Education Support
+               Education Support
              </div>
              <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-2">Academic Excellence</h2>
              <p className="text-slate-600 dark:text-slate-400">Remedial classes and teacher training to ensure foundational learning.</p>
@@ -80,7 +79,7 @@ const Programs: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
            <div>
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
-               Section 3: Digital Literacy
+               Digital Literacy
              </div>
              <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-2">Technology & Innovation</h2>
              <p className="text-slate-600 dark:text-slate-400">Bridging the digital divide through labs and computer science skills.</p>
@@ -105,7 +104,7 @@ const Programs: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
            <div>
              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
-               Section 4: Scholarships
+               Scholarships
              </div>
              <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-2">Financial Empowerment</h2>
              <p className="text-slate-600 dark:text-slate-400">Ensuring that financial constraints never hinder a child's ambition.</p>

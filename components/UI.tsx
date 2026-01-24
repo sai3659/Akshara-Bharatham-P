@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import { ChevronUp } from 'lucide-react';
 
@@ -130,7 +131,7 @@ export const SideNavigation: React.FC<{ items: SideNavItem[] }> = ({ items }) =>
               : 'bg-slate-300 dark:bg-slate-700 hover:bg-purple-400'
           }`} />
           <span className={`absolute left-8 px-2 py-1 rounded bg-slate-800 text-white text-[10px] font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-lg uppercase tracking-widest`}>
-            Section {index + 1}: {item.label}
+            {item.label}
           </span>
         </button>
       ))}

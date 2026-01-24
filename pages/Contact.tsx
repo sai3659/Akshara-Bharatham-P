@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Section, Card, Button, Input, DecorativeShapes } from '../components/UI';
 import { NGO_DETAILS } from '../constants';
@@ -8,7 +7,7 @@ const Contact: React.FC = () => {
   return (
     <>
       <DecorativeShapes />
-      <Section className="bg-slate-50 dark:bg-dark pt-32 pb-12">
+      <Section className="bg-slate-50 dark:bg-dark pt-40 pb-12">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-[#06B6D4] font-bold text-sm uppercase tracking-widest mb-6">
             <Mail size={16} /> Contact Us
