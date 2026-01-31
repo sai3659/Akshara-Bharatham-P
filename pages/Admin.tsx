@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Section, Card, Button, DecorativeShapes } from '../components/UI';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
@@ -15,7 +16,7 @@ const Admin: React.FC = () => {
   return (
     <>
       <DecorativeShapes />
-      <Section className="bg-slate-50 dark:bg-dark pt-24">
+      <Section className="bg-slate-50 dark:bg-dark pt-44 md:pt-48">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold font-heading text-slate-900 dark:text-white">Admin Dashboard</h1>
           <Button size="sm" variant="outline">Export Data</Button>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
 import { Target, Eye, ShieldCheck, Download, FileText, Users, GraduationCap, ArrowRight, History } from 'lucide-react';
@@ -93,16 +94,16 @@ const About: React.FC = () => {
             </p>
             <NavLink to="/founders">
               <Button size="lg" className="group">
-                Meet the Founders <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+                Meet the Leadership <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
               </Button>
             </NavLink>
           </div>
           <div className="flex-1 w-full max-w-md">
             <div className="relative aspect-square rounded-[40px] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=600" alt="Founder" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="President" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8">
-                <p className="text-white italic text-lg mb-2">"Education is the movement from darkness to light."</p>
-                <p className="text-cyan-400 font-bold">- Dr. Rajesh Kumar, President</p>
+                <p className="text-white italic text-lg mb-2">"Education is the key to unlocking the potential of our rural communities."</p>
+                <p className="text-cyan-400 font-bold">- Ramana Mylappali, President</p>
               </div>
             </div>
           </div>

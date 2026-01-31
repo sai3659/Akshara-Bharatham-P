@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Section, RGBCard, DecorativeShapes } from '../components/UI';
 import { STUDENT_ACHIEVEMENTS } from '../constants';
@@ -7,7 +8,7 @@ const Achievements: React.FC = () => {
   return (
     <>
       <DecorativeShapes />
-      <Section className="pt-24 min-h-screen">
+      <Section className="pt-44 md:pt-48 min-h-screen">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-500 mb-6 shadow-lg shadow-yellow-500/20">
              <Trophy size={32} />

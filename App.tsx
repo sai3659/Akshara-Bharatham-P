@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Header, Footer } from './components/Layout';
@@ -9,14 +10,15 @@ import Contact from './pages/Contact';
 import Donate from './pages/Donate';
 import Admin from './pages/Admin';
 import Volunteer from './pages/Volunteer';
-import Blog from './pages/Blog';
-import Impact from './pages/Impact';
-import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import Team from './pages/Team';
 import About from './pages/About';
 import Legal from './pages/Legal';
-import Achievements from './pages/Achievements';
+import Member from './pages/Member';
+import Partner from './pages/Partner';
+import StudentRegister from './pages/StudentRegister';
+import StudentLogin from './pages/StudentLogin';
+import SchoolLogin from './pages/SchoolLogin';
 
 const App: React.FC = () => {
   return (
@@ -32,13 +34,21 @@ const App: React.FC = () => {
             <Route path="/programs" element={<Programs />} />
             <Route path="/resources" element={<Programs />} />
             <Route path="/contact" element={<Contact />} />
+            
+            {/* Get Involved Routes */}
             <Route path="/donate" element={<Donate />} />
             <Route path="/volunteer" element={<Volunteer />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/impact" element={<Impact />} />
-            <Route path="/events" element={<Events />} />
+            <Route path="/member" element={<Member />} />
+            <Route path="/partner" element={<Partner />} />
+
+            {/* Student Registration & Login Routes */}
+            <Route path="/student-register" element={<StudentRegister />} />
+            <Route path="/student-login" element={<StudentLogin />} />
+            <Route path="/school-login" element={<SchoolLogin />} />
+
+            {/* Media Route Consolidated */}
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/achievements" element={<Achievements />} />
+            
             <Route path="/admin" element={<Admin />} />
             
             {/* Legal Pages */}

@@ -16,109 +16,116 @@ export const WEBHOOK_URL = "https://corn-routes-connectors-birmingham.trycloudfl
 
 /** 
  * LOGO_URL: 
- * Set to './logo.png'. 
- * IMPORTANT: Save your logo image as 'logo.png' in the root folder of your project.
+ * Updated with user provided image link.
  */
-export const LOGO_URL = "./logo.png";
+export const LOGO_URL = "https://lh3.googleusercontent.com/d/1lnTV8LvhJ4OWVL2-gkklZgByDzM68P7J";
 
 export const FOUNDERS: Founder[] = [
   {
     id: "f1",
-    name: "Dr. Rajesh Kumar",
-    role: "President & Founder",
-    specialization: "Educational Policy",
-    quote: "Education is the movement from darkness to light.",
-    bio: "Dr. Kumar has spent over 20 years in rural education development. He holds a PhD in Social Work and has spearheaded initiatives that reached over 50,000 students across Andhra Pradesh.",
-    experience: "22 Years",
-    tags: ["Policy", "Leadership"],
-    image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&q=80&w=800"
+    name: "Ramana Mylappali",
+    role: "President",
+    specialization: "Organizational Leadership",
+    quote: "Education is the key to unlocking the potential of our rural communities.",
+    bio: "As the President, Ramana Mylappali steers the vision of Akshara Bharatham Society. With a deep-rooted commitment to social upliftment, he ensures that the organization stays true to its mission of providing quality education to every child.",
+    experience: "Leadership",
+    tags: ["Visionary", "Governance"],
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "f2",
-    name: "Lakshmi Devi",
-    role: "Director of Operations",
-    specialization: "Community Outreach",
-    quote: "Empowering a child empowers a generation.",
-    bio: "Lakshmi brings operational excellence to the team, managing over 200 volunteers and ensuring resources reach the most remote schools effectively.",
-    experience: "15 Years",
-    tags: ["Operations", "Community"],
-    image: "https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?auto=format&fit=crop&q=80&w=800"
+    name: "Srinu Mylappali",
+    role: "Vice President",
+    specialization: "Strategic Planning",
+    quote: "We believe in action over words. Every initiative is a step towards a brighter tomorrow.",
+    bio: "Srinu Mylappali plays a pivotal role in strategy and execution. He works closely with the core team to expand the reach of the NGO's programs and ensuring operational excellence.",
+    experience: "Strategy",
+    tags: ["Operations", "Strategy"],
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "f3",
-    name: "Vikram Singh",
-    role: "Head of Tech Initiatives",
-    specialization: "Digital Literacy",
-    quote: "Bridging the digital divide one tablet at a time.",
-    bio: "A former tech executive, Vikram now dedicates his time to setting up computer labs and digital curriculum for underprivileged schools.",
-    experience: "12 Years",
-    tags: ["Tech", "Innovation"],
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800"
+    name: "Suryam Surada",
+    role: "Secretary",
+    specialization: "Administration",
+    quote: "Transparency and dedication are what drive our daily operations.",
+    bio: "As Secretary, Suryam Surada manages the administrative backbone of the society. He ensures compliance, manages records, and facilitates smooth communication between all stakeholders.",
+    experience: "Administration",
+    tags: ["Admin", "Compliance"],
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "f4",
-    name: "Anjali Rao",
-    role: "Program Coordinator",
-    specialization: "Teacher Training",
-    quote: "Teachers are the architects of society.",
-    bio: "Anjali focuses on upskilling rural teachers with modern pedagogical techniques.",
-    experience: "8 Years",
-    tags: ["Training", "Pedagogy"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800"
+    name: "Lakshman Rao Mylappali",
+    role: "Joint Secretary",
+    specialization: "Project Coordination",
+    quote: "Together, we can bridge the gap between urban and rural education.",
+    bio: "Lakshman Rao assists in the coordination of field projects and volunteer activities. His hands-on approach ensures that our initiatives are implemented effectively at the grassroots level.",
+    experience: "Field Work",
+    tags: ["Coordination", "Outreach"],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "f5",
-    name: "Suresh Babu",
-    role: "Field Manager",
-    specialization: "Logistics",
-    quote: "Execution is everything.",
-    bio: "Suresh ensures that books, food, and infrastructure materials reach the right place at the right time.",
-    experience: "10 Years",
-    tags: ["Field Work", "Logistics"],
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800"
+    name: "Venkata Ramana Mylapalli",
+    role: "Treasurer",
+    specialization: "Financial Management",
+    quote: "Financial integrity is crucial for building trust and sustaining our impact.",
+    bio: "Venkata Ramana oversees the financial health of the organization. He is responsible for budgeting, financial planning, and ensuring that every donation is utilized efficiently.",
+    experience: "Finance",
+    tags: ["Finance", "Integrity"],
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
 export const PROGRAMS: Program[] = [
   {
     id: "p1",
-    title: "After-school Tutoring",
-    category: "Education",
-    description: "Providing remedial classes for students lagging behind in core subjects like Math and Science.",
-    impact: "1,200+ Students",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=800"
+    title: "ABS Talent Test",
+    category: "Talent Test",
+    description: "A state-level competitive examination aimed at identifying and nurturing academic talent among rural students. We test proficiency in Math, Science, and Logic to recognize future leaders.",
+    impact: "5,000+ Aspirants",
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "p2",
-    title: "Digital Literacy Drive",
-    category: "Technology",
-    description: "Setting up computer labs and providing basic coding training to rural high school students.",
-    impact: "15 Labs Built",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=800"
+    title: "Knowledge Quest",
+    category: "Knowledge Quest",
+    description: "An interactive quiz competition designed to spark curiosity and improve general awareness about current affairs, history, and science among high school students.",
+    impact: "50+ Schools",
+    image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "p3",
-    title: "Scholarship Grants",
-    category: "Financial Aid",
-    description: "Merit-based financial support for higher education to deserving students from low-income families.",
-    impact: "500+ Scholarships",
+    title: "NMMS Coaching Program",
+    category: "NMMS Coaching",
+    description: "Specialized coaching for Grade 8 students to help them clear the National Means-cum-Merit Scholarship (NMMS) exam, securing financial aid for 4 years.",
+    impact: "200+ Scholarships",
     image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "p4",
-    title: "School Infrastructure",
-    category: "Infrastructure",
-    description: "Renovating dilapidated school buildings and providing clean drinking water facilities.",
-    impact: "30 Schools Renovated",
-    image: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&q=80&w=800"
+    title: "Education Awareness",
+    category: "Awareness",
+    description: "Community outreach programs and door-to-door campaigns to educate parents and students about the value of education, available government schemes, and career opportunities.",
+    impact: "10,000+ Families",
+    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800"
   },
   {
     id: "p5",
-    title: "Girl Child Education",
-    category: "Education",
-    description: "Special initiatives to ensure girl students stay in school and complete their secondary education.",
-    impact: "2,000+ Girls Supported",
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800"
+    title: "Merit Awards Ceremony",
+    category: "Talent Test",
+    description: "Annual event recognizing top performers of the ABS Talent Test with medals, certificates, and scholarships to encourage sustained academic excellence.",
+    impact: "Annual Event",
+    image: "https://images.unsplash.com/photo-1623039405147-947792796a33?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    id: "p6",
+    title: "Career Guidance Workshops",
+    category: "Awareness",
+    description: "Expert-led sessions for high school students to explore various career paths beyond traditional options, helping them make informed decisions.",
+    impact: "500+ Students",
+    image: "https://images.unsplash.com/photo-1521791136064-7985c2d1103b?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
@@ -189,11 +196,11 @@ export const BLOG_POSTS = [
 ];
 
 export const GALLERY_IMAGES = [
-  "https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?auto=format&fit=crop&q=80&w=800", // Stage/Function 
-  "https://images.unsplash.com/photo-1596386461350-326e974853b6?auto=format&fit=crop&q=80&w=800", // Man talking to students/Crafts
-  "https://images.unsplash.com/photo-1544928147-79a774562149?auto=format&fit=crop&q=80&w=800", // Circle/Group discussion
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&q=80&w=800", // Blue uniforms/Standing
-  "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800"  // Meeting/Gathering Hall
+  "https://lh3.googleusercontent.com/d/1MoAeyApBFhJdEFjdcnyPUFivyKh37FYG",
+  "https://lh3.googleusercontent.com/d/1Jz1HI4Vc5MWh973Mbon_j2iIzVE_RXE-",
+  "https://lh3.googleusercontent.com/d/1JmKqP1BLO2Xmrpa8YSJ9sbyoRHdNJCzE",
+  "https://lh3.googleusercontent.com/d/1VfBlUwEnJctP7a_6lBV_3iQMagTHr0nb",
+  "https://lh3.googleusercontent.com/d/1MIHR_JLonNeXrR9T3xgacX9sCLzslaOI"
 ];
 
 export const TESTIMONIALS = [

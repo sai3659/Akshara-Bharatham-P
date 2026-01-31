@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Section, Card, Button, DecorativeShapes } from '../components/UI';
 import { FOUNDERS } from '../constants';
@@ -16,7 +17,7 @@ const Founders: React.FC = () => {
   return (
     <>
       <DecorativeShapes />
-      <Section className="pt-24">
+      <Section className="pt-44 md:pt-48">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Meet Our Leadership</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">

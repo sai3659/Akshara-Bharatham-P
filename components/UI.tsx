@@ -338,7 +338,7 @@ export const Select: React.FC<SelectProps> = ({ label, options, className = '', 
 
 // --- Section ---
 export const Section: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({ children, className = '', id }) => (
-  // Reduced padding for optimized layout
+  // Optimized padding for mobile
   <section id={id} className={`py-12 md:py-20 px-4 md:px-8 relative overflow-hidden ${className}`}>
     <div className="max-w-7xl mx-auto relative z-10">
       {children}
@@ -354,7 +354,7 @@ export const DecorativeShapes: React.FC = () => (
     <div className="absolute top-[40%] right-[-10%] w-[40vw] h-[40vw] bg-cyan-400/10 dark:bg-cyan-900/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen opacity-50" />
     
     {/* Top Left Corner Pattern */}
-    <svg className="absolute top-0 left-0 text-cyan-500/10 dark:text-cyan-400/10 w-64 h-64" viewBox="0 0 200 200">
+    <svg className="absolute top-0 left-0 text-cyan-500/10 dark:text-cyan-400/10 w-32 h-32 md:w-64 md:h-64" viewBox="0 0 200 200">
       <circle cx="0" cy="0" r="100" fill="currentColor" />
       <circle cx="0" cy="0" r="150" stroke="currentColor" strokeWidth="2" fill="none" opacity="0.5" />
       <circle cx="0" cy="0" r="180" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.3" />
@@ -368,14 +368,14 @@ export const DecorativeShapes: React.FC = () => (
     </div>
 
     {/* Bottom Left Corner Pattern (Lines) */}
-    <svg className="absolute bottom-0 left-0 text-purple-500/10 dark:text-purple-400/10 w-48 h-48" viewBox="0 0 100 100">
+    <svg className="absolute bottom-0 left-0 text-purple-500/10 dark:text-purple-400/10 w-24 h-24 md:w-48 md:h-48" viewBox="0 0 100 100">
        <path d="M0 100 L100 0" stroke="currentColor" strokeWidth="10" />
        <path d="M0 80 L80 0" stroke="currentColor" strokeWidth="5" />
        <path d="M0 60 L60 0" stroke="currentColor" strokeWidth="2" />
     </svg>
 
     {/* Bottom Right Corner Pattern */}
-    <svg className="absolute bottom-0 right-0 text-cyan-500/10 dark:text-cyan-400/10 w-56 h-56" viewBox="0 0 200 200">
+    <svg className="absolute bottom-0 right-0 text-cyan-500/10 dark:text-cyan-400/10 w-28 h-28 md:w-56 md:h-56" viewBox="0 0 200 200">
       <path d="M100 200 A100 100 0 0 0 200 100 L200 200 Z" fill="currentColor" />
     </svg>
   </div>

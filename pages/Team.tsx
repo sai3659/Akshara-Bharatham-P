@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Section, Card, Button, DecorativeShapes } from '../components/UI';
 import { Users, Heart, Star } from 'lucide-react';
@@ -33,7 +34,7 @@ const Team: React.FC = () => {
   return (
     <>
       <DecorativeShapes />
-      <Section className="bg-slate-50 dark:bg-dark pt-24">
+      <Section className="bg-slate-50 dark:bg-dark pt-44 md:pt-48">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Our Extended Team</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
