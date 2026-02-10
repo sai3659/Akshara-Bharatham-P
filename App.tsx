@@ -16,9 +16,11 @@ import About from './pages/About';
 import Legal from './pages/Legal';
 import Member from './pages/Member';
 import Partner from './pages/Partner';
-import StudentRegister from './pages/StudentRegister';
 import StudentLogin from './pages/StudentLogin';
 import SchoolLogin from './pages/SchoolLogin';
+import TalentTestRegister from './pages/TalentTestRegister';
+import NMMSRegister from './pages/NMMSRegister';
+import KnowledgeQuestRegister from './pages/KnowledgeQuestRegister';
 
 // Wrapper to conditionally render Layout (Header/Footer)
 const LayoutWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => {
@@ -53,8 +55,14 @@ const App: React.FC = () => {
           <Route path="/member" element={<Member />} />
           <Route path="/partner" element={<Partner />} />
 
-          {/* Student Registration & Login Routes */}
-          <Route path="/student-register" element={<StudentRegister />} />
+          {/* Registration Routes */}
+          <Route path="/register/talent-test" element={<TalentTestRegister />} />
+          <Route path="/register/nmms" element={<NMMSRegister />} />
+          <Route path="/register/knowledge-quest" element={<KnowledgeQuestRegister />} />
+          
+          {/* Legacy route redirects - optional but good practice */}
+          <Route path="/student-register" element={<Navigate to="/register/talent-test" replace />} />
+          
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/school-login" element={<SchoolLogin />} />
 

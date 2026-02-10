@@ -2,13 +2,15 @@
 import React from 'react';
 import { Section, Card, Button, Input, DecorativeShapes } from '../components/UI';
 import { NGO_DETAILS } from '../constants';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, Navigation } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const mapDestination = "Rambilli mandal, Visakhapatnam, India, Andhra Pradesh";
+
   return (
     <>
       <DecorativeShapes />
-      <Section className="bg-slate-50 dark:bg-dark pt-36 md:pt-48 pb-12">
+      <Section className="bg-slate-50 dark:bg-dark pt-36 md:pt-48 pb-12 min-h-screen">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-[#06B6D4] font-bold text-sm uppercase tracking-widest mb-6">
             <Mail size={16} /> Contact Us
@@ -35,7 +37,18 @@ const Contact: React.FC = () => {
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 dark:text-white mb-1">Our Location</h4>
+                      <div className="flex items-center gap-3 mb-1">
+                        <h4 className="font-bold text-slate-900 dark:text-white">Our Location</h4>
+                        <a 
+                          href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapDestination)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#06B6D4] text-white text-xs font-bold shadow-lg shadow-cyan-500/40 hover:bg-cyan-600 hover:scale-105 transition-all animate-pulse"
+                          title="Get Directions on Google Maps"
+                        >
+                          <Navigation size={12} fill="currentColor" /> Directions
+                        </a>
+                      </div>
                       <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{NGO_DETAILS.location}</p>
                     </div>
                  </div>
@@ -101,34 +114,6 @@ const Contact: React.FC = () => {
               <Button size="lg" className="w-full text-lg shadow-purple-500/20 mt-2">Send Message</Button>
             </form>
           </Card>
-        </div>
-
-        {/* Bottom: Map Location */}
-        <div className="max-w-7xl mx-auto">
-           <div className="relative h-[450px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-800 group">
-              <iframe 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }}
-                loading="lazy" 
-                allowFullScreen 
-                src={`https://www.google.com/maps?q=${NGO_DETAILS.coordinates.lat},${NGO_DETAILS.coordinates.lng}&hl=en;z=14&output=embed`}
-                title="NGO Location"
-                className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
-              ></iframe>
-              
-              <div className="absolute top-6 left-6 z-20 pointer-events-none">
-                <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center gap-4">
-                  <div className="bg-red-500 text-white p-3 rounded-full shadow-lg shadow-red-500/30">
-                     <MapPin size={24} fill="currentColor" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">Locate Us</p>
-                    <p className="font-bold text-slate-900 dark:text-white">Rambilli, Visakhapatnam</p>
-                  </div>
-                </div>
-              </div>
-            </div>
         </div>
       </Section>
     </>

@@ -73,11 +73,19 @@ const Donate: React.FC = () => {
 
                 <h4 className="font-bold text-slate-900 dark:text-white mb-4">Personal Details</h4>
                 <div className="space-y-4 mb-8">
+                  <Input placeholder="Full name as per Aadhar *" required />
                   <div className="grid grid-cols-2 gap-4">
-                    <Input placeholder="First Name" />
-                    <Input placeholder="Last Name" />
+                    <Input placeholder="PAN Number *" required />
+                    <Input placeholder="Aadhar Number *" required />
                   </div>
-                  <Input placeholder="Email Address" type="email" />
+                  <div className="flex flex-col gap-1.5 w-full">
+                     <textarea 
+                       placeholder="Address *" 
+                       className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#9C4DFF] focus:border-transparent outline-none transition-all placeholder:text-slate-400 h-24 resize-none"
+                       required
+                     ></textarea>
+                  </div>
+                  <Input placeholder="Email Address" type="email" required />
                 </div>
 
                 <Button className="w-full text-lg py-4 shadow-purple-500/20">
@@ -94,15 +102,15 @@ const Donate: React.FC = () => {
              <div className="space-y-6">
                <Card className="p-6 bg-gradient-to-br from-cyan-500 to-blue-600 text-white border-none shadow-lg">
                  <h4 className="font-bold text-lg mb-2">Your Impact</h4>
-                 <p className="text-cyan-100 text-sm mb-6">With ₹{amount}, you can provide:</p>
+                 <p className="text-cyan-100 text-sm mb-6">With ₹{amount}, you contribute towards:</p>
                  <ul className="space-y-3">
                    <li className="flex items-center gap-2 text-sm font-medium">
                      <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                     {amount < 1000 ? 'Stationary kit for 5 students' : amount < 3000 ? 'Textbooks for a whole class' : 'Scholarship for 1 student'}
+                     10,000 for 1 student
                    </li>
                    <li className="flex items-center gap-2 text-sm font-medium">
                      <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">✓</div>
-                      Digital literacy access
+                     NMMS 1 month
                    </li>
                  </ul>
                </Card>

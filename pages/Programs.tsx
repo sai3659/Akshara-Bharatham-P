@@ -1,9 +1,9 @@
 
 import React, { useEffect } from 'react';
-import { Section, Card, DecorativeShapes, SideNavigation } from '../components/UI';
+import { Section, Card, DecorativeShapes, SideNavigation, Button } from '../components/UI';
 import { PROGRAMS } from '../constants';
-import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School } from 'lucide-react';
+import { useLocation, NavLink } from 'react-router-dom';
 
 const PROGRAM_SECTIONS = [
   { id: 'all-programs', label: 'All Programs' },
@@ -13,6 +13,18 @@ const PROGRAM_SECTIONS = [
   { id: 'mentorship', label: 'Mentorship' },
   { id: 'awareness', label: 'Education Awareness' },
 ];
+
+// Helper component for the "New" badge
+const NewBadge = () => (
+  <span className="absolute -top-3 -right-3 z-20 pointer-events-none">
+    <span className="relative flex h-6 w-12">
+      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+      <span className="relative inline-flex rounded-full h-6 w-12 bg-red-600 text-[10px] font-bold text-white items-center justify-center border-2 border-white dark:border-slate-900 shadow-sm">
+        NEW
+      </span>
+    </span>
+  </span>
+);
 
 const Programs: React.FC = () => {
   const location = useLocation();
@@ -189,6 +201,15 @@ const Programs: React.FC = () => {
                                   </div>
                              ))}
                          </div>
+                         <div className="mt-8 relative inline-block group">
+                            <NewBadge />
+                            <div className="absolute inset-0 bg-amber-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <NavLink to="/register/talent-test">
+                                <Button className="w-full sm:w-auto shadow-xl shadow-amber-500/30 bg-gradient-to-r from-amber-500 to-orange-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
+                                    <User size={18} className="mr-2" /> Student Registration
+                                </Button>
+                            </NavLink>
+                         </div>
                      </div>
                  </div>
 
@@ -275,6 +296,18 @@ const Programs: React.FC = () => {
                           </div>
                        </div>
                     </div>
+                    
+                    <div className="mt-8 flex justify-center relative">
+                        <div className="relative inline-block group">
+                            <NewBadge />
+                            <div className="absolute inset-0 bg-purple-600 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                            <NavLink to="/register/knowledge-quest">
+                                <Button className="shadow-xl shadow-purple-500/30 bg-gradient-to-r from-purple-600 to-indigo-600 border-none text-white relative z-0 transform hover:scale-105 transition-all px-8 py-4 text-lg">
+                                    <School size={18} className="mr-2" /> School Registration
+                                </Button>
+                            </NavLink>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Gallery Side - Custom Collage Full Width */}
@@ -349,6 +382,16 @@ const Programs: React.FC = () => {
                         <p>The NMMS scholarship is the National Means-cum-Merit Scholarship Scheme, a centrally sponsored program by the Indian government that provides financial assistance to meritorious students from economically weaker sections to prevent them from dropping out of school after class VII.</p>
                         <p>Selection is based on a state-level examination that includes a Mental Ability Test (MAT) and a Scholastic Aptitude Test (SAT).</p>
                         <p>Akshara Bharatam society has been providing training sessions to the students in all three mandals(Rambilli, Atchutapuram and Yelamanchili) to crack the NMMS - MAT and SAT exams.</p>
+                    </div>
+
+                    <div className="pt-4 relative inline-block group">
+                        <NewBadge />
+                        <div className="absolute inset-0 bg-blue-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                        <NavLink to="/register/nmms">
+                            <Button className="shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-500 border-none text-white relative z-0 transform hover:scale-105 transition-all px-8 py-4 text-lg">
+                                <School size={18} className="mr-2" /> School Registration
+                            </Button>
+                        </NavLink>
                     </div>
 
                     {/* Coverage Highlights */}

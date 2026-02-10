@@ -51,9 +51,11 @@ const NAV_ITEMS = [
   },
   {
     label: 'Registration',
-    path: '/student-register',
+    path: '/register/talent-test', // Default to first item
     children: [
-      { label: 'Register New Account', path: '/student-register' },
+      { label: 'For ABS Talent Test', path: '/register/talent-test' },
+      { label: 'For NMMS Coaching', path: '/register/nmms' },
+      { label: 'For Knowledge Quest (Quiz)', path: '/register/knowledge-quest' },
       { label: 'Student Login', path: '/student-login' },
       { label: 'School Login', path: '/school-login' },
     ]
@@ -207,7 +209,7 @@ export const Header: React.FC = () => {
                 </div>
 
                 {item.children && (
-                  <div className="absolute top-full left-0 pt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                  <div className="absolute top-full left-0 pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                     <div className="bg-white/95 dark:bg-[#0f172a]/95 backdrop-blur-xl rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 overflow-hidden p-2">
                       {item.children.map((child, index) => (
                         <NavLink 

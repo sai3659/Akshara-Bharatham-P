@@ -5,8 +5,8 @@ import { BookOpen, Users, Heart, GraduationCap, Globe, Lightbulb } from 'lucide-
 export const NGO_DETAILS = {
   name: "Akshara Bharatam Society",
   shortIntro: "An NGO whose objective is to bring quality in Education and support the students.",
-  location: "Rambilli mandal, Visakhapatnam, India, Andhra Pradesh",
-  phone: "072594 90606, +91 93474 62851, +91 99668 55355",
+  location: "D.No. 1/125-5, Rambilli, Anakapalli Dist, Andhra Pradesh - 531 061",
+  phone: "+91 72594 90606, +91 93474 62851, +91 99668 55355",
   email: "aksharabharatamsociety@gmail.com",
   blog: "aksharabharatamsociety.blogspot.com",
   coordinates: { lat: 17.5196, lng: 82.8465 } // Approx for Rambilli
