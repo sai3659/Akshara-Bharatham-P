@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Section, Card, DecorativeShapes } from '../components/UI';
 import { GALLERY_IMAGES } from '../constants';
@@ -19,7 +20,7 @@ const Impact: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h1 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Our Impact</h1>
           <p className="text-lg text-slate-600 dark:text-slate-400">
-            Transparency and results are at the core of Akshara Bharatham Society. Here is how we've grown over the years.
+            Transparency and results are at the core of Akshara Bharatam Society. Here is how we've grown over the years.
           </p>
         </div>
 

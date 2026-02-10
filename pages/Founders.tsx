@@ -29,9 +29,13 @@ const Founders: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {FOUNDERS.map(founder => (
             <Card key={founder.id} className="flex flex-col h-full group">
-              <div className="relative h-96 overflow-hidden rounded-t-[24px]">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
-                <img src={founder.image} alt={founder.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              <div className="relative h-96 overflow-hidden rounded-t-[24px] bg-slate-200 dark:bg-slate-800">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent z-10" />
+                <img 
+                  src={founder.image} 
+                  alt={founder.name} 
+                  className="w-full h-full object-contain object-bottom transition-transform duration-700" 
+                />
                 <div className="absolute bottom-4 left-4 z-20 text-white w-full pr-4">
                   <h3 className="text-2xl font-bold font-heading leading-tight mb-1">{founder.name}</h3>
                   <p className="text-[#06B6D4] font-medium text-sm uppercase tracking-wider">{founder.role}</p>

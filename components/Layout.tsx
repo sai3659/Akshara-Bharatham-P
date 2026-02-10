@@ -75,7 +75,7 @@ const Logo = () => {
          {!imgError ? (
            <img 
              src={LOGO_URL} 
-             alt="Akshara Bharatham Logo" 
+             alt="Akshara Bharatam Logo" 
              className="w-full h-full object-contain rounded-full"
              onError={() => setImgError(true)}
            />
@@ -89,7 +89,7 @@ const Logo = () => {
       <div className="flex flex-col justify-center relative py-1 pl-1 md:pl-4 w-fit max-w-full">
         {/* Text - Static - Responsive Size */}
         <span className="font-special font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2">
-          AKSHARA BHARATHAM SOCIETY
+          AKSHARA BHARATAM SOCIETY
         </span>
         {/* Caption - Updated Quote, Increased Size, Full Justified */}
         <span className="font-medium text-[10px] sm:text-xs md:text-sm lg:text-lg tracking-wide italic leading-tight block w-full text-justify [text-align-last:justify] text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400">
@@ -314,7 +314,7 @@ export const Footer: React.FC = () => {
                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white flex items-center justify-center overflow-hidden p-1">
                  <img src={LOGO_URL} alt="Logo" className="w-full h-full object-contain rounded-full" />
                </div>
-               <span className="font-bold text-base md:text-lg tracking-wide">AKSHARA BHARATHAM</span>
+               <span className="font-bold text-base md:text-lg tracking-wide">AKSHARA BHARATAM</span>
              </div>
              <p className="text-slate-400 text-sm leading-relaxed mb-6">
                {NGO_DETAILS.shortIntro}
@@ -372,7 +372,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500 text-center md:text-left">
-           <p>© {new Date().getFullYear()} Akshara Bharatham Society. All rights reserved.</p>
+           <p>© {new Date().getFullYear()} Akshara Bharatam Society. All rights reserved.</p>
            <p>Designed with <Heart size={12} className="inline text-red-500 mx-1" /> for a better tomorrow.</p>
         </div>
       </div>

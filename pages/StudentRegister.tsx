@@ -54,7 +54,7 @@ const StudentRegister: React.FC = () => {
               {registerType === 'student' ? 'Student Registration' : 'School Registration'}
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-              Register with Akshara Bharatham Society to participate in Talent Tests, Knowledge Quests, and apply for scholarships.
+              Register with Akshara Bharatam Society to participate in Talent Tests, Knowledge Quests, and apply for scholarships.
             </p>
           </div>
 
@@ -200,7 +200,7 @@ const StudentRegister: React.FC = () => {
                 </div>
                 <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Registration Successful!</h2>
                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
-                  Welcome to the Akshara Bharatham family. Your {registerType === 'student' ? 'Student' : 'School'} ID has been generated.
+                  Welcome to the Akshara Bharatam family. Your {registerType === 'student' ? 'Student' : 'School'} ID has been generated.
                 </p>
                 <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl max-w-md mx-auto mb-8 border border-slate-200 dark:border-slate-700">
                   <p className="text-sm text-slate-500 uppercase tracking-wide font-bold mb-2">Your Temporary ID</p>

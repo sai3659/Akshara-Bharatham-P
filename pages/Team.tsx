@@ -5,28 +5,46 @@ import { Users, Heart, Star } from 'lucide-react';
 
 const TEAM_MEMBERS = [
   {
-    name: "Priya Sharma",
-    role: "Volunteer Coordinator",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800",
-    bio: "Priya manages our network of 450+ volunteers across 3 districts."
+    name: "Dhoni Kodandarao",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1_M-bty-PKNu2NcGx2ZQ7ijNqjcb4w5Rx",
+    bio: "Dedicated to community outreach and student engagement initiatives."
   },
   {
-    name: "Karthik Reddy",
-    role: "IT Infrastructure Lead",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=800",
-    bio: "Ensures all digital classrooms are online and operational."
+    name: "Chintakayala Ramesh",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1Eh-bljPnBUnJfI2rsTeH32QvAwEFgUft",
+    bio: "Focuses on logistical support and event organization."
   },
   {
-    name: "Sarah Jenkins",
-    role: "Grant Manager",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=800",
-    bio: "Connecting international donors with impactful local projects."
+    name: "Surada Simhadri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1VCRWVBmMzwCbz6ceav5VVXTSnTc58Vqs",
+    bio: "Passionate about educational reforms and volunteer management."
   },
   {
-    name: "Rahul Verma",
-    role: "Community Liaison",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=800",
-    bio: "Works directly with village panchayats to identify needs."
+    name: "Mylapalli Satya Sri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1CcYul0LSc752EVTaAF69h-ROp1Gh-BzJ",
+    bio: "Contributes to administrative tasks and program planning."
+  },
+  {
+    name: "Gollapalli Suryachakram",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1nwh4FlYcnga1FCxmFYKUXNAuitZXmLSx",
+    bio: "Ensures smooth execution of on-ground initiatives and student coordination."
+  },
+  {
+    name: "Surisetti Sai Kumar",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1Rqbkien7Q7BosP_q1Qam9n-dmxwMsbvF",
+    bio: "Active in field work and community mobilization across villages."
+  },
+  {
+    name: "Vasapalli Ramu",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1bOsqTAUEp2SDDqhy4YGOfckxCTrekKqk",
+    bio: "Supports technical and operational aspects of our projects."
   }
 ];
 

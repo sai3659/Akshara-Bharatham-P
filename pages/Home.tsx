@@ -4,6 +4,16 @@ import { NavLink } from 'react-router-dom';
 import { ArrowRight, Star, Quote, ChevronLeft, ChevronRight, ExternalLink, Trophy } from 'lucide-react';
 import { Section, Button, Card, RGBCard, Typewriter, CountUp } from '../components/UI';
 import { STATS, PROGRAMS, TESTIMONIALS, STUDENT_ACHIEVEMENTS } from '../constants';
+import { Stat } from '../types';
+
+interface HomeProps {
+  contentOverrides?: {
+    heroTitle?: string;
+    heroSubtitle?: string;
+    heroWords?: string[];
+    stats?: Stat[];
+  }
+}
 
 const NOTIFICATIONS = [
   { id: 1, text: "Applications for 'Siksha' Scholarship 2025 are now OPEN! Apply before Jan 30th.", isNew: true, date: "17 Dec 2024" },
@@ -62,8 +72,14 @@ const NotificationBox = () => {
   );
 };
 
-const Home: React.FC = () => {
+const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
+  // Use overrides if provided, else defaults
+  const heroTitle = contentOverrides?.heroTitle || "Bring Quality in";
+  const heroSubtitle = contentOverrides?.heroSubtitle || "Akshara Bharatam Society is dedicated to supporting students and improving educational standards. Join our mission today to create a brighter future.";
+  const heroWords = contentOverrides?.heroWords || ["Education", "Life", "Society", "Rural India"];
+  const displayStats = contentOverrides?.stats || STATS;
 
   const nextTestimonial = () => {
     setCurrentTestimonial(prev => (prev + 1) % TESTIMONIALS.length);
@@ -94,16 +110,16 @@ const Home: React.FC = () => {
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading text-slate-900 dark:text-white leading-[1.1] drop-shadow-md">
-              Bring Quality in <br/>
+              {heroTitle} <br/>
               <Typewriter 
-                words={["Education", "Life", "Society", "Rural India"]} 
+                words={heroWords} 
                 speed={100} 
                 delay={2500} 
               />
             </h1>
 
             <p className="text-base sm:text-lg md:text-2xl font-semibold max-w-xl mx-auto lg:mx-0 leading-relaxed text-slate-700 dark:text-slate-300 drop-shadow-sm">
-              Akshara Bharatham Society is dedicated to supporting students and improving educational standards. Join our mission today to create a brighter future.
+              {heroSubtitle}
             </p>
           </div>
           
@@ -121,7 +137,7 @@ const Home: React.FC = () => {
              <div className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
                 <Trophy size={14} /> Hall of Fame
              </div>
-             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Akshara Bharatham Society Achievers</h2>
+             <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Akshara Bharatam Society Achievers</h2>
              <p className="text-slate-600 dark:text-slate-400 mt-2 text-base md:text-lg">Celebrating the academic and extracurricular brilliance of our young minds.</p>
           </div>
           <NavLink to="/gallery#achievements">
@@ -171,7 +187,7 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-20 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-cyan-500/5 dark:from-cyan-900/10 dark:via-purple-900/10 dark:to-cyan-900/10 backdrop-blur-md border-y border-white/30 dark:border-slate-800/50 relative z-20 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {STATS.map((stat, i) => (
+            {displayStats.map((stat, i) => (
               <div key={i} className="text-center space-y-4 group">
                 <div className="inline-flex p-4 md:p-5 rounded-3xl bg-white/80 dark:bg-slate-800/80 text-[#06B6D4] mb-2 shadow-lg border border-white/50 dark:border-slate-700/50 group-hover:bg-[#06B6D4] group-hover:text-white transition-all duration-300">
                   <stat.icon size={32} className="md:w-10 md:h-10" />

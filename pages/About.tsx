@@ -90,7 +90,7 @@ const About: React.FC = () => {
             </div>
             <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Our Leadership</h2>
             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-              Akshara Bharatham is guided by a team of visionaries with decades of experience in social work, policy-making, and community building.
+              Akshara Bharatam is guided by a team of visionaries with decades of experience in social work, policy-making, and community building.
             </p>
             <NavLink to="/founders">
               <Button size="lg" className="group">
@@ -100,7 +100,7 @@ const About: React.FC = () => {
           </div>
           <div className="flex-1 w-full max-w-md">
             <div className="relative aspect-square rounded-[40px] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600" alt="President" className="w-full h-full object-cover" />
+              <img src="https://lh3.googleusercontent.com/d/1Qex-Yk22TH-SyM44lSt5IuMA1hCxz7CS" alt="President" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8">
                 <p className="text-white italic text-lg mb-2">"Education is the key to unlocking the potential of our rural communities."</p>
                 <p className="text-cyan-400 font-bold">- Ramana Mylappali, President</p>
@@ -123,10 +123,10 @@ const About: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
           {[
-            { name: "Priya Sharma", role: "Coordination", img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=400" },
-            { name: "Karthik Reddy", role: "IT Lead", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=400" },
-            { name: "Sarah J.", role: "Grants", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400" },
-            { name: "Rahul Verma", role: "Liaison", img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400" }
+            { name: "Dhoni Kodandarao", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1_M-bty-PKNu2NcGx2ZQ7ijNqjcb4w5Rx" },
+            { name: "Chintakayala Ramesh", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1Eh-bljPnBUnJfI2rsTeH32QvAwEFgUft" },
+            { name: "Surada Simhadri", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1VCRWVBmMzwCbz6ceav5VVXTSnTc58Vqs" },
+            { name: "Mylapalli Satya Sri", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1CcYul0LSc752EVTaAF69h-ROp1Gh-BzJ" }
           ].map((m, i) => (
             <Card key={i} className="p-4 text-center">
               <img src={m.img} alt={m.name} className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-2 border-purple-500/20" />

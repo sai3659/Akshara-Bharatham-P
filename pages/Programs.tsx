@@ -1,9 +1,9 @@
 
 import React, { useEffect } from 'react';
-import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
+import { Section, Card, DecorativeShapes, SideNavigation } from '../components/UI';
 import { PROGRAMS } from '../constants';
-import { BookOpen, Award, Brain, Megaphone, Layers, CheckCircle2, ArrowRight, Lightbulb, Globe, MapPin, GraduationCap, Trophy, Gift, FileText, Compass, Star, Target, Users, Quote } from 'lucide-react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
 
 const PROGRAM_SECTIONS = [
   { id: 'all-programs', label: 'All Programs' },
@@ -34,12 +34,6 @@ const Programs: React.FC = () => {
     }
   }, [location]);
 
-  // Categorize programs based on constants.ts categories
-  const talentTestPrograms = PROGRAMS.filter(p => p.category === 'Talent Test');
-  const knowledgePrograms = PROGRAMS.filter(p => p.category === 'Knowledge Quest');
-  const nmmsPrograms = PROGRAMS.filter(p => p.category === 'NMMS Coaching');
-  const awarenessPrograms = PROGRAMS.filter(p => p.category === 'Awareness');
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -48,6 +42,66 @@ const Programs: React.FC = () => {
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
   };
+
+  const getProgramImage = (category: string, fallbackIndex = 0) => {
+      const program = PROGRAMS.find(p => p.category === category);
+      return program?.image || PROGRAMS[fallbackIndex].image;
+  };
+
+  const KNOWLEDGE_QUEST_IMAGES = [
+    "https://lh3.googleusercontent.com/d/1KiGCS3VrxaTK_hJyMtRJpUWHQ3cGt-R_",
+    "https://lh3.googleusercontent.com/d/1MJhWz8ZLDoX_mh8TrNrTSVLOtDmLNLm5",
+    "https://lh3.googleusercontent.com/d/1-PnwKSzDbBXq1tWPNL2zBk8r879vIL0X",
+    "https://lh3.googleusercontent.com/d/1dS-PdBs9ZG0NoSy3lvuhEMYYa3xhQBos",
+    "https://lh3.googleusercontent.com/d/1IzKdT1oAKkp3d4mVLrQ1-gBJA6MU8HIt"
+  ];
+
+  const TALENT_TEST_IMAGES = [
+    "https://lh3.googleusercontent.com/d/1-wm39NdMsk2CRhe1rhku8vYNfiaMsgrM",
+    "https://lh3.googleusercontent.com/d/1206CSiGBOUf5JKyJFX05GTbQff6_b3ri",
+    "https://lh3.googleusercontent.com/d/1MBARnXejoNj7ncisYuZkghk0xSsnKR3S",
+    "https://lh3.googleusercontent.com/d/1O2Uzcr_VsaMz_w8-xUDmG5cWwFLADyhc",
+    "https://lh3.googleusercontent.com/d/1O6qOVtpBU93WypHkRlsnf3KZHWecNkd2",
+    "https://lh3.googleusercontent.com/d/1OTMDLcZiQeXqIe6laXQDBhBPgtP2xi5d",
+    "https://lh3.googleusercontent.com/d/1RFD1MWfnjMPrZ7CV-X0z4pq6Ay3xtVaI",
+    "https://lh3.googleusercontent.com/d/1TvBmyYnfEdzSrJ1TITSNY6UQUzFnbc7u",
+    "https://lh3.googleusercontent.com/d/1d4J6o7_WOPoha49xcPuwHT3CwyT4hGYP",
+    "https://lh3.googleusercontent.com/d/1h5XJzdpt_UJIOic9juGcExjS1TyfIm8e",
+    "https://lh3.googleusercontent.com/d/1u-vEeGJwY373xbL4ZaBGak8BmiwVjNLS",
+    "https://lh3.googleusercontent.com/d/1xc_5XnCs3-40kTlG7DaIt6xfNJLdmSZB"
+  ];
+
+  const NMMS_IMAGES = [
+    "https://lh3.googleusercontent.com/d/11nFhR1CdDRT691YQJSvGpOAAbuSDylkz",
+    "https://lh3.googleusercontent.com/d/19IKb0YH5XiyD-9isDKpLdkXZHEfARyHn",
+    "https://lh3.googleusercontent.com/d/1FSITEYVHGpUfc5jJT-_rnz22JAJHtCZs",
+    "https://lh3.googleusercontent.com/d/1FqtXceMyWgZx2XaDezAw18BDS9MhDOp7",
+    "https://lh3.googleusercontent.com/d/1ICx1cmVmnOWSdKk7HL6B_5IEwpONLOPx",
+    "https://lh3.googleusercontent.com/d/1KFy_LV7mrG9QhhemBlC3J5_222W2gkGq",
+    "https://lh3.googleusercontent.com/d/1KujDxlqwk1pX7coX2Q6xZNRgpQIScMj0",
+    "https://lh3.googleusercontent.com/d/1NDIixzC3XWZT-NFRaJbgJ3FSZv5yUQSZ",
+    "https://lh3.googleusercontent.com/d/1SURYjjwjS80OPYVI2JamzduMFYyquhVe",
+    "https://lh3.googleusercontent.com/d/1T0EMmzA6pfhQGjOPhJ5chYcBHO0ekupm",
+    "https://lh3.googleusercontent.com/d/1TYIIskuK6hSc6kcjxsFOJc_6r4ecAJ2K",
+    "https://lh3.googleusercontent.com/d/1ceGwPR0m1Oq8xQvb3JPxvSiJghFD5N37",
+    "https://lh3.googleusercontent.com/d/1eDQKsp_JdLkRQylY5Am9-FvSlh6GRlKr",
+    "https://lh3.googleusercontent.com/d/1i5GN8hdt3-DNpFFkT56jsSYZE0jcBEz5",
+    "https://lh3.googleusercontent.com/d/1j9NkXSGjZWSI92_4iZ805DGEWz0k1K5b",
+    "https://lh3.googleusercontent.com/d/1jwji4IGZfMNFsGNsKIRLQ8gb_3T6pVUW"
+  ];
+
+  const AWARENESS_IMAGES = [
+    "https://lh3.googleusercontent.com/d/119D8z0bfDSAhF4EVt66gBpQxVkkrae9n",
+    "https://lh3.googleusercontent.com/d/149_2zyqPwyg0-Ir3lO0QNyInzqTdSc9G",
+    "https://lh3.googleusercontent.com/d/1C2MBFcNvFVtsKwB5cfPgKPfD-UwchP4A",
+    "https://lh3.googleusercontent.com/d/1F09Ew98IvrH2-KjD8aCZXQNfv6FRK1iO",
+    "https://lh3.googleusercontent.com/d/1OYStdc9lR1ZAt4qJoWroSkFHL9sKrimL",
+    "https://lh3.googleusercontent.com/d/1UovCRk5u6vGbg4RuXuksEQpIfsSpNa57",
+    "https://lh3.googleusercontent.com/d/1Xphtb2DZ0P6SB0l25CxQZiGcDBgD-cI1",
+    "https://lh3.googleusercontent.com/d/1bUCFlazTqVbnrbKhghS1P0WoeQAPi9OK",
+    "https://lh3.googleusercontent.com/d/1n1UPsLncRCdRRIvPGIjWQPA0VXAHnrgp",
+    "https://lh3.googleusercontent.com/d/1o5VmPANSSOKRjDiarq0NEOYTsQfdOrlC"
+  ];
 
   return (
     <>
@@ -68,10 +122,10 @@ const Programs: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {[
-            { label: 'Talent Test', count: talentTestPrograms.length, icon: Award, color: 'text-amber-500', id: 'talent-test' },
-            { label: 'Knowledge Quest', count: knowledgePrograms.length, icon: Brain, color: 'text-purple-500', id: 'knowledge-quest' },
-            { label: 'NMMS Coaching', count: nmmsPrograms.length, icon: BookOpen, color: 'text-blue-500', id: 'nmms-coaching' },
-            { label: 'Awareness', count: awarenessPrograms.length, icon: Megaphone, color: 'text-pink-500', id: 'awareness' }
+            { label: 'Talent Test', icon: Award, color: 'text-amber-500', id: 'talent-test' },
+            { label: 'Knowledge Quest', icon: Brain, color: 'text-purple-500', id: 'knowledge-quest' },
+            { label: 'NMMS Coaching', icon: BookOpen, color: 'text-blue-500', id: 'nmms-coaching' },
+            { label: 'Awareness', icon: Megaphone, color: 'text-pink-500', id: 'awareness' }
           ].map((stat, i) => (
             <Card 
               key={i} 
@@ -82,7 +136,6 @@ const Programs: React.FC = () => {
                  <stat.icon size={32} className={`transition-transform duration-300 group-hover:scale-110 ${stat.color}`} />
               </div>
               <h4 className="font-bold text-xl text-slate-900 dark:text-white mb-2">{stat.label}</h4>
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-4">{stat.count} Active Projects</p>
               <div className="text-xs font-bold text-[#06B6D4] uppercase tracking-wider flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                 View Details <ArrowRight size={12} />
               </div>
@@ -92,641 +145,387 @@ const Programs: React.FC = () => {
       </Section>
 
       {/* 2. ABS Talent Test Section */}
-      <Section id="talent-test" className="bg-white dark:bg-[#0b1220] py-24 md:py-32 border-t border-slate-100 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row gap-12 mb-16">
-           <div className="lg:w-1/3">
-             <div className="sticky top-32">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
-                 <Award size={14} /> Competition
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">ABS Talent Test</h2>
-               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                 A premier state-level examination designed to unearth hidden academic gems in rural high schools. We test logical reasoning, scientific aptitude, and mathematical precision.
-               </p>
-               
-               <div className="bg-amber-50 dark:bg-amber-900/10 p-6 rounded-2xl border border-amber-100 dark:border-amber-800/30 mb-8">
-                 <h4 className="font-bold text-amber-800 dark:text-amber-500 mb-4 flex items-center gap-2">
-                   <CheckCircle2 size={18} /> Program Highlights
-                 </h4>
-                 <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
-                     State-wide ranking & recognition.
-                   </li>
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
-                     Cash prizes and medals for top 100 rankers.
-                   </li>
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 shrink-0" />
-                     Direct entry to advanced coaching camps.
-                   </li>
-                 </ul>
-               </div>
+      <Section id="talent-test" className="bg-white dark:bg-[#0b1220] py-24 md:py-32 border-t border-slate-100 dark:border-slate-800 relative overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+             <div className="absolute top-10 right-10 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
+             <div className="absolute bottom-10 left-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl" />
+          </div>
 
-               <NavLink to="/contact">
-                 <Button className="w-full bg-amber-500 hover:bg-amber-600 shadow-amber-500/20 text-white">Register for Next Test</Button>
-               </NavLink>
+          <div className="max-w-7xl mx-auto relative z-10">
+             <div className="text-center max-w-3xl mx-auto mb-16">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-xs font-bold uppercase tracking-wider mb-4">
+                     <Award size={14} /> Annual Flagship Event
+                 </div>
+                 <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">ABS Talent Test</h2>
              </div>
-           </div>
 
-           <div className="lg:w-2/3 space-y-8">
-              
-              {/* Intro Block */}
-              <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl shadow-sm">
-                <p className="text-lg text-slate-700 font-medium italic">
-                  "We conduct Talent tests at the end of every academic year as part of our primary objective to encourage talented and poor students to pursue their higher education."
-                </p>
-              </div>
-
-              {/* Existing Program Cards */}
-              {talentTestPrograms.map(prog => (
-                <Card key={prog.id} className="flex flex-col md:flex-row overflow-hidden border-l-4 border-amber-400 shadow-lg hover:shadow-xl transition-shadow">
-                   <div className="md:w-64 h-64 md:h-auto relative shrink-0">
-                      <img src={prog.image} className="w-full h-full object-cover" alt={prog.title} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:hidden">
-                        <span className="text-white font-bold">{prog.title}</span>
-                      </div>
-                   </div>
-                   <div className="p-8 flex flex-col justify-center">
-                     <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{prog.title}</h3>
-                        <span className="text-xs font-bold text-amber-600 bg-amber-50 dark:bg-amber-900/20 px-3 py-1 rounded-full">{prog.impact}</span>
+             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
+                 <div className="space-y-6">
+                     <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
+                         <p className="font-medium text-lg text-slate-900 dark:text-slate-200">
+                             We conduct Talent tests at the end of every academic year as part of our primary objective to encourage talented and poor students to pursue their higher education.
+                         </p>
+                         <p>
+                             Atchutapuram and Rambilli Mandal High schools participated in 2024 ABS talent test. We selected 12 students for the scholarship after interviewing the multiple qualified students along with their parents and provided scholarships of 10000 rupees to them. The scholarships would be given to them until they finish their graduation with terms and conditions.
+                         </p>
                      </div>
-                     <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{prog.description}</p>
                      
-                     <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Eligibility</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Grades 8 - 10</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Duration</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">3 Hours</p>
-                        </div>
+                     {/* Process Steps */}
+                     <div className="pt-6">
+                         <h4 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                             <CheckCircle2 size={18} className="text-amber-500"/> Selection Process
+                         </h4>
+                         <div className="flex flex-col gap-4">
+                             {[
+                                 { step: "1", text: "Written Talent Test in High Schools" },
+                                 { step: "2", text: "Interview with Qualified Students & Parents" },
+                                 { step: "3", text: "Scholarship Awarded until Graduation" }
+                             ].map((item, i) => (
+                                  <div key={i} className="flex items-center gap-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+                                     <div className="w-8 h-8 rounded-full bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 font-bold flex items-center justify-center shrink-0">
+                                         {item.step}
+                                     </div>
+                                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{item.text}</span>
+                                  </div>
+                             ))}
+                         </div>
                      </div>
-                   </div>
-                </Card>
-              ))}
+                 </div>
 
-              {/* 2024 Impact Spotlight Card */}
-              <Card className="p-8 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/10 border border-amber-200 dark:border-amber-800/50 shadow-xl relative overflow-hidden">
-                 <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                 <div className="relative z-10">
-                    <div className="flex items-center gap-3 mb-6">
-                        <div className="p-3 bg-amber-500 text-white rounded-xl shadow-lg shadow-amber-500/30">
-                            <Trophy size={24} />
+                 {/* Impact Stats Grid */}
+                 <div className="grid grid-cols-2 gap-4">
+                     <div className="col-span-2 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-8 text-white shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 transition-transform">
+                         <Trophy size={48} className="mb-4 text-white/90" />
+                         <h3 className="text-5xl font-bold font-heading mb-2">12</h3>
+                         <p className="text-lg font-medium text-amber-100">Meritorious Students Selected in 2024</p>
+                     </div>
+                     <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col justify-center text-center group hover:border-amber-500/50 transition-colors">
+                         <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Scholarship Value</p>
+                         <p className="text-3xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">₹10,000</p>
+                         <p className="text-xs text-slate-500 mt-1">Per Student / Year</p>
+                     </div>
+                      <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col justify-center text-center group hover:border-amber-500/50 transition-colors">
+                         <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Coverage</p>
+                         <p className="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">Graduation</p>
+                         <p className="text-xs text-slate-500 mt-1">Full Support</p>
+                     </div>
+                 </div>
+             </div>
+
+             {/* Gallery */}
+             <div className="relative group/gallery">
+                  <div className="flex items-center justify-between mb-6 px-2">
+                      <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                         <ImageIcon size={20} className="text-amber-500"/> 2024 Highlights
+                      </h3>
+                      <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
+                  </div>
+                  <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
+                     {TALENT_TEST_IMAGES.map((img, idx) => (
+                         <div key={idx} className="min-w-[280px] md:min-w-[360px] h-[220px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
+                             <img src={img} alt={`Talent Test Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
+                                     <Award size={24} />
+                                  </div>
+                             </div>
+                         </div>
+                     ))}
+                  </div>
+             </div>
+          </div>
+      </Section>
+
+      {/* 3. Knowledge Quest Section - Updated Layout */}
+      <Section id="knowledge-quest" className="bg-slate-50 dark:bg-dark py-24 md:py-32 border-t border-slate-200 dark:border-slate-800">
+          <div className="max-w-7xl mx-auto">
+             <div className="flex flex-col gap-12">
+                
+                {/* Content Side - Centered above images */}
+                <div className="space-y-8 max-w-4xl mx-auto text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider justify-center">
+                        <Brain size={14} /> Intellectual Growth
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white leading-tight">Knowledge Quest Program</h2>
+                    
+                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400 mx-auto">
+                        <p className="font-medium text-slate-800 dark:text-slate-200 italic">
+                          "We believe that quiz programs would provide platforms to meet new young minds and showcase their knowledge at broader level in society. It will encourage and motivate intelligent brains to acquire more knowledge with education."
+                        </p>
+                    </div>
+
+                    {/* Objectives Cards */}
+                    <div className="grid sm:grid-cols-2 gap-4 mt-4 max-w-2xl mx-auto text-left">
+                       <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-purple-100 dark:border-purple-900/20 shadow-sm flex flex-col gap-3 group hover:border-purple-300 transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
+                            <Lightbulb size={20} />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-sm text-slate-900 dark:text-white">Broaden Horizons</h4>
+                            <p className="text-xs text-slate-500 mt-1">Showcase knowledge at a broader level.</p>
+                          </div>
+                       </div>
+                       <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-purple-100 dark:border-purple-900/20 shadow-sm flex flex-col gap-3 group hover:border-purple-300 transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center">
+                            <Zap size={20} />
+                          </div>
+                          <div>
+                            <h4 className="font-bold text-sm text-slate-900 dark:text-white">Motivate Minds</h4>
+                            <p className="text-xs text-slate-500 mt-1">Encourage intelligent brains to acquire more.</p>
+                          </div>
+                       </div>
+                    </div>
+                </div>
+
+                {/* Gallery Side - Custom Collage Full Width */}
+                <div className="w-full">
+                    <div className="grid grid-cols-2 md:grid-cols-6 grid-rows-2 gap-3 md:gap-4 h-[400px] md:h-[500px]">
+                        {/* Main Featured Image */}
+                        <div className="col-span-2 md:col-span-4 row-span-2 relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer border-4 border-white dark:border-slate-800">
+                           <img 
+                             src={KNOWLEDGE_QUEST_IMAGES[0]} 
+                             alt="Knowledge Quest Main" 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                           />
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                             <div className="text-white">
+                               <p className="font-bold text-lg">Active Participation</p>
+                               <p className="text-xs text-white/80">Students engaged in quiz rounds</p>
+                             </div>
+                           </div>
                         </div>
-                        <h3 className="text-2xl font-bold text-amber-900 dark:text-amber-400">2024 Impact Spotlight</h3>
+
+                        {/* Side Column Top */}
+                        <div className="col-span-1 md:col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
+                           <img 
+                             src={KNOWLEDGE_QUEST_IMAGES[1]} 
+                             alt="Knowledge Quest 2" 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                           />
+                        </div>
+
+                        {/* Side Column Bottom */}
+                        <div className="col-span-1 md:col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
+                           <img 
+                             src={KNOWLEDGE_QUEST_IMAGES[2]} 
+                             alt="Knowledge Quest 3" 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                           />
+                        </div>
                     </div>
                     
-                    <div className="space-y-4 text-slate-700 dark:text-slate-300">
-                        <p className="text-lg leading-relaxed">
-                            <strong className="text-amber-700 dark:text-amber-500">Atchutapuram and Rambilli Mandal High schools</strong> participated in the 2024 ABS talent test.
-                        </p>
-                        <p className="leading-relaxed">
-                            We selected <span className="bg-amber-200 dark:bg-amber-800 text-amber-900 dark:text-amber-100 px-2 py-0.5 rounded font-bold">12 students</span> for the scholarship after interviewing the multiple qualified students along with their parents.
-                        </p>
-                        
-                        <div className="bg-white/80 dark:bg-black/20 p-5 rounded-xl border border-amber-200 dark:border-amber-800/30 mt-4">
-                            <div className="flex items-start gap-3">
-                                <Gift className="text-amber-600 mt-1 shrink-0" size={20} />
-                                <div>
-                                    <h4 className="font-bold text-slate-800 dark:text-slate-200">Scholarship Details</h4>
-                                    <p className="text-slate-600 dark:text-slate-400 mt-1 text-sm">
-                                        We provided scholarships of <span className="font-bold text-green-600 dark:text-green-400">₹10,000</span> to them. The scholarships would be given to them until they finish their graduation with terms and conditions.
-                                    </p>
-                                </div>
-                            </div>
+                    {/* Bottom Row Strip */}
+                    <div className="grid grid-cols-2 gap-3 md:gap-4 mt-3 md:mt-4 h-[120px] md:h-[150px]">
+                        <div className="relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
+                           <img 
+                             src={KNOWLEDGE_QUEST_IMAGES[3]} 
+                             alt="Knowledge Quest 4" 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                           />
+                        </div>
+                        <div className="relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
+                           <img 
+                             src={KNOWLEDGE_QUEST_IMAGES[4]} 
+                             alt="Knowledge Quest 5" 
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                           />
                         </div>
                     </div>
-                 </div>
-              </Card>
-
-              {/* Extra Details */}
-              <div className="grid md:grid-cols-2 gap-6">
-                 <Card className="p-6 border-t-4 border-blue-400 bg-white dark:bg-dark-card h-full">
-                    <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                        <FileText size={20} className="text-blue-500"/> Selection Process
-                    </h4>
-                    <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"/><strong>Phase 1:</strong> Preliminary Written Test (Objective)</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"/><strong>Phase 2:</strong> Mains Examination for qualified candidates</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"/><strong>Phase 3:</strong> Personal Interview (Student & Parent)</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"/><strong>Final:</strong> House Visit for background verification</li>
-                    </ul>
-                 </Card>
-                 <Card className="p-6 border-t-4 border-purple-400 bg-white dark:bg-dark-card h-full">
-                    <h4 className="font-bold text-lg text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                        <BookOpen size={20} className="text-purple-500"/> Syllabus & Pattern
-                    </h4>
-                    <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Mathematics (SSC Standard)</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Physical & Biological Sciences</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Social Studies & General Knowledge</li>
-                        <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/><strong>Mode:</strong> Offline (OMR Sheet based)</li>
-                    </ul>
-                 </Card>
-              </div>
-
-           </div>
-        </div>
-      </Section>
-
-      {/* 3. Knowledge Quest Section */}
-      <Section id="knowledge-quest" className="bg-slate-50 dark:bg-dark py-24 md:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row-reverse gap-12 mb-16">
-           <div className="lg:w-1/3">
-             <div className="sticky top-32">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
-                 <Brain size={14} /> Intellectual Growth
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Knowledge Quest</h2>
-               
-               {/* Quote Block */}
-               <blockquote className="text-lg font-medium italic text-slate-700 dark:text-slate-300 border-l-4 border-purple-500 pl-4 mb-6 leading-relaxed bg-purple-50/50 dark:bg-purple-900/10 p-4 rounded-r-xl">
-                 "We believe that quiz programs would provide platforms to meet new young minds and showcase their knowledge at broader level in society. It will encourage and motivate intelligent brains to acquire more knowledge with education."
-               </blockquote>
-
-               <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-8">
-                 Going beyond textbooks, our Knowledge Quest quiz competitions challenge students to stay updated with current affairs, general science, and history. We foster a competitive spirit that drives intellectual curiosity.
-               </p>
-               
-               <div className="bg-purple-50 dark:bg-purple-900/10 p-6 rounded-2xl border border-purple-100 dark:border-purple-800/30 mb-8">
-                 <h4 className="font-bold text-purple-800 dark:text-purple-500 mb-4 flex items-center gap-2">
-                   <CheckCircle2 size={18} /> Program Highlights
-                 </h4>
-                 <ul className="space-y-3 text-sm text-slate-700 dark:text-slate-300">
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0" />
-                     Inter-school championship trophy.
-                   </li>
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0" />
-                     Focus on "Learning beyond grades".
-                   </li>
-                   <li className="flex gap-3">
-                     <span className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0" />
-                     Guest lectures by industry experts.
-                   </li>
-                 </ul>
-               </div>
-
-               <NavLink to="/contact">
-                 <Button className="w-full bg-purple-600 hover:bg-purple-700 shadow-purple-500/20 text-white">Register School Team</Button>
-               </NavLink>
+                </div>
              </div>
-           </div>
-
-           <div className="lg:w-2/3 space-y-8">
-              {/* Existing Program Cards */}
-              {knowledgePrograms.map(prog => (
-                <Card key={prog.id} className="flex flex-col md:flex-row overflow-hidden border-l-4 border-purple-500 shadow-lg hover:shadow-xl transition-shadow">
-                   <div className="md:w-64 h-64 md:h-auto relative shrink-0">
-                      <img src={prog.image} className="w-full h-full object-cover" alt={prog.title} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:hidden">
-                        <span className="text-white font-bold">{prog.title}</span>
-                      </div>
-                   </div>
-                   <div className="p-8 flex flex-col justify-center">
-                     <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{prog.title}</h3>
-                        <span className="text-xs font-bold text-purple-600 bg-purple-50 dark:bg-purple-900/20 px-3 py-1 rounded-full">{prog.impact}</span>
-                     </div>
-                     <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{prog.description}</p>
-                     
-                     <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Eligibility</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Grades 6 - 10</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Format</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Team of 3</p>
-                        </div>
-                     </div>
-                   </div>
-                </Card>
-              ))}
-
-              {/* Details Section */}
-              <div className="grid md:grid-cols-2 gap-6">
-                 <Card className="p-6 border-t-4 border-purple-400 bg-white dark:bg-dark-card h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                       <div className="p-2 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-lg"><Globe size={20} /></div>
-                       <h4 className="font-bold text-lg text-slate-900 dark:text-white">Syllabus Focus</h4>
-                    </div>
-                    <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Current Affairs & World Events</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>General Science & Technology</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Indian History & Geography</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"/>Literature, Arts & Culture</li>
-                    </ul>
-                 </Card>
-                 <Card className="p-6 border-t-4 border-pink-400 bg-white dark:bg-dark-card h-full">
-                    <div className="flex items-center gap-3 mb-4">
-                       <div className="p-2 bg-pink-100 dark:bg-pink-900/30 text-pink-600 rounded-lg"><Lightbulb size={20} /></div>
-                       <h4 className="font-bold text-lg text-slate-900 dark:text-white">Competition Structure</h4>
-                    </div>
-                    <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"/><strong>Round 1:</strong> Written Screening Test (Individual)</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"/><strong>Round 2:</strong> Audio-Visual Round (Team)</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"/><strong>Round 3:</strong> Rapid Fire Buzzer Round</li>
-                       <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink-500 mt-1.5 shrink-0"/><strong>Finals:</strong> Grand Stage Event</li>
-                    </ul>
-                 </Card>
-              </div>
-
-              {/* Impact Block */}
-              <Card className="p-8 bg-gradient-to-br from-purple-900 to-indigo-900 text-white border-none shadow-xl relative overflow-hidden">
-                 <div className="relative z-10">
-                   <h3 className="text-2xl font-bold mb-4 font-heading">More Than Just A Quiz</h3>
-                   <p className="text-purple-100 leading-relaxed mb-6">
-                     Knowledge Quest is designed to break the monotony of rote learning. By connecting classroom concepts to real-world applications, we help students realize that education is a tool for understanding the world, not just passing exams.
-                   </p>
-                   <div className="grid grid-cols-3 gap-4 text-center">
-                      <div className="p-4 bg-white/10 rounded-xl backdrop-blur-sm">
-                         <h4 className="font-bold text-2xl mb-1">1000+</h4>
-                         <p className="text-xs text-purple-200">Questions Bank</p>
-                      </div>
-                      <div className="p-4 bg-white/10 rounded-xl backdrop-blur-sm">
-                         <h4 className="font-bold text-2xl mb-1">50+</h4>
-                         <p className="text-xs text-purple-200">Participating Schools</p>
-                      </div>
-                      <div className="p-4 bg-white/10 rounded-xl backdrop-blur-sm">
-                         <h4 className="font-bold text-2xl mb-1">₹50K</h4>
-                         <p className="text-xs text-purple-200">Prize Pool</p>
-                      </div>
-                   </div>
-                 </div>
-                 {/* Decor */}
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-              </Card>
-
-              {/* Mini Gallery */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                 {[
-                   "https://images.unsplash.com/photo-1577896334614-5d139e802778?auto=format&fit=crop&q=80&w=300",
-                   "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=300",
-                   "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=300",
-                   "https://images.unsplash.com/photo-1427504746696-ea30b5c95d9e?auto=format&fit=crop&q=80&w=300"
-                 ].map((src, i) => (
-                   <div key={i} className="h-32 rounded-xl overflow-hidden relative group shadow-sm">
-                      <img src={src} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Quiz Event" />
-                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
-                   </div>
-                 ))}
-              </div>
-
-           </div>
-        </div>
+          </div>
       </Section>
 
-      {/* 4. NMMS Coaching Section (Renamed & Updated) */}
+      {/* 4. NMMS Coaching Section */}
       <Section id="nmms-coaching" className="bg-white dark:bg-[#0b1220] py-24 md:py-32 border-t border-slate-100 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row gap-12 mb-16">
-           <div className="lg:w-1/3">
-             <div className="sticky top-32">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
-                 <BookOpen size={14} /> Scholarship Support
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">NMMS Coaching</h2>
-               
-               {/* Intro/Definition Block */}
-               <div className="bg-blue-50/50 dark:bg-blue-900/10 p-5 rounded-xl border-l-4 border-blue-600 mb-6">
-                 <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed font-medium">
-                   The NMMS scholarship is the National Means-cum-Merit Scholarship Scheme, a centrally sponsored program by the Indian government that provides financial assistance to meritorious students from economically weaker sections to prevent them from dropping out of school after class VII.
-                 </p>
-               </div>
+          <div className="max-w-7xl mx-auto">
+             <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
+                <div className="flex-1 space-y-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
+                        <BookOpen size={14} /> Financial Assistance
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">NMMS Coaching</h2>
+                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400 space-y-6">
+                        <p>The NMMS scholarship is the National Means-cum-Merit Scholarship Scheme, a centrally sponsored program by the Indian government that provides financial assistance to meritorious students from economically weaker sections to prevent them from dropping out of school after class VII.</p>
+                        <p>Selection is based on a state-level examination that includes a Mental Ability Test (MAT) and a Scholastic Aptitude Test (SAT).</p>
+                        <p>Akshara Bharatam society has been providing training sessions to the students in all three mandals(Rambilli, Atchutapuram and Yelamanchili) to crack the NMMS - MAT and SAT exams.</p>
+                    </div>
 
-               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                 Selection is based on a state-level examination that includes a Mental Ability Test (MAT) and a Scholastic Aptitude Test (SAT).
-               </p>
-               
-               <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-lg mb-8 relative overflow-hidden">
-                 <div className="absolute top-0 right-0 w-20 h-20 bg-blue-500/10 rounded-bl-full"></div>
-                 <h4 className="font-bold text-blue-800 dark:text-blue-400 mb-4 flex items-center gap-2">
-                   <MapPin size={18} /> Our Reach
-                 </h4>
-                 <p className="text-base font-bold text-indigo-700 dark:text-indigo-300 leading-relaxed bg-indigo-50 dark:bg-indigo-900/20 p-3 rounded-lg border-l-4 border-indigo-500">
-                   Akshara Bharatam society has been providing training sessions to the students in all three mandals to crack the NMMS - MAT and SAT exams:
-                 </p>
-                 <div className="flex flex-wrap gap-2 mt-4">
-                   <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full">Rambilli</span>
-                   <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full">Atchutapuram</span>
-                   <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full">Yelamanchili</span>
-                 </div>
-               </div>
-
-               <NavLink to="/contact">
-                 <Button className="w-full bg-blue-600 hover:bg-blue-700 shadow-blue-500/20 text-white">Enroll Student</Button>
-               </NavLink>
-             </div>
-           </div>
-
-           <div className="lg:w-2/3 space-y-8">
-              {/* Main Program Card */}
-              {nmmsPrograms.map(prog => (
-                <Card key={prog.id} className="flex flex-col md:flex-row overflow-hidden border-l-4 border-blue-500 shadow-lg hover:shadow-xl transition-shadow">
-                   <div className="md:w-64 h-64 md:h-auto relative shrink-0">
-                      <img src={prog.image} className="w-full h-full object-cover" alt={prog.title} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:hidden">
-                        <span className="text-white font-bold">{prog.title}</span>
-                      </div>
-                   </div>
-                   <div className="p-8 flex flex-col justify-center">
-                     <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{prog.title}</h3>
-                        <span className="text-xs font-bold text-blue-600 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">{prog.impact}</span>
-                     </div>
-                     <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{prog.description}</p>
-                     
-                     <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Target</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Grade 8 Students</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Schedule</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Aug - Nov (Annual)</p>
-                        </div>
-                     </div>
-                   </div>
-                </Card>
-              ))}
-
-              {/* Detailed Breakdown Cards */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 border-t-4 border-amber-400 bg-white dark:bg-dark-card h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                     <div className="p-2 bg-amber-100 dark:bg-amber-900/30 text-amber-600 rounded-lg"><Brain size={20} /></div>
-                     <h4 className="font-bold text-lg text-slate-900 dark:text-white">Exam Pattern</h4>
-                  </div>
-                  <ul className="space-y-4 text-sm text-slate-600 dark:text-slate-400">
-                     <li className="flex gap-3">
-                       <div className="font-bold text-slate-800 dark:text-slate-200 min-w-[3rem]">MAT</div>
-                       <div>Mental Ability Test (90 Marks). Tests reasoning and critical thinking.</div>
-                     </li>
-                     <li className="flex gap-3">
-                       <div className="font-bold text-slate-800 dark:text-slate-200 min-w-[3rem]">SAT</div>
-                       <div>Scholastic Aptitude Test (90 Marks). Covers Science, Social Studies, and Mathematics of Class 7 & 8 level.</div>
-                     </li>
-                  </ul>
-                </Card>
+                    {/* Coverage Highlights */}
+                    <div className="flex flex-wrap gap-3 pt-4">
+                       {["Rambilli", "Atchutapuram", "Yelamanchili"].map(mandal => (
+                          <span key={mandal} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wide">
+                             <MapPin size={12} /> {mandal}
+                          </span>
+                       ))}
+                    </div>
+                </div>
                 
-                <Card className="p-6 border-t-4 border-green-400 bg-white dark:bg-dark-card h-full">
-                  <div className="flex items-center gap-3 mb-4">
-                     <div className="p-2 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-lg"><GraduationCap size={20} /></div>
-                     <h4 className="font-bold text-lg text-slate-900 dark:text-white">Eligibility & Benefits</h4>
+                <div className="flex-1 w-full">
+                    <div className="relative">
+                       {/* Featured NMMS Image (First in list) */}
+                       <img 
+                           src={NMMS_IMAGES[0]} 
+                           alt="NMMS Coaching Session" 
+                           className="rounded-3xl shadow-2xl w-full object-cover h-[450px] border-4 border-white dark:border-slate-800 transition-transform hover:scale-[1.01] duration-500"
+                       />
+                       
+                       {/* Floating Stats Card */}
+                       <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-blue-100 dark:border-blue-900/30 max-w-xs hidden md:block">
+                          <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+                             <GraduationCap className="text-blue-500" size={20} /> Exam Structure
+                          </h5>
+                          <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                             <li className="flex justify-between items-center bg-slate-50 dark:bg-slate-900/50 p-2 rounded-lg">
+                                <span>Mental Ability (MAT)</span>
+                                <CheckCircle2 size={14} className="text-green-500" />
+                             </li>
+                             <li className="flex justify-between items-center bg-slate-50 dark:bg-slate-900/50 p-2 rounded-lg">
+                                <span>Scholastic Aptitude (SAT)</span>
+                                <CheckCircle2 size={14} className="text-green-500" />
+                             </li>
+                          </ul>
+                       </div>
+                    </div>
+                </div>
+             </div>
+
+             {/* NMMS Gallery Strip */}
+             <div className="relative group/gallery">
+                  <div className="flex items-center justify-between mb-6 px-2">
+                      <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                         <ImageIcon size={20} className="text-blue-500"/> Coaching Highlights
+                      </h3>
+                      <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
                   </div>
-                  <ul className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                     <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"/><strong>Who:</strong> Students studying in Class VIII in Government/Local Body/Aided schools.</li>
-                     <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"/><strong>Income:</strong> Parental income less than ₹3.5 Lakhs per annum.</li>
-                     <li className="flex gap-2"><div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-1.5 shrink-0"/><strong>Benefit:</strong> ₹12,000/- per annum for 4 years (Class 9 to 12).</li>
-                  </ul>
-                </Card>
-              </div>
-           </div>
-        </div>
+                  <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
+                     {NMMS_IMAGES.slice(1).map((img, idx) => (
+                         <div key={idx} className="min-w-[280px] md:min-w-[320px] h-[200px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
+                             <img src={img} alt={`NMMS Coaching Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
+                                     <BookOpen size={24} />
+                                  </div>
+                             </div>
+                         </div>
+                     ))}
+                  </div>
+             </div>
+          </div>
       </Section>
       
       {/* 5. Mentorship Section */}
       <Section id="mentorship" className="bg-slate-50 dark:bg-dark py-24 md:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row-reverse gap-12 mb-16">
-           <div className="lg:w-1/3">
-             <div className="sticky top-32">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-4">
-                 <Compass size={14} /> Career Guidance
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Student Mentorship</h2>
+          <div className="max-w-7xl mx-auto">
+             <div className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-20 items-center">
+                <div className="flex-1 space-y-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2">
+                         <Target size={14} /> Career Guidance
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Student Mentorship</h2>
+                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
+                        <p className="border-l-4 border-teal-500 pl-4 py-2 bg-teal-50/50 dark:bg-teal-900/10 rounded-r-lg">
+                           "We are providing mentorships to the students who wrote ABS talent test-2024. Mentorship is for shaping their education career in better way. The best guidance would be given to choose the right path to reach their goals based on their interests."
+                        </p>
+                    </div>
 
-               {/* Highlighted Box for User Content */}
-               <div className="bg-gradient-to-br from-teal-500 to-emerald-600 text-white p-6 rounded-2xl shadow-lg mb-8 relative overflow-hidden">
-                 <div className="relative z-10">
-                   <h4 className="font-bold text-xl mb-3 flex items-center gap-2">
-                     <Star size={20} className="text-yellow-300 fill-yellow-300" /> Exclusive for Merit and Poor
-                   </h4>
-                   <p className="text-teal-50 font-medium leading-relaxed">
-                     We are providing mentorships to the students who wrote <strong>ABS talent test-2024</strong>. Mentorship is for shaping their education career in a better way. The best guidance would be given to choose the right path to reach their goals based on their interests.
-                   </p>
-                 </div>
-                 {/* Decorative background circles */}
-                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-black/10 rounded-full blur-xl translate-y-1/2 -translate-x-1/2"></div>
-               </div>
-
-               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
-                 Our mentorship program connects ambitious students with experienced professionals and educators who provide personalized guidance, career advice, and academic support.
-               </p>
-
-               <NavLink to="/contact">
-                 <Button className="w-full bg-teal-600 hover:bg-teal-700 shadow-teal-500/20 text-white">Request a Mentor</Button>
-               </NavLink>
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+                           <h4 className="font-bold text-slate-900 dark:text-white mb-1">Career Shaping</h4>
+                           <p className="text-xs text-slate-500">Structured pathways for future success.</p>
+                        </div>
+                        <div className="p-4 rounded-xl bg-white dark:bg-slate-800 shadow-sm border border-slate-100 dark:border-slate-700">
+                           <h4 className="font-bold text-slate-900 dark:text-white mb-1">Right Guidance</h4>
+                           <p className="text-xs text-slate-500">Tailored advice based on student interests.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="flex-1 w-full">
+                    <div className="relative group">
+                        <div className="absolute inset-0 bg-teal-500 rounded-3xl rotate-3 group-hover:rotate-1 transition-transform opacity-20"></div>
+                        <img 
+                            src="https://images.unsplash.com/photo-1521791136064-7985c2d1103b?auto=format&fit=crop&q=80&w=800" 
+                            alt="Mentorship Session" 
+                            className="rounded-3xl shadow-2xl w-full object-cover h-[450px] border-4 border-white dark:border-slate-800 relative z-10"
+                        />
+                        <div className="absolute bottom-8 left-8 z-20 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-6 py-3 rounded-xl shadow-lg border-l-4 border-teal-500">
+                           <p className="text-sm font-bold text-slate-800 dark:text-white">Guiding ABS Talent Test Students</p>
+                        </div>
+                    </div>
+                </div>
              </div>
-           </div>
-
-           <div className="lg:w-2/3 space-y-8">
-              {/* Feature Grid */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <Card className="p-6 h-full border-t-4 border-teal-400">
-                   <div className="w-12 h-12 bg-teal-100 dark:bg-teal-900/30 text-teal-600 rounded-xl flex items-center justify-center mb-4">
-                      <MapPin size={24} />
-                   </div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Career Path Mapping</h3>
-                   <p className="text-slate-600 dark:text-slate-400 text-sm">
-                     Helping students align their strengths and interests with suitable career options, from Engineering and Medicine to Arts and Civil Services.
-                   </p>
-                </Card>
-                <Card className="p-6 h-full border-t-4 border-emerald-400">
-                   <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-xl flex items-center justify-center mb-4">
-                      <Target size={24} />
-                   </div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Goal Setting</h3>
-                   <p className="text-slate-600 dark:text-slate-400 text-sm">
-                     Breaking down long-term ambitions into actionable short-term milestones. We teach effective planning and time management.
-                   </p>
-                </Card>
-                <Card className="p-6 h-full border-t-4 border-cyan-400">
-                   <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 rounded-xl flex items-center justify-center mb-4">
-                      <GraduationCap size={24} />
-                   </div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Higher Ed Support</h3>
-                   <p className="text-slate-600 dark:text-slate-400 text-sm">
-                     Guidance on entrance exams (EAPCET, IIT-JEE, NEET), college applications, and scholarship opportunities available for higher studies.
-                   </p>
-                </Card>
-                <Card className="p-6 h-full border-t-4 border-lime-400">
-                   <div className="w-12 h-12 bg-lime-100 dark:bg-lime-900/30 text-lime-600 rounded-xl flex items-center justify-center mb-4">
-                      <Users size={24} />
-                   </div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Role Models</h3>
-                   <p className="text-slate-600 dark:text-slate-400 text-sm">
-                     Regular interaction with successful alumni and industry professionals to inspire confidence and provide real-world insights.
-                   </p>
-                </Card>
-              </div>
-
-              {/* How it works */}
-              <Card className="p-8 bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800">
-                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">How Mentorship Works</h3>
-                 <div className="space-y-6 relative">
-                    {/* Vertical Line */}
-                    <div className="absolute left-[15px] top-4 bottom-4 w-0.5 bg-slate-200 dark:bg-slate-700"></div>
-
-                    {[
-                       { title: "Assessment", desc: "We evaluate the student's academic performance (ABS Talent Test), interests, and aptitude." },
-                       { title: "Matching", desc: "Students are paired with mentors who have expertise in the student's area of interest." },
-                       { title: "Regular Sessions", desc: "Monthly one-on-one or group sessions to track progress and discuss challenges." },
-                       { title: "Review", desc: "Periodic reviews with parents to ensure the student is on the right track." }
-                    ].map((step, i) => (
-                       <div key={i} className="relative flex gap-4">
-                          <div className="w-8 h-8 rounded-full bg-teal-500 text-white flex items-center justify-center font-bold text-sm shrink-0 z-10 border-4 border-white dark:border-slate-900">
-                             {i + 1}
-                          </div>
-                          <div>
-                             <h4 className="font-bold text-lg text-slate-900 dark:text-white">{step.title}</h4>
-                             <p className="text-slate-600 dark:text-slate-400 text-sm">{step.desc}</p>
-                          </div>
-                       </div>
-                    ))}
-                 </div>
-              </Card>
-           </div>
-        </div>
+          </div>
       </Section>
 
-      {/* 6. Awareness About Education Section */}
-      <Section id="awareness" className="bg-slate-50 dark:bg-dark py-24 md:py-32 border-t border-slate-200 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row-reverse gap-12 mb-16">
-           <div className="lg:w-1/3">
-             <div className="sticky top-32">
-               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-wider mb-4">
-                 <Megaphone size={14} /> Community Outreach
-               </div>
-               <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Education Awareness</h2>
-               
-               {/* New highlighted text block */}
-               <div className="p-5 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white shadow-lg mb-8 relative overflow-hidden">
-                  <div className="relative z-10">
-                    <Quote size={24} className="text-pink-200 mb-2 opacity-50"/>
-                    <p className="font-medium leading-relaxed italic">
-                      "Through this program we inject strong belief in the students that only education can change our lives and lifestyle."
-                    </p>
-                  </div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-               </div>
+      {/* 6. Education Awareness Section */}
+      <Section id="awareness" className="bg-white dark:bg-[#0b1220] py-24 md:py-32 border-t border-slate-100 dark:border-slate-800">
+          <div className="max-w-7xl mx-auto">
+             <div className="flex flex-col lg:flex-row gap-16 items-center mb-16">
+                <div className="flex-1 space-y-8">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-pink-100 dark:bg-pink-900/30 text-pink-600 dark:text-pink-400 text-xs font-bold uppercase tracking-wider mb-2">
+                        <Megaphone size={14} /> Community Outreach
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Educational Awareness Program</h2>
+                    
+                    <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 relative">
+                        <Sparkles className="absolute -top-4 -right-4 text-yellow-400 fill-yellow-400 animate-pulse" size={32} />
+                        <p className="text-slate-700 dark:text-slate-300 italic font-medium leading-relaxed text-lg">
+                           "Through this program we inject strong belief in the students that only education can change our lives and lifestyle. We visit all the government schools in three mandals(Rambilli, Atchutapuram and Yelamanchili) and take sessions on how education brings change in the life and the society by giving the example of inspirational personalities."
+                        </p>
+                    </div>
 
-               <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed mb-8">
-                 We conduct extensive campaigns to bridge the information gap, visiting government schools and engaging with communities to highlight the transformative power of education.
-               </p>
-               
-               <div className="bg-pink-50 dark:bg-pink-900/10 p-6 rounded-2xl border border-pink-100 dark:border-pink-800/30 mb-8">
-                 <h4 className="font-bold text-pink-800 dark:text-pink-500 mb-4 flex items-center gap-2">
-                   <MapPin size={18} /> Impact Area
-                 </h4>
-                 <p className="text-sm text-slate-700 dark:text-slate-300 mb-3">
-                   We visit all government schools in three mandals:
-                 </p>
-                 <div className="flex flex-wrap gap-2">
-                    {['Rambilli', 'Atchutapuram', 'Yelamanchili'].map(m => (
-                      <span key={m} className="px-3 py-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold rounded-full border border-pink-200 dark:border-pink-800">
-                        {m}
-                      </span>
-                    ))}
-                 </div>
-               </div>
-
-               <NavLink to="/volunteer">
-                 <Button className="w-full bg-pink-600 hover:bg-pink-700 shadow-pink-500/20 text-white">Volunteer for Campaign</Button>
-               </NavLink>
+                    <div className="flex gap-6 items-center pt-4">
+                        <div className="flex -space-x-4">
+                           {[1,2,3,4].map(i => (
+                              <div key={i} className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 border-2 border-white dark:border-slate-800 flex items-center justify-center text-xs font-bold overflow-hidden">
+                                 {/* Placeholder avatars or icons */}
+                                 <Users size={20} className="text-slate-500" />
+                              </div>
+                           ))}
+                        </div>
+                        <div>
+                           <p className="font-bold text-slate-900 dark:text-white text-lg">Impact Across 3 Mandals</p>
+                           <p className="text-sm text-slate-500">Inspiring students across Government Schools</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="flex-1 w-full">
+                    {/* Featured Awareness Image */}
+                    <div className="relative group">
+                        <div className="absolute inset-0 bg-pink-500 rounded-[2.5rem] rotate-2 group-hover:-rotate-1 transition-transform opacity-10"></div>
+                        <img 
+                           src={AWARENESS_IMAGES[0]} 
+                           alt="Education Awareness Main" 
+                           className="rounded-[2.5rem] shadow-2xl w-full object-cover h-[500px] border-4 border-white dark:border-slate-800 relative z-10 transition-transform duration-500 hover:scale-[1.01]"
+                        />
+                    </div>
+                </div>
              </div>
-           </div>
 
-           <div className="lg:w-2/3 space-y-8">
-              {/* Existing Program Cards */}
-              {awarenessPrograms.map(prog => (
-                <Card key={prog.id} className="flex flex-col md:flex-row overflow-hidden border-l-4 border-pink-500 shadow-lg hover:shadow-xl transition-shadow">
-                   <div className="md:w-64 h-64 md:h-auto relative shrink-0">
-                      <img src={prog.image} className="w-full h-full object-cover" alt={prog.title} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4 md:hidden">
-                        <span className="text-white font-bold">{prog.title}</span>
-                      </div>
-                   </div>
-                   <div className="p-8 flex flex-col justify-center">
-                     <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{prog.title}</h3>
-                        <span className="text-xs font-bold text-pink-600 bg-pink-50 dark:bg-pink-900/20 px-3 py-1 rounded-full">{prog.impact}</span>
-                     </div>
-                     <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">{prog.description}</p>
-                     
-                     <div className="flex items-center gap-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Focus</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">Rural Families</p>
-                        </div>
-                        <div>
-                          <p className="text-xs text-slate-400 uppercase font-bold">Reach</p>
-                          <p className="text-sm font-semibold text-slate-800 dark:text-slate-200">15+ Villages</p>
-                        </div>
-                     </div>
-                   </div>
-                </Card>
-              ))}
-
-              {/* New Detailed Content Cards */}
-              <div className="grid md:grid-cols-2 gap-6">
-                 <Card className="p-6 border-t-4 border-rose-400 h-full bg-white dark:bg-dark-card">
-                    <div className="w-12 h-12 bg-rose-100 dark:bg-rose-900/30 text-rose-600 rounded-xl flex items-center justify-center mb-4">
-                       <Lightbulb size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Inspirational Sessions</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                      We take sessions on how education brings change in life and society by giving examples of inspirational personalities like Dr. A.P.J. Abdul Kalam, Dr. B.R. Ambedkar, and Savitribai Phule. We show students that their background does not define their future.
-                    </p>
-                 </Card>
-
-                 <Card className="p-6 border-t-4 border-orange-400 h-full bg-white dark:bg-dark-card">
-                    <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 text-orange-600 rounded-xl flex items-center justify-center mb-4">
-                       <Users size={24} />
-                    </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">Parental Engagement</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                      Beyond students, we engage with parents to discuss the long-term economic and social benefits of continuing their children's education, especially focusing on reducing dropout rates among girl children.
-                    </p>
-                 </Card>
-              </div>
-
-              {/* Methodology / Flow */}
-              <Card className="p-8 bg-white dark:bg-dark-card border border-slate-100 dark:border-slate-800">
-                 <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">Our Approach</h3>
-                 <div className="space-y-4">
-                    <div className="flex gap-4 items-start">
-                       <div className="mt-1 w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0">1</div>
-                       <div>
-                         <h4 className="font-bold text-slate-900 dark:text-white">School Visits</h4>
-                         <p className="text-sm text-slate-600 dark:text-slate-400">Regular scheduled visits to High Schools across the 3 mandals.</p>
-                       </div>
-                    </div>
-                    <div className="flex gap-4 items-start">
-                       <div className="mt-1 w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0">2</div>
-                       <div>
-                         <h4 className="font-bold text-slate-900 dark:text-white">Storytelling & Motivation</h4>
-                         <p className="text-sm text-slate-600 dark:text-slate-400">Using real-life success stories of people from similar backgrounds who achieved greatness through education.</p>
-                       </div>
-                    </div>
-                    <div className="flex gap-4 items-start">
-                       <div className="mt-1 w-8 h-8 rounded-full bg-pink-100 text-pink-600 flex items-center justify-center font-bold text-sm shrink-0">3</div>
-                       <div>
-                         <h4 className="font-bold text-slate-900 dark:text-white">Interactive Q&A</h4>
-                         <p className="text-sm text-slate-600 dark:text-slate-400">Encouraging students to voice their fears and doubts, and providing practical solutions.</p>
-                       </div>
-                    </div>
-                 </div>
-              </Card>
-
-           </div>
-        </div>
+             {/* Gallery Strip */}
+             <div className="relative group/gallery">
+                  <div className="flex items-center justify-between mb-6 px-2">
+                      <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                         <ImageIcon size={20} className="text-pink-500"/> Outreach Gallery
+                      </h3>
+                      <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
+                  </div>
+                  <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
+                     {AWARENESS_IMAGES.slice(1).map((img, idx) => (
+                         <div key={idx} className="min-w-[280px] md:min-w-[320px] h-[220px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
+                             <img src={img} alt={`Awareness Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
+                                     <Megaphone size={24} />
+                                  </div>
+                             </div>
+                         </div>
+                     ))}
+                  </div>
+             </div>
+          </div>
       </Section>
     </>
   );

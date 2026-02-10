@@ -25,7 +25,7 @@ const Member: React.FC = () => {
             Join the General Body
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-            Become a part of the decision-making core of Akshara Bharatham Society. Members play a crucial role in shaping policy, electing leadership, and sustaining the organization's vision.
+            Become a part of the decision-making core of Akshara Bharatam Society. Members play a crucial role in shaping policy, electing leadership, and sustaining the organization's vision.
           </p>
         </div>
 
@@ -89,53 +89,62 @@ const Member: React.FC = () => {
                <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> <strong>Voting Rights</strong> in AGM</li>
                <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Quarterly Strategy Calls</li>
                <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Merchandise Kit</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Event VIP Access</li>
+               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Access to Annual Gala</li>
              </ul>
-             <Button className="w-full bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20">Become a Member</Button>
+             <Button className="w-full bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20 text-white border-none">Become a Member</Button>
           </Card>
 
-           {/* Patron Tier */}
-           <Card className="p-8 flex flex-col hover:border-indigo-400 transition-all">
+          {/* Patron Tier */}
+          <Card className="p-8 flex flex-col hover:border-indigo-400 transition-all">
              <div className="mb-4">
                <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Patron</span>
              </div>
              <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">₹10,000<span className="text-lg text-slate-500 font-normal">/year</span></h3>
-             <p className="text-slate-500 text-sm mb-6">For visionaries who want to shape the future.</p>
+             <p className="text-slate-500 text-sm mb-6">For philanthropists driving major impact.</p>
              <ul className="space-y-3 mb-8 flex-1">
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> All Active Member Benefits</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Direct Access to Founders</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Name on Donor Wall</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Dinner with Board</li>
+               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> All Active Member Benefits</li>
+               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> Named Scholarship</li>
+               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> Private Dinner with Founders</li>
              </ul>
-             <Button variant="outline" className="w-full">Join as Patron</Button>
+             <Button variant="outline" className="w-full">Become a Patron</Button>
           </Card>
         </div>
       </Section>
 
       {/* Registration Form */}
       <Section id="register" className="bg-slate-50 dark:bg-dark py-24">
-        <div className="max-w-xl mx-auto">
-          <Card className="p-8 shadow-2xl border-t-4 border-indigo-600">
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white text-center mb-6">Membership Application</h3>
-            <form className="space-y-5">
-              <Input placeholder="Full Name" required />
-              <Input placeholder="Email Address" type="email" required />
-              <Input placeholder="Phone Number" required />
-              <Input placeholder="Occupation / Organization" />
-              <div className="flex flex-col gap-1.5 w-full">
-                 <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Tier</label>
-                 <select className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none">
-                    <option value="student">Student - ₹500/yr</option>
-                    <option value="active">Active Member - ₹2,000/yr</option>
-                    <option value="patron">Patron - ₹10,000/yr</option>
-                 </select>
-              </div>
-              <Button size="lg" className="w-full bg-indigo-600 hover:bg-indigo-700 text-white">Proceed to Payment</Button>
-              <p className="text-xs text-center text-slate-400 mt-4">
-                Membership fees are non-refundable and subject to board approval for voting rights.
-              </p>
-            </form>
-          </Card>
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12 items-center">
+            <div className="flex-1">
+               <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-6">Membership Application</h2>
+               <p className="text-slate-600 dark:text-slate-400 mb-6">
+                 Please fill out the form to initiate your membership application. Our membership committee reviews all applications within 7 days.
+               </p>
+               <div className="p-6 rounded-2xl bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30">
+                 <h4 className="font-bold text-indigo-800 dark:text-indigo-400 mb-2">Note</h4>
+                 <p className="text-sm text-indigo-700 dark:text-indigo-300">Membership fees are eligible for tax deduction under section 80G.</p>
+               </div>
+            </div>
+            <div className="flex-1 w-full">
+               <Card className="p-8 shadow-xl">
+                 <form className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                        <Input placeholder="First Name" required />
+                        <Input placeholder="Last Name" required />
+                    </div>
+                    <Input placeholder="Email Address" type="email" required />
+                    <Input placeholder="Phone Number" required />
+                    <div className="flex flex-col gap-1.5 w-full">
+                       <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Membership</label>
+                       <select className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none">
+                          <option>Student (₹500/yr)</option>
+                          <option>Active Member (₹2,000/yr)</option>
+                          <option>Patron (₹10,000/yr)</option>
+                       </select>
+                    </div>
+                    <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-500/20">Proceed to Payment</Button>
+                 </form>
+               </Card>
+            </div>
         </div>
       </Section>
     </>
