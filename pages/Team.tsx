@@ -45,6 +45,18 @@ const TEAM_MEMBERS = [
     role: "Core Team Member",
     image: "https://lh3.googleusercontent.com/d/1bOsqTAUEp2SDDqhy4YGOfckxCTrekKqk",
     bio: "Supports technical and operational aspects of our projects."
+  },
+  {
+    name: "Kare Tarun Teja",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/12R8xWH56B4-LdxDeFTs2RgEUpGVdBUU4",
+    bio: "Active contributor to our community outreach programs."
+  },
+  {
+    name: "Kare Deepika Madhuri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1q1thV6Iz6JkzmRGJ-47AffLjSTHp2Vzo",
+    bio: "Supports student engagement and academic counseling."
   }
 ];
 
