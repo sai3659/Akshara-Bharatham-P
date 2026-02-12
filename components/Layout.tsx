@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Moon, Sun, Heart, ChevronDown, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Menu, X } from 'lucide-react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Moon, Sun, Heart, ChevronDown, MapPin, Phone, Mail, Facebook, Twitter, Instagram, Linkedin, Menu, X, ArrowLeft } from 'lucide-react';
 import { Button } from './UI';
 import { NGO_DETAILS, LOGO_URL } from '../constants';
 
@@ -105,12 +105,15 @@ const Logo = () => {
 export const Header: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Close dropdowns on route change
   useEffect(() => {
     setActiveDropdown(null);
+    setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
   // Handle scroll to hide top header
@@ -136,10 +139,35 @@ export const Header: React.FC = () => {
 
   const handleDropdownToggle = (label: string, e: React.MouseEvent) => {
     e.preventDefault(); 
+    e.stopPropagation();
     if (activeDropdown === label) {
       setActiveDropdown(null);
     } else {
       setActiveDropdown(label);
+    }
+  };
+
+  const handleBack = () => {
+    if (location.pathname === '/') return;
+
+    // Determine hierarchical parent
+    const parentItem = NAV_ITEMS.find(item => 
+      // Check if current path matches item path or any of its children
+      item.path === location.pathname ||
+      item.children?.some(child => child.path.split('#')[0] === location.pathname)
+    );
+
+    if (parentItem) {
+      // If we are currently at the parent path (e.g. /about), go Home
+      if (parentItem.path === location.pathname) {
+        navigate('/');
+      } else {
+        // If we are at a child path (e.g. /founders), go to parent path (/about)
+        navigate(parentItem.path);
+      }
+    } else {
+      // If not found in tree (e.g. top level like /contact or 404), go Home
+      navigate('/');
     }
   };
 
@@ -167,10 +195,19 @@ export const Header: React.FC = () => {
         {/* BOTTOM ROW: Navigation (Left) + Mobile Actions (Right) */}
         <div className="flex items-center justify-between py-1 md:py-2">
             
-            {/* Mobile Menu Toggle (Left on Mobile) */}
-            <div className="md:hidden">
-               <button onClick={() => setActiveDropdown(activeDropdown ? null : 'mobile')} className="p-2 -ml-2 text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
-                 {activeDropdown ? <X size={24} /> : <Menu size={24} />}
+            {/* Mobile Menu Toggle & Back Button (Left on Mobile) */}
+            <div className="md:hidden flex items-center gap-1">
+               {location.pathname !== '/' && (
+                  <button 
+                    onClick={handleBack} 
+                    className="p-2 -ml-2 text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                    aria-label="Go Back"
+                  >
+                    <ArrowLeft size={24} />
+                  </button>
+               )}
+               <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-700 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+                 {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                </button>
             </div>
 
@@ -192,7 +229,7 @@ export const Header: React.FC = () => {
                     to={item.path}
                     className={({ isActive }) => 
                       `px-3 lg:px-5 py-2 rounded-full flex items-center gap-1.5 text-sm lg:text-base font-bold transition-all whitespace-nowrap ${
-                        (isActive || isParentActive) && !activeDropdown
+                        (isActive || isParentActive) 
                           ? 'bg-[#9C4DFF]/10 text-[#9C4DFF]' 
                           : 'text-slate-700 dark:text-slate-300 hover:text-[#9C4DFF] dark:hover:text-[#9C4DFF] hover:bg-slate-50 dark:hover:bg-slate-800/50'
                       }`
@@ -256,14 +293,14 @@ export const Header: React.FC = () => {
         </div>
 
         {/* Mobile Dropdown Menu Logic */}
-        {activeDropdown === 'mobile' && (
+        {isMobileMenuOpen && (
            <div className="md:hidden absolute top-full left-0 right-0 bg-white dark:bg-[#0f172a] border-b border-slate-200 dark:border-slate-800 shadow-2xl p-4 flex flex-col gap-2 max-h-[80vh] overflow-y-auto z-40 animate-in slide-in-from-top-2 duration-200">
               {NAV_ITEMS.map((item) => (
                 <div key={item.label}>
                   <div className="flex justify-between items-center">
                     <NavLink 
                       to={item.path}
-                      onClick={() => !item.children && setActiveDropdown(null)}
+                      onClick={() => !item.children && setIsMobileMenuOpen(false)}
                       className={({ isActive }) => 
                         `block py-3 px-4 text-lg font-bold ${
                           isActive ? 'text-[#9C4DFF]' : 'text-slate-800 dark:text-white'
@@ -273,7 +310,7 @@ export const Header: React.FC = () => {
                       {item.label}
                     </NavLink>
                     {item.children && (
-                      <button onClick={(e) => { e.preventDefault(); handleDropdownToggle(item.label, e); }} className="p-3 text-slate-500">
+                      <button onClick={(e) => handleDropdownToggle(item.label, e)} className="p-3 text-slate-500">
                          <ChevronDown size={20} className={`transition-transform ${activeDropdown === item.label ? 'rotate-180' : ''}`} />
                       </button>
                     )}
@@ -284,7 +321,7 @@ export const Header: React.FC = () => {
                         <NavLink 
                           key={idx} 
                           to={child.path}
-                          onClick={() => setActiveDropdown(null)}
+                          onClick={() => setIsMobileMenuOpen(false)}
                           className={({ isActive }) => 
                             `block py-3 px-4 text-sm font-medium ${
                                isActive ? 'text-[#9C4DFF]' : 'text-slate-600 dark:text-slate-400'

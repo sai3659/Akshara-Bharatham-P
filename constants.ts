@@ -74,7 +74,7 @@ export const FOUNDERS: Founder[] = [
     bio: "Venkata Ramana oversees the financial health of the organization. He is responsible for budgeting, financial planning, and ensuring that every donation is utilized efficiently.",
     experience: "Finance",
     tags: ["Finance", "Integrity"],
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=800"
+    image: "https://lh3.googleusercontent.com/d/1GB4wqLUcwiGsqpa_wTgR4knCBTpMk13p"
   }
 ];
 
