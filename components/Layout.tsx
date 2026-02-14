@@ -60,6 +60,14 @@ const NAV_ITEMS = [
       { label: 'School Login', path: '/school-login' },
     ]
   },
+  {
+    label: 'Results',
+    path: '/results/talent-test',
+    children: [
+      { label: 'ABS Talent Test', path: '/results/talent-test' },
+      { label: 'Knowledge Quest', path: '/results/knowledge-quest' },
+    ]
+  },
   { label: 'Contact Us', path: '/contact' },
 ];
 

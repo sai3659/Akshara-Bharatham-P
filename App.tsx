@@ -21,6 +21,8 @@ import SchoolLogin from './pages/SchoolLogin';
 import TalentTestRegister from './pages/TalentTestRegister';
 import NMMSRegister from './pages/NMMSRegister';
 import KnowledgeQuestRegister from './pages/KnowledgeQuestRegister';
+import TalentTestResults from './pages/TalentTestResults';
+import KnowledgeQuestResults from './pages/KnowledgeQuestResults';
 
 // Wrapper to conditionally render Layout (Header/Footer)
 const LayoutWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => {
@@ -65,6 +67,10 @@ const App: React.FC = () => {
           
           <Route path="/student-login" element={<StudentLogin />} />
           <Route path="/school-login" element={<SchoolLogin />} />
+
+          {/* Result Routes */}
+          <Route path="/results/talent-test" element={<TalentTestResults />} />
+          <Route path="/results/knowledge-quest" element={<KnowledgeQuestResults />} />
 
           {/* Media Route Consolidated */}
           <Route path="/gallery" element={<Gallery />} />

@@ -1,9 +1,10 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Section, Card, DecorativeShapes, SideNavigation, Button } from '../components/UI';
 import { PROGRAMS } from '../constants';
-import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School } from 'lucide-react';
+import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School, BarChart as BarChartIcon } from 'lucide-react';
 import { useLocation, NavLink } from 'react-router-dom';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 const PROGRAM_SECTIONS = [
   { id: 'all-programs', label: 'All Programs' },
@@ -25,6 +26,124 @@ const NewBadge = () => (
     </span>
   </span>
 );
+
+const TALENT_TEST_STATS = [
+  { year: '2022', mandals: 1, selected: 7, cumulative: 7 },
+  { year: '2023', mandals: 1, selected: 5, cumulative: 12 },
+  { year: '2024', mandals: 2, selected: 12, cumulative: 24 },
+  { year: '2025', mandals: 3, selected: 16, cumulative: 40 },
+];
+
+const TalentTestMetrics = () => {
+  const [activeTab, setActiveTab] = useState<'mandals' | 'selected' | 'cumulative'>('mandals');
+
+  const config = {
+    mandals: {
+      title: "Number of Mandals Covered",
+      color: "#22c55e", // Green-500
+      dataKey: "mandals",
+      label: "Number of Mandals Covered"
+    },
+    selected: {
+      title: "Number of Students Selected for Scholarship",
+      color: "#f97316", // Orange-500
+      dataKey: "selected",
+      label: "Selected for Scholarship"
+    },
+    cumulative: {
+      title: "Total Number of Students Getting Scholarship (Cumulative)",
+      color: "#0ea5e9", // Sky-500
+      dataKey: "cumulative",
+      label: "Total Students (Cumulative)"
+    }
+  };
+
+  const current = config[activeTab];
+
+  return (
+    <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-800 shadow-sm mt-12">
+       <div className="flex flex-col xl:flex-row justify-between items-center mb-8 gap-4">
+          <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white flex items-center gap-2">
+             <BarChartIcon size={20} className="text-slate-500" /> {current.title}
+          </h3>
+          <div className="flex bg-white dark:bg-slate-800 p-1 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 overflow-x-auto max-w-full no-scrollbar">
+             {(Object.keys(config) as Array<keyof typeof config>).map((key) => (
+                <button
+                  key={key}
+                  onClick={() => setActiveTab(key)}
+                  className={`px-4 py-2 rounded-lg text-xs md:text-sm font-bold transition-all whitespace-nowrap ${
+                    activeTab === key 
+                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md' 
+                    : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                  }`}
+                >
+                  {config[key].title}
+                </button>
+             ))}
+          </div>
+       </div>
+
+       <div className="grid lg:grid-cols-3 gap-8">
+          {/* Chart Area */}
+          <div className="lg:col-span-2 h-[300px] w-full bg-white dark:bg-slate-800 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 relative">
+             <ResponsiveContainer width="100%" height="100%">
+                <BarChart data={TALENT_TEST_STATS} margin={{ top: 20, right: 30, left: 0, bottom: 0 }}>
+                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#94a3b8" opacity={0.1} />
+                   <XAxis 
+                      dataKey="year" 
+                      axisLine={false} 
+                      tickLine={false} 
+                      tick={{ fill: '#64748b', fontSize: 12, fontWeight: 600 }} 
+                      dy={10}
+                   />
+                   <YAxis 
+                      axisLine={false} 
+                      tickLine={false} 
+                      tick={{ fill: '#64748b', fontSize: 12 }} 
+                   />
+                   <Tooltip 
+                      cursor={{ fill: current.color, opacity: 0.1 }}
+                      contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', backgroundColor: '#fff', color: '#333' }}
+                   />
+                   <Bar 
+                      dataKey={current.dataKey} 
+                      fill={current.color} 
+                      radius={[6, 6, 0, 0]} 
+                      barSize={60}
+                      animationDuration={1500}
+                   />
+                </BarChart>
+             </ResponsiveContainer>
+          </div>
+
+          {/* Table Area */}
+          <div className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-700 h-fit">
+             <div className="bg-slate-100 dark:bg-slate-700/50 px-6 py-4 border-b border-slate-200 dark:border-slate-700">
+                <h4 className="font-bold text-slate-800 dark:text-white text-sm uppercase tracking-wider">Detailed Data</h4>
+             </div>
+             <table className="w-full">
+                <thead>
+                   <tr className="border-b border-slate-100 dark:border-slate-700">
+                      <th className="text-left py-3 px-6 text-xs font-bold text-slate-500 uppercase">Year</th>
+                      <th className="text-right py-3 px-6 text-xs font-bold text-slate-500 uppercase">{current.label}</th>
+                   </tr>
+                </thead>
+                <tbody>
+                   {TALENT_TEST_STATS.map((row, idx) => (
+                      <tr key={idx} className="border-b border-slate-100 dark:border-slate-700 last:border-0 hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors">
+                         <td className="py-3 px-6 text-sm font-bold text-slate-700 dark:text-slate-300">{row.year}</td>
+                         <td className="py-3 px-6 text-sm font-bold text-right" style={{ color: current.color }}>
+                            {row[current.dataKey]}
+                         </td>
+                      </tr>
+                   ))}
+                </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+  );
+};
 
 const Programs: React.FC = () => {
   const location = useLocation();
@@ -233,8 +352,11 @@ const Programs: React.FC = () => {
                  </div>
              </div>
 
+             {/* New: Talent Test Metrics Visualization */}
+             <TalentTestMetrics />
+
              {/* Gallery */}
-             <div className="relative group/gallery">
+             <div className="relative group/gallery mt-16">
                   <div className="flex items-center justify-between mb-6 px-2">
                       <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
                          <ImageIcon size={20} className="text-amber-500"/> 2024 Highlights
@@ -557,7 +679,7 @@ const Programs: React.FC = () => {
                   </div>
                   <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
                      {AWARENESS_IMAGES.slice(1).map((img, idx) => (
-                         <div key={idx} className="min-w-[280px] md:min-w-[320px] h-[220px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
+                         <div key={idx} className="min-w-[280px] md:min-w-[320px] h-[200px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
                              <img src={img} alt={`Awareness Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
                              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                   <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
