@@ -4,6 +4,7 @@ import { Section, Card, Button, DecorativeShapes } from '../components/UI';
 import { FOUNDERS } from '../constants';
 import { BookingModal } from '../components/BookingModal';
 import { Linkedin, Mail, Calendar, ExternalLink } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const Founders: React.FC = () => {
   const [selectedFounder, setSelectedFounder] = useState<string | undefined>(undefined);
@@ -60,11 +61,13 @@ const Founders: React.FC = () => {
                     {founder.bio}
                   </p>
                   <div className="flex gap-3 pt-4 border-t border-slate-100 dark:border-slate-800">
+                    <NavLink to={`/profile/${founder.id}`} className="flex-1">
+                      <Button variant="outline" className="w-full text-sm">
+                        View Profile
+                      </Button>
+                    </NavLink>
                     <Button onClick={() => handleBook(founder.id)} className="flex-1 gap-2 text-sm">
                       <Calendar size={16} /> Book Time
-                    </Button>
-                    <Button variant="ghost" className="px-3" title="LinkedIn Profile">
-                       <Linkedin size={18} />
                     </Button>
                   </div>
                 </div>

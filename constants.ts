@@ -1,5 +1,5 @@
 
-import { Founder, Program, Event, Stat } from './types';
+import { Founder, Program, Event, Stat, TeamMember } from './types';
 import { BookOpen, Users, Heart, GraduationCap, Globe, Lightbulb } from 'lucide-react';
 
 export const NGO_DETAILS = {
@@ -27,7 +27,7 @@ export const FOUNDERS: Founder[] = [
     role: "President",
     specialization: "Organizational Leadership",
     quote: "Education is the key to unlocking the potential of our rural communities.",
-    bio: "As the President, Ramana Mylappali steers the vision of Akshara Bharatam Society. With a deep-rooted commitment to social upliftment, he ensures that the organization stays true to its mission of providing quality education to every child.",
+    bio: "I believe, nothing is more important than Education in anyone's life. It is the only way to make one's life beautiful and build a better society.\nIt is our responsibility to bring this awareness in rural poor students, help them dream big and support making it reality. \"Education\" is the best fund to invest money and time which gives the best returns for an individual, family, society or a nation.",
     experience: "Leadership",
     tags: ["Visionary", "Governance"],
     image: "https://lh3.googleusercontent.com/d/1Qex-Yk22TH-SyM44lSt5IuMA1hCxz7CS"
@@ -75,6 +75,73 @@ export const FOUNDERS: Founder[] = [
     experience: "Finance",
     tags: ["Finance", "Integrity"],
     image: "https://lh3.googleusercontent.com/d/1GB4wqLUcwiGsqpa_wTgR4knCBTpMk13p"
+  }
+];
+
+export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: "t1",
+    name: "Dhoni Kodandarao",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1_M-bty-PKNu2NcGx2ZQ7ijNqjcb4w5Rx",
+    bio: "Dedicated to community outreach and student engagement initiatives."
+  },
+  {
+    id: "t2",
+    name: "Chintakayala Ramesh",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1Eh-bljPnBUnJfI2rsTeH32QvAwEFgUft",
+    bio: "Focuses on logistical support and event organization."
+  },
+  {
+    id: "t3",
+    name: "Surada Simhadri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1VCRWVBmMzwCbz6ceav5VVXTSnTc58Vqs",
+    bio: "Passionate about educational reforms and volunteer management."
+  },
+  {
+    id: "t4",
+    name: "Mylapalli Satya Sri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1CcYul0LSc752EVTaAF69h-ROp1Gh-BzJ",
+    bio: "Contributes to administrative tasks and program planning.",
+    fullBio: "Mrs. M. Satyaveni is a graduate in B.E Civil Engineering and Partner of SS Constructions, she is a dedicated member of the Akshara Bharatham Society, a distinguished organization committed to strengthening society through education and democratic values.\n\nShe firmly believes in the society’s guiding principle:\n“While democracy is the soul of a good society, education is the oxygen of its life.” This philosophy strongly reflects her personal values and commitment to social development.\n\nKnown for her positive mindset, clarity of thought, and calm, peaceful approach, Mrs. M Satyaveni plays a meaningful role in the organization’s activities. She carries out her responsibilities with sincerity, discipline, and a strong sense of commitment, contributing effectively to the growth and core values of the organization."
+  },
+  {
+    id: "t5",
+    name: "Gollapalli Suryachakram",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1nwh4FlYcnga1FCxmFYKUXNAuitZXmLSx",
+    bio: "Ensures smooth execution of on-ground initiatives and student coordination."
+  },
+  {
+    id: "t6",
+    name: "Surisetti Sai Kumar",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1Rqbkien7Q7BosP_q1Qam9n-dmxwMsbvF",
+    bio: "Active in field work and community mobilization across villages."
+  },
+  {
+    id: "t7",
+    name: "Vasapalli Ramu",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1bOsqTAUEp2SDDqhy4YGOfckxCTrekKqk",
+    bio: "Supports technical and operational aspects of our projects."
+  },
+  {
+    id: "t8",
+    name: "Kare Tarun Teja",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/12R8xWH56B4-LdxDeFTs2RgEUpGVdBUU4",
+    bio: "Active contributor to our community outreach programs."
+  },
+  {
+    id: "t9",
+    name: "Kare Deepika Madhuri",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/1q1thV6Iz6JkzmRGJ-47AffLjSTHp2Vzo",
+    bio: "Supports student engagement and academic counseling."
   }
 ];
 

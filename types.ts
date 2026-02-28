@@ -10,6 +10,15 @@ export interface Founder {
   image: string;
 }
 
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  fullBio?: string;
+}
+
 export interface Program {
   id: string;
   title: string;

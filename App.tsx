@@ -16,6 +16,7 @@ import About from './pages/About';
 import Legal from './pages/Legal';
 import Member from './pages/Member';
 import Partner from './pages/Partner';
+import Profile from './pages/Profile';
 import StudentLogin from './pages/StudentLogin';
 import SchoolLogin from './pages/SchoolLogin';
 import TalentTestRegister from './pages/TalentTestRegister';
@@ -47,6 +48,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
           <Route path="/founders" element={<Founders />} />
+          <Route path="/profile/:id" element={<Profile />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/resources" element={<Programs />} />
           <Route path="/contact" element={<Contact />} />

@@ -2,63 +2,8 @@
 import React from 'react';
 import { Section, Card, Button, DecorativeShapes } from '../components/UI';
 import { Users, Heart, Star } from 'lucide-react';
-
-const TEAM_MEMBERS = [
-  {
-    name: "Dhoni Kodandarao",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1_M-bty-PKNu2NcGx2ZQ7ijNqjcb4w5Rx",
-    bio: "Dedicated to community outreach and student engagement initiatives."
-  },
-  {
-    name: "Chintakayala Ramesh",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1Eh-bljPnBUnJfI2rsTeH32QvAwEFgUft",
-    bio: "Focuses on logistical support and event organization."
-  },
-  {
-    name: "Surada Simhadri",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1VCRWVBmMzwCbz6ceav5VVXTSnTc58Vqs",
-    bio: "Passionate about educational reforms and volunteer management."
-  },
-  {
-    name: "Mylapalli Satya Sri",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1CcYul0LSc752EVTaAF69h-ROp1Gh-BzJ",
-    bio: "Contributes to administrative tasks and program planning."
-  },
-  {
-    name: "Gollapalli Suryachakram",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1nwh4FlYcnga1FCxmFYKUXNAuitZXmLSx",
-    bio: "Ensures smooth execution of on-ground initiatives and student coordination."
-  },
-  {
-    name: "Surisetti Sai Kumar",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1Rqbkien7Q7BosP_q1Qam9n-dmxwMsbvF",
-    bio: "Active in field work and community mobilization across villages."
-  },
-  {
-    name: "Vasapalli Ramu",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1bOsqTAUEp2SDDqhy4YGOfckxCTrekKqk",
-    bio: "Supports technical and operational aspects of our projects."
-  },
-  {
-    name: "Kare Tarun Teja",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/12R8xWH56B4-LdxDeFTs2RgEUpGVdBUU4",
-    bio: "Active contributor to our community outreach programs."
-  },
-  {
-    name: "Kare Deepika Madhuri",
-    role: "Core Team Member",
-    image: "https://lh3.googleusercontent.com/d/1q1thV6Iz6JkzmRGJ-47AffLjSTHp2Vzo",
-    bio: "Supports student engagement and academic counseling."
-  }
-];
+import { TEAM_MEMBERS } from '../constants';
+import { NavLink } from 'react-router-dom';
 
 const Team: React.FC = () => {
   return (
@@ -80,7 +25,12 @@ const Team: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white mb-1">{member.name}</h3>
               <p className="text-[#06B6D4] font-medium text-xs uppercase tracking-wide mb-4">{member.role}</p>
-              <p className="text-slate-500 dark:text-slate-400 text-sm">{member.bio}</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">{member.bio}</p>
+              <div className="mt-auto">
+                <NavLink to={`/profile/${member.id}`}>
+                  <Button variant="outline" size="sm">View Profile</Button>
+                </NavLink>
+              </div>
             </Card>
           ))}
         </div>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
 import { Target, Eye, ShieldCheck, Download, FileText, Users, GraduationCap, ArrowRight, History } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import { TEAM_MEMBERS } from '../constants';
 
 const ABOUT_SECTIONS = [
   { id: 'mission-history', label: 'Mission & History' },
@@ -122,17 +123,14 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
-          {[
-            { name: "Dhoni Kodandarao", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1_M-bty-PKNu2NcGx2ZQ7ijNqjcb4w5Rx" },
-            { name: "Chintakayala Ramesh", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1Eh-bljPnBUnJfI2rsTeH32QvAwEFgUft" },
-            { name: "Surada Simhadri", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1VCRWVBmMzwCbz6ceav5VVXTSnTc58Vqs" },
-            { name: "Mylapalli Satya Sri", role: "Core Team", img: "https://lh3.googleusercontent.com/d/1CcYul0LSc752EVTaAF69h-ROp1Gh-BzJ" }
-          ].map((m, i) => (
-            <Card key={i} className="p-4 text-center">
-              <img src={m.img} alt={m.name} className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-2 border-purple-500/20" />
-              <h4 className="font-bold text-slate-900 dark:text-white">{m.name}</h4>
-              <p className="text-xs text-[#06B6D4] font-bold uppercase mt-1">{m.role}</p>
-            </Card>
+          {TEAM_MEMBERS.slice(0, 4).map((m, i) => (
+            <NavLink to={`/profile/${m.id}`} key={i}>
+              <Card className="p-4 text-center h-full hover:border-purple-500 transition-colors">
+                <img src={m.image} alt={m.name} className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-2 border-purple-500/20" />
+                <h4 className="font-bold text-slate-900 dark:text-white">{m.name}</h4>
+                <p className="text-xs text-[#06B6D4] font-bold uppercase mt-1">{m.role}</p>
+              </Card>
+            </NavLink>
           ))}
         </div>
         <div className="text-center">
