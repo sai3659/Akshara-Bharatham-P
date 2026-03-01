@@ -96,13 +96,13 @@ const Logo = () => {
          )}
       </div>
 
-      <div className="flex flex-col justify-center relative py-1 pl-1 md:pl-4 w-fit max-w-full overflow-hidden">
+      <div className="flex flex-col justify-center relative py-1 pl-1 md:pl-4 w-fit max-w-full">
         {/* Text - Static - Responsive Size */}
-        <span className="font-special font-bold text-[11px] min-[375px]:text-[12px] min-[414px]:text-[14px] sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-normal sm:tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2 whitespace-nowrap truncate">
+        <span className="font-special font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2">
           AKSHARA BHARATAM SOCIETY
         </span>
         {/* Caption - Updated Quote, Increased Size, Full Justified */}
-        <span className="font-medium text-[7px] min-[375px]:text-[8px] min-[414px]:text-[9px] sm:text-xs md:text-sm lg:text-lg tracking-wide italic leading-tight block w-full text-justify [text-align-last:justify] text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400 whitespace-nowrap sm:whitespace-normal truncate sm:text-justify sm:[text-align-last:justify]">
+        <span className="font-medium text-[10px] sm:text-xs md:text-sm lg:text-lg tracking-wide italic leading-tight block w-full text-justify [text-align-last:justify] text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400">
           "While Democracy is a Soul of a Good Society, Education is the Oxygen of it's Life"
         </span>
       </div>
