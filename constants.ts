@@ -49,7 +49,7 @@ export const FOUNDERS: Founder[] = [
     role: "Secretary",
     specialization: "Administration",
     quote: "Transparency and dedication are what drive our daily operations.",
-    bio: "As Secretary, Suryam Surada manages the administrative backbone of the society. He ensures compliance, manages records, and facilitates smooth communication between all stakeholders.",
+    bio: "Suryam Surada is the secretary of the Akshara Bharatam Society. He has seen how education has improved his own life, and therefore he believes education can bring a better life to everyone. So he contributes his knowledge and skills to the society, which is working hard to provide better education to economically backward students in rural government schools. He feels proud to be part of the society and its activities.",
     experience: "Administration",
     tags: ["Admin", "Compliance"],
     image: "https://lh3.googleusercontent.com/d/18jKMmckjUU5dS_NqejjAVLACd3A2qWVr"
