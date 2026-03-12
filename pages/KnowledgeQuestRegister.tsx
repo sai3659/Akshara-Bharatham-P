@@ -1,19 +1,62 @@
 
 import React, { useState } from 'react';
 import { Section, Card, Button, Input, Select, DecorativeShapes } from '../components/UI';
-import { Brain, School, Phone, CheckCircle, UserPlus } from 'lucide-react';
+import { Brain, School, Phone, CheckCircle, UserPlus, Lock } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const KnowledgeQuestRegister: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [studentCount, setStudentCount] = useState<number>(4);
+  const [registrationId, setRegistrationId] = useState('');
+  const [loading, setLoading] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000);
+    setLoading(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Extract students array
+    const students = [];
+    for (let i = 0; i < studentCount; i++) {
+        students.push({
+            name: data[`studentName${i + 1}`],
+            class: data[`studentClass${i + 1}`]
+        });
+    }
+    
+    const payload = {
+        ...data,
+        studentCount,
+        students
+    };
+
+    try {
+      const response = await fetch('/api/register/knowledge-quest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setRegistrationId(result.registrationId);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleStudentCountChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -48,11 +91,13 @@ const KnowledgeQuestRegister: React.FC = () => {
                   </h3>
                   <div className="grid md:grid-cols-1 gap-6">
                     <Input label="Name of the School *" name="schoolName" placeholder="Official School Name" required />
+                    <Input label="Password *" name="password" type="password" placeholder="Create a password" required />
                     <div>
                         <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Full Address *</label>
                         <textarea 
                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all placeholder:text-slate-400 h-24 resize-none"
                            placeholder="Complete address"
+                           name="address"
                            required
                         ></textarea>
                     </div>
@@ -91,22 +136,34 @@ const KnowledgeQuestRegister: React.FC = () => {
                      />
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800">
+                  <div className="space-y-4 p-6 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-100 dark:border-slate-800">
                     {Array.from({ length: studentCount }).map((_, index) => (
-                      <Input 
-                        key={index}
-                        label={`Student Name ${index + 1} *`} 
-                        name={`studentName${index + 1}`} 
-                        placeholder={`Name of Student ${index + 1}`} 
-                        required 
-                      />
+                      <div key={index} className="grid md:grid-cols-2 gap-4">
+                        <Input 
+                          label={`Student Name ${index + 1} *`} 
+                          name={`studentName${index + 1}`} 
+                          placeholder={`Name of Student ${index + 1}`} 
+                          required 
+                        />
+                        <Select
+                          label={`Class *`}
+                          name={`studentClass${index + 1}`}
+                          options={[
+                            { value: '', label: 'Select Class' },
+                            { value: '8', label: 'Class 8' },
+                            { value: '9', label: 'Class 9' },
+                            { value: '10', label: 'Class 10' }
+                          ]}
+                          required
+                        />
+                      </div>
                     ))}
                   </div>
                 </div>
 
                 <div className="pt-4">
-                  <Button size="lg" className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg text-lg border-none">
-                    Register Team
+                  <Button size="lg" disabled={loading} className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg text-lg border-none">
+                    {loading ? 'Submitting...' : 'Register Team'}
                   </Button>
                 </div>
               </form>
@@ -120,6 +177,12 @@ const KnowledgeQuestRegister: React.FC = () => {
                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
                   Your school team has been successfully registered for the Knowledge Quest. Good luck!
                 </p>
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl max-w-md mx-auto mb-8 border border-slate-200 dark:border-slate-700">
+                  <p className="text-sm text-slate-500 uppercase tracking-wide font-bold mb-2">Registration ID</p>
+                  <p className="text-3xl font-black text-purple-600 tracking-widest">
+                    {registrationId || 'KQ-2024-1234'}
+                  </p>
+                </div>
                 <div className="flex gap-4 justify-center">
                   <NavLink to="/">
                     <Button variant="outline">Back to Home</Button>

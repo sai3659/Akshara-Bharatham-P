@@ -25,7 +25,7 @@ const Team: React.FC = () => {
               </div>
               <h3 className="text-xl font-bold font-heading text-slate-900 dark:text-white mb-1">{member.name}</h3>
               <p className="text-[#06B6D4] font-medium text-xs uppercase tracking-wide mb-4">{member.role}</p>
-              <p className="text-slate-500 dark:text-slate-400 text-sm mb-4">{member.bio}</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">{member.bio}</p>
               <div className="mt-auto">
                 <NavLink to={`/profile/${member.id}`}>
                   <Button variant="outline" size="sm">View Profile</Button>

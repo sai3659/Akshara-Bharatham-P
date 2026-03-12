@@ -26,7 +26,7 @@ const Builder: React.FC = () => {
   
   // Site Content State
   const [heroTitle, setHeroTitle] = useState("Bring Quality in");
-  const [heroSubtitle, setHeroSubtitle] = useState("Akshara Bharatam Society is dedicated to supporting students and improving educational standards. Join our mission today to create a brighter future.");
+  const [heroSubtitle, setHeroSubtitle] = useState("");
   const [heroWordsString, setHeroWordsString] = useState("Education, Life, Society, Rural India");
   
   // Stats State - For demo, we allow editing the first stat value

@@ -34,9 +34,6 @@ const NAV_ITEMS = [
     children: [
       { label: 'Photo Gallery', path: '/gallery#photo-gallery' },
       { label: 'Impact Stories', path: '/gallery#impact-stories' },
-      { label: 'Upcoming Events', path: '/gallery#events' },
-      { label: 'Blog & News', path: '/gallery#blog' },
-      { label: 'Hall of Fame', path: '/gallery#achievements' },
     ]
   },
   { 
@@ -56,8 +53,7 @@ const NAV_ITEMS = [
       { label: 'For ABS Talent Test', path: '/register/talent-test' },
       { label: 'For NMMS Coaching', path: '/register/nmms' },
       { label: 'For Knowledge Quest (Quiz)', path: '/register/knowledge-quest' },
-      { label: 'Student Login', path: '/student-login' },
-      { label: 'School Login', path: '/school-login' },
+      { label: 'Practice', path: '/practice' },
     ]
   },
   {
@@ -98,13 +94,28 @@ const Logo = () => {
 
       <div className="flex flex-col justify-center relative py-1 pl-1 md:pl-4 w-fit max-w-full">
         {/* Text - Static - Responsive Size */}
-        <span className="font-special font-bold text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2">
+        <span className="font-special font-bold text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2 whitespace-nowrap">
           AKSHARA BHARATAM SOCIETY
         </span>
-        {/* Caption - Updated Quote, Increased Size, Full Justified */}
-        <span className="font-medium text-[10px] sm:text-xs md:text-sm lg:text-lg tracking-wide italic leading-tight block w-full text-justify [text-align-last:justify] text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400">
-          "While Democracy is a Soul of a Good Society, Education is the Oxygen of it's Life"
-        </span>
+        {/* Caption - Updated Quote, Flex Justified to perfectly match title width */}
+        <div className="flex w-full justify-between items-center font-medium text-[5.5px] sm:text-[7.5px] md:text-[11px] lg:text-[14.5px] xl:text-[18px] tracking-normal italic leading-tight text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400 whitespace-nowrap">
+          <span>"While</span>
+          <span>Democracy</span>
+          <span>is</span>
+          <span>a</span>
+          <span>Soul</span>
+          <span>of</span>
+          <span>a</span>
+          <span>Good</span>
+          <span>Society,</span>
+          <span>Education</span>
+          <span>is</span>
+          <span>the</span>
+          <span>Oxygen</span>
+          <span>of</span>
+          <span>it's</span>
+          <span>Life"</span>
+        </div>
       </div>
     </NavLink>
   );

@@ -123,7 +123,7 @@ const About: React.FC = () => {
           </p>
         </div>
         <div className="grid md:grid-cols-4 gap-6 mb-12">
-          {TEAM_MEMBERS.slice(0, 4).map((m, i) => (
+          {TEAM_MEMBERS.map((m, i) => (
             <NavLink to={`/profile/${m.id}`} key={i}>
               <Card className="p-4 text-center h-full hover:border-purple-500 transition-colors">
                 <img src={m.image} alt={m.name} className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-2 border-purple-500/20" />

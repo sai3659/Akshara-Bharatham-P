@@ -72,12 +72,27 @@ const NotificationBox = () => {
   );
 };
 
+const SCROLLING_IMAGES = [
+  { url: 'https://drive.google.com/uc?export=view&id=1RFD1MWfnjMPrZ7CV-X0z4pq6Ay3xtVaI', label: 'ABS Talent Test' },
+  { url: 'https://drive.google.com/uc?export=view&id=1u-vEeGJwY373xbL4ZaBGak8BmiwVjNLS', label: 'ABS Talent Test' },
+  { url: 'https://drive.google.com/uc?export=view&id=1-wm39NdMsk2CRhe1rhku8vYNfiaMsgrM', label: 'ABS Talent Test' },
+  { url: 'https://drive.google.com/uc?export=view&id=1O6qOVtpBU93WypHkRlsnf3KZHWecNkd2', label: 'ABS Talent Test' },
+  { url: 'https://drive.google.com/uc?export=view&id=1KiGCS3VrxaTK_hJyMtRJpUWHQ3cGt-R_', label: 'Knowledge Quest' },
+  { url: 'https://drive.google.com/uc?export=view&id=1MJhWz8ZLDoX_mh8TrNrTSVLOtDmLNLm5', label: 'Knowledge Quest' },
+  { url: 'https://drive.google.com/uc?export=view&id=1dS-PdBs9ZG0NoSy3lvuhEMYYa3xhQBos', label: 'Knowledge Quest' },
+  { url: 'https://drive.google.com/uc?export=view&id=1IzKdT1oAKkp3d4mVLrQ1-gBJA6MU8HIt', label: 'Knowledge Quest' },
+  { url: 'https://drive.google.com/uc?export=view&id=1eDQKsp_JdLkRQylY5Am9-FvSlh6GRlKr', label: 'NMMS Coaching' },
+  { url: 'https://drive.google.com/uc?export=view&id=1SURYjjwjS80OPYVI2JamzduMFYyquhVe', label: 'NMMS Coaching' },
+  { url: 'https://drive.google.com/uc?export=view&id=1osKtsJxJIFEbjDZodVh2Vi__U4f1S09f', label: 'Scholarship Distribution' },
+  { url: 'https://drive.google.com/uc?export=view&id=1J4sFsnvUf6i0sxxKOwqcoxCVKHuNhRjB', label: 'Scholarship Distribution' },
+  { url: 'https://drive.google.com/uc?export=view&id=1o8wnICYPM57PDPz_lzxJOydIaZG71YXt', label: 'Scholarship Distribution' },
+];
+
 const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   // Use overrides if provided, else defaults
   const heroTitle = contentOverrides?.heroTitle || "Bring Quality in";
-  const heroSubtitle = contentOverrides?.heroSubtitle || "Akshara Bharatam Society is dedicated to supporting students and improving educational standards. Join our mission today to create a brighter future.";
   const heroWords = contentOverrides?.heroWords || ["Education", "Life", "Society", "Rural India"];
   const displayStats = contentOverrides?.stats || STATS;
 
@@ -106,7 +121,7 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
         <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left space-y-6 md:space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-slate-800/80 backdrop-blur-md border border-white/50 dark:border-slate-700/50 text-slate-800 dark:text-cyan-300 font-bold text-xs md:text-sm shadow-xl uppercase tracking-widest border-l-4 border-l-[#06B6D4]">
-              <Star size={14} className="text-amber-400 fill-amber-400" /> Empowering Rural India
+              <Star size={14} className="text-amber-400 fill-amber-400 animate-[spin_3s_linear_infinite]" /> Empowering Rural India
             </div>
             
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading text-slate-900 dark:text-white leading-[1.1] drop-shadow-md">
@@ -118,9 +133,30 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
               />
             </h1>
 
-            <p className="text-base sm:text-lg md:text-2xl font-semibold max-w-xl mx-auto lg:mx-0 leading-relaxed text-slate-700 dark:text-slate-300 drop-shadow-sm">
-              {heroSubtitle}
-            </p>
+            <div className="relative w-full overflow-hidden py-8 group mt-8 [perspective:1000px]">
+              <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 z-20 bg-gradient-to-r from-white dark:from-slate-950 to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 z-20 bg-gradient-to-l from-white dark:from-slate-950 to-transparent pointer-events-none" />
+              
+              <div className="flex gap-6 w-max animate-horizontal-scroll group-hover:[animation-play-state:paused] items-center py-4">
+                {[...SCROLLING_IMAGES, ...SCROLLING_IMAGES].map((img, idx) => {
+                  const isEven = idx % 2 === 0;
+                  return (
+                    <div 
+                      key={idx} 
+                      className={`relative w-56 h-36 md:w-72 md:h-48 rounded-3xl overflow-hidden shadow-xl border border-white/40 dark:border-slate-700/50 flex-shrink-0 group/img transition-all duration-500 hover:scale-110 hover:z-30 hover:shadow-2xl ${isEven ? 'rotate-2 hover:rotate-0' : '-rotate-2 hover:rotate-0'} bg-slate-100 dark:bg-slate-800`}
+                    >
+                      <img src={img.url} alt={img.label} className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/img:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
+                        <div className="inline-block px-3 py-1.5 rounded-xl bg-white/20 backdrop-blur-md border border-white/30">
+                          <span className="text-white text-[10px] md:text-xs font-black tracking-widest uppercase drop-shadow-md">{img.label}</span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
           
           <div className="relative mt-8 lg:mt-0 lg:transform lg:translate-x-[140px] lg:translate-y-[2cm]">

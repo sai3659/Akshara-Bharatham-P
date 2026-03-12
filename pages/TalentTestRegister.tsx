@@ -1,20 +1,54 @@
 
 import React, { useState } from 'react';
 import { Section, Card, Button, Input, DecorativeShapes } from '../components/UI';
-import { User, Calendar, MapPin, Phone, Mail, GraduationCap, Briefcase, IndianRupee, Award, CheckCircle, Users } from 'lucide-react';
+import { User, Calendar, MapPin, Phone, Mail, GraduationCap, Briefcase, IndianRupee, Award, CheckCircle, Users, Lock } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const TalentTestRegister: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
   const [occupation, setOccupation] = useState('');
   const [otherOccupation, setOtherOccupation] = useState('');
+  const [applicationId, setApplicationId] = useState('');
+  const [loading, setLoading] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000);
+    setLoading(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    
+    // Add occupation details
+    data.occupation = occupation;
+    if (occupation === 'Other') {
+      data.otherOccupation = otherOccupation;
+    }
+
+    try {
+      const response = await fetch('/api/register/talent-test', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setApplicationId(result.applicationId);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -47,12 +81,14 @@ const TalentTestRegister: React.FC = () => {
                     <Input label="Student Full Name *" name="fullName" placeholder="As per school records" required />
                     <Input label="Date of Birth *" name="dob" type="date" required />
                     <Input label="Aadhar Number" name="aadhar" placeholder="12-digit UID" />
+                    <Input label="Password *" name="password" type="password" placeholder="Create a password" required />
                     <Input label="School Name *" name="schoolName" placeholder="Current School Name" required />
                     <div className="md:col-span-2">
                         <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Residential Address *</label>
                         <textarea 
                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all placeholder:text-slate-400 h-24 resize-none"
                            placeholder="House No, Street, Village/City, Pincode"
+                           name="address"
                            required
                         ></textarea>
                     </div>
@@ -120,8 +156,8 @@ const TalentTestRegister: React.FC = () => {
                 </div>
 
                 <div className="pt-4">
-                  <Button size="lg" className="w-full bg-gradient-to-r from-amber-500 to-orange-600 shadow-lg text-lg border-none">
-                    Submit Registration
+                  <Button size="lg" disabled={loading} className="w-full bg-gradient-to-r from-amber-500 to-orange-600 shadow-lg text-lg border-none">
+                    {loading ? 'Submitting...' : 'Submit Registration'}
                   </Button>
                   <p className="text-center text-xs text-slate-500 mt-4">
                     By submitting, you confirm that all details provided are accurate.
@@ -141,7 +177,7 @@ const TalentTestRegister: React.FC = () => {
                 <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl max-w-md mx-auto mb-8 border border-slate-200 dark:border-slate-700">
                   <p className="text-sm text-slate-500 uppercase tracking-wide font-bold mb-2">Application ID</p>
                   <p className="text-3xl font-black text-amber-600 tracking-widest">
-                    ABS-TT-2024-8932
+                    {applicationId || 'ABS-TT-2024-8932'}
                   </p>
                 </div>
                 <div className="flex gap-4 justify-center">

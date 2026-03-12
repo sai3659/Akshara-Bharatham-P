@@ -1,18 +1,46 @@
 
 import React, { useState } from 'react';
 import { Section, Card, Button, Input, DecorativeShapes } from '../components/UI';
-import { School, MapPin, Phone, Users, Clock, CheckCircle, Calendar } from 'lucide-react';
+import { School, MapPin, Phone, Users, Clock, CheckCircle, Calendar, Lock } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 const NMMSRegister: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [registrationId, setRegistrationId] = useState('');
+  const [loading, setLoading] = useState(false);
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setTimeout(() => {
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000);
+    setLoading(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/register/nmms', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setRegistrationId(result.registrationId);
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert('Registration failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('An error occurred. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -43,11 +71,13 @@ const NMMSRegister: React.FC = () => {
                   </h3>
                   <div className="grid md:grid-cols-1 gap-6">
                     <Input label="Name of the School *" name="schoolName" placeholder="Official School Name" required />
+                    <Input label="Password *" name="password" type="password" placeholder="Create a password" required />
                     <div>
                         <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Full Address *</label>
                         <textarea 
                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all placeholder:text-slate-400 h-24 resize-none"
                            placeholder="Complete address including Mandal and District"
+                           name="address"
                            required
                         ></textarea>
                     </div>
@@ -82,8 +112,8 @@ const NMMSRegister: React.FC = () => {
                 </div>
 
                 <div className="pt-4">
-                  <Button size="lg" className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg text-lg border-none">
-                    Submit Request
+                  <Button size="lg" disabled={loading} className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg text-lg border-none">
+                    {loading ? 'Submitting...' : 'Submit Request'}
                   </Button>
                   <p className="text-center text-xs text-slate-500 mt-4">
                     Our team will contact the provided numbers to confirm the schedule.
@@ -100,6 +130,12 @@ const NMMSRegister: React.FC = () => {
                 <p className="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg mx-auto">
                   Thank you for registering your school for NMMS Coaching. Our coordinators will reach out shortly.
                 </p>
+                <div className="bg-white dark:bg-slate-900 p-6 rounded-2xl max-w-md mx-auto mb-8 border border-slate-200 dark:border-slate-700">
+                  <p className="text-sm text-slate-500 uppercase tracking-wide font-bold mb-2">Registration ID</p>
+                  <p className="text-3xl font-black text-blue-600 tracking-widest">
+                    {registrationId || 'NMMS-2024-1234'}
+                  </p>
+                </div>
                 <div className="flex gap-4 justify-center">
                   <NavLink to="/">
                     <Button variant="outline">Back to Home</Button>

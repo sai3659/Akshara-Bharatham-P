@@ -22,6 +22,7 @@ import SchoolLogin from './pages/SchoolLogin';
 import TalentTestRegister from './pages/TalentTestRegister';
 import NMMSRegister from './pages/NMMSRegister';
 import KnowledgeQuestRegister from './pages/KnowledgeQuestRegister';
+import Practice from './pages/Practice';
 import TalentTestResults from './pages/TalentTestResults';
 import KnowledgeQuestResults from './pages/KnowledgeQuestResults';
 
@@ -63,6 +64,7 @@ const App: React.FC = () => {
           <Route path="/register/talent-test" element={<TalentTestRegister />} />
           <Route path="/register/nmms" element={<NMMSRegister />} />
           <Route path="/register/knowledge-quest" element={<KnowledgeQuestRegister />} />
+          <Route path="/practice" element={<Practice />} />
           
           {/* Legacy route redirects - optional but good practice */}
           <Route path="/student-register" element={<Navigate to="/register/talent-test" replace />} />

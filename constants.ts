@@ -120,7 +120,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: "Surisetti Sai Kumar",
     role: "Core Team Member",
     image: "https://lh3.googleusercontent.com/d/1Rqbkien7Q7BosP_q1Qam9n-dmxwMsbvF",
-    bio: "Active in field work and community mobilization across villages."
+    bio: "I strongly believe that talent and potential should never be limited by any barriers. I am motivated by the vision of bridging the gap between government and private school education and helping deserving students reach their full potential. I actively participate in school visits and field activities. I also contribute by preparing academic content for quiz competitions and talent tests."
   },
   {
     id: "t7",
@@ -142,6 +142,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
     role: "Core Team Member",
     image: "https://lh3.googleusercontent.com/d/1q1thV6Iz6JkzmRGJ-47AffLjSTHp2Vzo",
     bio: "Supports student engagement and academic counseling."
+  },
+  {
+    id: "t10",
+    name: "Chintakayala Raju",
+    role: "Core Team Member",
+    image: "https://lh3.googleusercontent.com/d/10iTTXlDaT70ulMFhXfAQXki0q8chOv3U",
+    bio: "Dedicated to the mission of Akshara Bharatam Society."
   }
 ];
 
