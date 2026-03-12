@@ -27,7 +27,7 @@ const NOTIFICATIONS = [
 
 const NotificationBox = () => {
   return (
-    <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col w-full max-w-[260px] mx-auto lg:ml-auto h-[380px] relative z-20">
+    <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col w-full max-w-sm lg:max-w-[260px] mx-auto lg:ml-auto h-[380px] relative z-20">
       <div className="bg-[#003B5C] dark:bg-[#020617] p-3 flex justify-between items-center z-10 border-b-4 border-yellow-400">
         <h3 className="text-white font-bold font-heading text-[10px] sm:text-xs tracking-wide flex items-center gap-2">
           EVENTS AND NOTIFICATIONS
@@ -118,8 +118,8 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-white/30 dark:bg-slate-900/20 rounded-[100px] blur-[60px] md:blur-[80px]" />
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-center lg:text-left space-y-6 md:space-y-8">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-start lg:items-center">
+          <div className="text-center lg:text-left space-y-6 md:space-y-8 min-w-0">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-slate-800/80 backdrop-blur-md border border-white/50 dark:border-slate-700/50 text-slate-800 dark:text-cyan-300 font-bold text-xs md:text-sm shadow-xl uppercase tracking-widest border-l-4 border-l-[#06B6D4]">
               <Star size={14} className="text-amber-400 fill-amber-400 animate-[spin_3s_linear_infinite]" /> Empowering Rural India
             </div>
@@ -133,28 +133,24 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
               />
             </h1>
 
-            <div className="relative w-full overflow-hidden py-8 group mt-8 [perspective:1000px]">
-              <div className="absolute left-0 top-0 bottom-0 w-12 md:w-24 z-20 bg-gradient-to-r from-white dark:from-slate-950 to-transparent pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-12 md:w-24 z-20 bg-gradient-to-l from-white dark:from-slate-950 to-transparent pointer-events-none" />
+            <div className="relative w-full mt-8 -mx-4 px-4 md:mx-0 md:px-0 max-w-[100vw] md:max-w-full overflow-hidden group">
+              {/* Fade edges */}
+              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 z-20 bg-gradient-to-r from-white/50 dark:from-slate-950/50 to-transparent pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 z-20 bg-gradient-to-l from-white/50 dark:from-slate-950/50 to-transparent pointer-events-none" />
               
-              <div className="flex gap-6 w-max animate-horizontal-scroll group-hover:[animation-play-state:paused] items-center py-4">
-                {[...SCROLLING_IMAGES, ...SCROLLING_IMAGES].map((img, idx) => {
-                  const isEven = idx % 2 === 0;
-                  return (
-                    <div 
-                      key={idx} 
-                      className={`relative w-56 h-36 md:w-72 md:h-48 rounded-3xl overflow-hidden shadow-xl border border-white/40 dark:border-slate-700/50 flex-shrink-0 group/img transition-all duration-500 hover:scale-110 hover:z-30 hover:shadow-2xl ${isEven ? 'rotate-2 hover:rotate-0' : '-rotate-2 hover:rotate-0'} bg-slate-100 dark:bg-slate-800`}
-                    >
-                      <img src={img.url} alt={img.label} className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110" referrerPolicy="no-referrer" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover/img:opacity-100 transition-opacity duration-300" />
-                      <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 group-hover/img:translate-y-0 transition-transform duration-300">
-                        <div className="inline-block px-3 py-1.5 rounded-xl bg-white/20 backdrop-blur-md border border-white/30">
-                          <span className="text-white text-[10px] md:text-xs font-black tracking-widest uppercase drop-shadow-md">{img.label}</span>
-                        </div>
-                      </div>
+              <div className="flex w-max gap-4 pb-4 animate-horizontal-scroll [animation-direction:reverse] group-hover:[animation-play-state:paused]">
+                {[...SCROLLING_IMAGES, ...SCROLLING_IMAGES].map((img, idx) => (
+                  <div 
+                    key={idx} 
+                    className="relative w-64 h-40 md:w-80 md:h-48 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 flex-shrink-0 group/img bg-slate-100 dark:bg-slate-800"
+                  >
+                    <img src={img.url} alt={img.label} className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105" referrerPolicy="no-referrer" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
+                    <div className="absolute bottom-0 left-0 right-0 p-4">
+                      <span className="text-white text-sm font-semibold tracking-wide">{img.label}</span>
                     </div>
-                  );
-                })}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

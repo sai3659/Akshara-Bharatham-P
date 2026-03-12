@@ -179,11 +179,11 @@ export const Typewriter: React.FC<{ words: string[]; speed?: number; delay?: num
   }, [subIndex, index, reverse, words, speed, delay]);
 
   return (
-    <span className="inline-flex items-center">
+    <span className="inline-block align-middle">
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-cyan-500 dark:from-purple-400 dark:to-cyan-400">
         {words[index]?.substring(0, subIndex)}
       </span>
-      <span className={`ml-1 w-1 h-[1em] bg-cyan-500 ${blink ? 'opacity-100' : 'opacity-0'}`}></span>
+      <span className={`inline-block ml-1 w-1 h-[1em] bg-cyan-500 align-middle ${blink ? 'opacity-100' : 'opacity-0'}`}></span>
     </span>
   );
 };

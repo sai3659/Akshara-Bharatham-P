@@ -94,7 +94,7 @@ const Logo = () => {
 
       <div className="flex flex-col justify-center relative py-1 pl-1 md:pl-4 w-fit max-w-full">
         {/* Text - Static - Responsive Size */}
-        <span className="font-special font-bold text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2 whitespace-nowrap">
+        <span className="font-special font-bold text-lg sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl tracking-wide text-[#003366] dark:text-white uppercase drop-shadow-sm block leading-none mb-1 md:mb-2 whitespace-normal sm:whitespace-nowrap">
           AKSHARA BHARATAM SOCIETY
         </span>
         {/* Caption - Updated Quote, Flex Justified to perfectly match title width */}
