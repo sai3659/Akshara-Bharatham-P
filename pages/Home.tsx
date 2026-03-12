@@ -16,13 +16,9 @@ interface HomeProps {
 }
 
 const NOTIFICATIONS = [
-  { id: 1, text: "Applications for 'Siksha' Scholarship 2025 are now OPEN! Apply before Jan 30th.", isNew: true, date: "17 Dec 2024" },
-  { id: 2, text: "Annual General Body Meeting scheduled for Jan 25th at Main Campus.", isNew: true, date: "16 Dec 2024" },
-  { id: 3, text: "Volunteer recruitment drive results have been announced. Check your email.", isNew: false, date: "14 Dec 2024" },
-  { id: 4, text: "New Digital Computer Lab inaugurated in Rambilli Mandal High School.", isNew: true, date: "12 Dec 2024" },
-  { id: 5, text: "Urgent: Blood donation camp organized next Sunday at Community Hall.", isNew: false, date: "10 Dec 2024" },
-  { id: 6, text: "Teacher Training Workshop registration deadline extended till Friday.", isNew: false, date: "08 Dec 2024" },
-  { id: 7, text: "Thank you to all donors! We reached our fundraising goal for the Library Project.", isNew: true, date: "05 Dec 2024" },
+  { id: 1, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: true, date: "Latest" },
+  { id: 2, text: "ABS Knowledge Quest (Quiz program) 2026", isNew: true, date: "Upcoming" },
+  { id: 3, text: "NMMS coaching 2026", isNew: true, date: "Upcoming" },
 ];
 
 const NotificationBox = () => {
@@ -36,9 +32,9 @@ const NotificationBox = () => {
           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
         </span>
       </div>
-      <div className="flex-1 overflow-hidden relative bg-white dark:bg-slate-950 group">
-        <div className="py-2 animate-vertical-scroll group-hover:[animation-play-state:paused]">
-          {[...NOTIFICATIONS, ...NOTIFICATIONS].map((note, index) => (
+      <div className="flex-1 overflow-hidden relative bg-white dark:bg-slate-950 group pt-2">
+        <div className="animate-vertical-scroll group-hover:[animation-play-state:paused]">
+          {[...NOTIFICATIONS, ...NOTIFICATIONS, ...NOTIFICATIONS, ...NOTIFICATIONS].map((note, index) => (
             <div key={`${note.id}-${index}`} className="px-4 py-3 border-b border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors group/item">
               <div className="flex items-start gap-2">
                  <div className="mt-1 min-w-[14px]">
