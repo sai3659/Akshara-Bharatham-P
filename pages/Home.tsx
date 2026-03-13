@@ -16,7 +16,7 @@ interface HomeProps {
 }
 
 const NOTIFICATIONS = [
-  { id: 1, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: true, date: "Latest" },
+  { id: 1, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: true, date: "Latest", url: "https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" },
   { id: 2, text: "ABS Knowledge Quest (Quiz program) 2026", isNew: true, date: "Upcoming" },
   { id: 3, text: "NMMS coaching 2026", isNew: true, date: "Upcoming" },
 ];
@@ -41,9 +41,15 @@ const NotificationBox = () => {
                    <ArrowRight size={14} className="text-[#06B6D4] group-hover/item:translate-x-1 transition-transform" />
                  </div>
                  <div className="flex-1">
-                    <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
-                      {note.text}
-                    </p>
+                    {note.url ? (
+                      <a href={note.url} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
+                        {note.text}
+                      </a>
+                    ) : (
+                      <p className="text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
+                        {note.text}
+                      </p>
+                    )}
                     <div className="flex items-center gap-2">
                       <span className="text-[8px] text-slate-400 font-mono uppercase tracking-wider">{note.date}</span>
                       {note.isNew && (

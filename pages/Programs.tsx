@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Section, Card, DecorativeShapes, SideNavigation, Button } from '../components/UI';
 import { PROGRAMS } from '../constants';
-import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School, BarChart as BarChartIcon } from 'lucide-react';
+import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School, BarChart as BarChartIcon, Bell } from 'lucide-react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
@@ -320,14 +320,23 @@ const Programs: React.FC = () => {
                                   </div>
                              ))}
                          </div>
-                         <div className="mt-8 relative inline-block group">
-                            <NewBadge />
-                            <div className="absolute inset-0 bg-amber-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                            <NavLink to="/register/talent-test">
-                                <Button className="w-full sm:w-auto shadow-xl shadow-amber-500/30 bg-gradient-to-r from-amber-500 to-orange-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
-                                    <User size={18} className="mr-2" /> Student Registration
-                                </Button>
-                            </NavLink>
+                         <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                           <div className="relative inline-block group">
+                              <NewBadge />
+                              <div className="absolute inset-0 bg-amber-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                              <NavLink to="/register/talent-test">
+                                  <Button className="w-full sm:w-auto shadow-xl shadow-amber-500/30 bg-gradient-to-r from-amber-500 to-orange-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
+                                      <User size={18} className="mr-2" /> Student Registration
+                                  </Button>
+                              </NavLink>
+                           </div>
+                           <div className="relative inline-block group">
+                              <a href="https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                                  <Button className="w-full sm:w-auto shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
+                                      <Bell size={18} className="mr-2" /> Notification
+                                  </Button>
+                              </a>
+                           </div>
                          </div>
                      </div>
                  </div>
