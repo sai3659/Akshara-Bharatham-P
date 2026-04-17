@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Section, Card, DecorativeShapes, SideNavigation, Button } from '../components/UI';
 import { PROGRAMS } from '../constants';
-import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School, BarChart as BarChartIcon, Bell } from 'lucide-react';
+import { BookOpen, Award, Brain, Megaphone, Layers, ArrowRight, Lightbulb, Users, Trophy, CheckCircle2, ImageIcon, Zap, Target, Globe, MapPin, GraduationCap, Sparkles, User, School, BarChart as BarChartIcon, Bell, Quote } from 'lucide-react';
 import { useLocation, NavLink } from 'react-router-dom';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
@@ -293,7 +293,7 @@ const Programs: React.FC = () => {
              <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16">
                  <div className="space-y-6">
                      <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
-                         <p className="font-medium text-lg text-slate-900 dark:text-slate-200">
+                         <p>
                              We conduct Talent tests at the end of every academic year as part of our primary objective to encourage talented and poor students to pursue their higher education.
                          </p>
                          <p>
@@ -400,9 +400,16 @@ const Programs: React.FC = () => {
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white leading-tight">Knowledge Quest Program</h2>
                     
-                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400 mx-auto">
-                        <p className="font-medium text-slate-800 dark:text-slate-200 italic">
+                    <div className="bg-white dark:bg-slate-800 p-8 rounded-3xl border border-purple-100 dark:border-purple-900/20 shadow-sm relative">
+                        <Quote className="absolute top-4 left-4 text-purple-200 dark:text-purple-900/50" size={48} />
+                        <p className="font-medium text-slate-800 dark:text-slate-200 italic text-lg relative z-10 pl-8">
                           "We believe that quiz programs would provide platforms to meet new young minds and showcase their knowledge at broader level in society. It will encourage and motivate intelligent brains to acquire more knowledge with education."
+                        </p>
+                    </div>
+
+                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400 mx-auto text-left">
+                        <p>
+                            We conduct quiz programs to the students of class 8, 9, and 10 in various schools to encourage their critical thinking and team spirit.
                         </p>
                     </div>
 
@@ -498,28 +505,47 @@ const Programs: React.FC = () => {
                 </div>
              </div>
           </div>
-      </Section>
-
-      {/* 4. NMMS Coaching Section */}
+      </Section>      {/* 4. NMMS Coaching Section */}
       <Section id="nmms-coaching" className="bg-white dark:bg-[#0b1220] py-24 md:py-32 border-t border-slate-100 dark:border-slate-800">
           <div className="max-w-7xl mx-auto">
-             <div className="flex flex-col lg:flex-row gap-12 items-center mb-16">
-                <div className="flex-1 space-y-8">
+             <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+                
+                {/* Left Side - Sticky Content */}
+                <div className="flex-1 lg:sticky lg:top-32 space-y-8">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">
                         <BookOpen size={14} /> Financial Assistance
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">NMMS Coaching</h2>
+                    <h2 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white leading-tight">NMMS Coaching Program</h2>
+                    
                     <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400 space-y-6">
                         <p>The NMMS scholarship is the National Means-cum-Merit Scholarship Scheme, a centrally sponsored program by the Indian government that provides financial assistance to meritorious students from economically weaker sections to prevent them from dropping out of school after class VII.</p>
                         <p>Selection is based on a state-level examination that includes a Mental Ability Test (MAT) and a Scholastic Aptitude Test (SAT).</p>
-                        <p>Akshara Bharatam society has been providing training sessions to the students in all three mandals(Rambilli, Atchutapuram and Yelamanchili) to crack the NMMS - MAT and SAT exams.</p>
+                        <p>Akshara Bharatam society has been providing training sessions to the students in all three mandals (Rambilli, Atchutapuram and Yelamanchili) to crack the NMMS exams.</p>
+                    </div>
+
+                    {/* Exam Structure Cards */}
+                    <div className="grid grid-cols-2 gap-4 pt-2">
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 group hover:border-blue-300 transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3">
+                                <Brain size={20} />
+                            </div>
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">MAT</h4>
+                            <p className="text-xs text-slate-500">Mental Ability Test</p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-5 rounded-2xl border border-slate-100 dark:border-slate-800 group hover:border-cyan-300 transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-900/40 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-3">
+                                <BookOpen size={20} />
+                            </div>
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">SAT</h4>
+                            <p className="text-xs text-slate-500">Scholastic Aptitude Test</p>
+                        </div>
                     </div>
 
                     <div className="pt-4 relative inline-block group">
                         <NewBadge />
                         <div className="absolute inset-0 bg-blue-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
                         <NavLink to="/register/nmms">
-                            <Button className="shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-500 border-none text-white relative z-0 transform hover:scale-105 transition-all px-8 py-4 text-lg">
+                            <Button className="shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-500 border-none text-white relative z-0 transform hover:scale-105 transition-all px-8 py-4 text-lg w-full sm:w-auto">
                                 <School size={18} className="mr-2" /> School Registration
                             </Button>
                         </NavLink>
@@ -535,55 +561,26 @@ const Programs: React.FC = () => {
                     </div>
                 </div>
                 
-                <div className="flex-1 w-full">
-                    <div className="relative">
-                       {/* Featured NMMS Image (First in list) */}
-                       <img 
-                           src={NMMS_IMAGES[0]} 
-                           alt="NMMS Coaching Session" 
-                           className="rounded-3xl shadow-2xl w-full object-cover h-[450px] border-4 border-white dark:border-slate-800 transition-transform hover:scale-[1.01] duration-500"
-                       />
-                       
-                       {/* Floating Stats Card */}
-                       <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-blue-100 dark:border-blue-900/30 max-w-xs hidden md:block">
-                          <h5 className="font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-                             <GraduationCap className="text-blue-500" size={20} /> Exam Structure
-                          </h5>
-                          <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                             <li className="flex justify-between items-center bg-slate-50 dark:bg-slate-900/50 p-2 rounded-lg">
-                                <span>Mental Ability (MAT)</span>
-                                <CheckCircle2 size={14} className="text-green-500" />
-                             </li>
-                             <li className="flex justify-between items-center bg-slate-50 dark:bg-slate-900/50 p-2 rounded-lg">
-                                <span>Scholastic Aptitude (SAT)</span>
-                                <CheckCircle2 size={14} className="text-green-500" />
-                             </li>
-                          </ul>
-                       </div>
+                {/* Right Side - Masonry Gallery */}
+                <div className="flex-1 w-full lg:w-[55%]">
+                    <div className="columns-2 md:columns-3 lg:columns-2 gap-4 space-y-4">
+                        {NMMS_IMAGES.map((img, idx) => (
+                            <div key={idx} className="break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 dark:border-slate-800 group relative transition-all duration-300">
+                                <img 
+                                    src={img} 
+                                    alt={`NMMS Coaching Highlight ${idx+1}`} 
+                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" 
+                                    loading="lazy" 
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                    <div className="bg-white/20 backdrop-blur-md p-2 rounded-full text-white">
+                                        <BookOpen size={16} />
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-             </div>
-
-             {/* NMMS Gallery Strip */}
-             <div className="relative group/gallery">
-                  <div className="flex items-center justify-between mb-6 px-2">
-                      <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                         <ImageIcon size={20} className="text-blue-500"/> Coaching Highlights
-                      </h3>
-                      <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
-                  </div>
-                  <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
-                     {NMMS_IMAGES.slice(1).map((img, idx) => (
-                         <div key={idx} className="min-w-[280px] md:min-w-[320px] h-[200px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
-                             <img src={img} alt={`NMMS Coaching Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
-                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                  <div className="bg-white/20 backdrop-blur-md p-3 rounded-full text-white">
-                                     <BookOpen size={24} />
-                                  </div>
-                             </div>
-                         </div>
-                     ))}
-                  </div>
              </div>
           </div>
       </Section>
@@ -598,8 +595,8 @@ const Programs: React.FC = () => {
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Student Mentorship</h2>
                     <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
-                        <p className="border-l-4 border-teal-500 pl-4 py-2 bg-teal-50/50 dark:bg-teal-900/10 rounded-r-lg">
-                           "We are providing mentorships to the students who wrote ABS talent test-2024. Mentorship is for shaping their education career in better way. The best guidance would be given to choose the right path to reach their goals based on their interests."
+                        <p>
+                           We are providing mentorships to the students who wrote ABS talent test-2024. Mentorship is for shaping their education career in better way. The best guidance would be given to choose the right path to reach their goals based on their interests.
                         </p>
                     </div>
 
@@ -642,10 +639,9 @@ const Programs: React.FC = () => {
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Educational Awareness Program</h2>
                     
-                    <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800 relative">
-                        <Sparkles className="absolute -top-4 -right-4 text-yellow-400 fill-yellow-400 animate-pulse" size={32} />
-                        <p className="text-slate-700 dark:text-slate-300 italic font-medium leading-relaxed text-lg">
-                           "Through this program we inject strong belief in the students that only education can change our lives and lifestyle. We visit all the government schools in three mandals(Rambilli, Atchutapuram and Yelamanchili) and take sessions on how education brings change in the life and the society by giving the example of inspirational personalities."
+                    <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
+                        <p>
+                           Through this program we inject strong belief in the students that only education can change our lives and lifestyle. We visit all the government schools in three mandals(Rambilli, Atchutapuram and Yelamanchili) and take sessions on how education brings change in the life and the society by giving the example of inspirational personalities.
                         </p>
                     </div>
 

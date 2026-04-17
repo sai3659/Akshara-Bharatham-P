@@ -132,7 +132,10 @@ const Member: React.FC = () => {
                         <Input placeholder="Last Name" required />
                     </div>
                     <Input placeholder="Email Address" type="email" required />
-                    <Input placeholder="Phone Number" required />
+                    <div className="grid grid-cols-2 gap-4">
+                        <Input placeholder="Phone Number" required />
+                        <Input placeholder="Aadhar Number *" required />
+                    </div>
                     <div className="flex flex-col gap-1.5 w-full">
                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Membership</label>
                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none">

@@ -86,7 +86,10 @@ const Volunteer: React.FC = () => {
                     <Input placeholder="Full Name" required />
                     <Input placeholder="Phone Number" required />
                   </div>
-                  <Input placeholder="Email Address" type="email" required />
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <Input placeholder="Email Address" type="email" required />
+                    <Input placeholder="Aadhar Number *" required />
+                  </div>
                   <Select label="Preferred Role" options={VOLUNTEER_ROLES.map(r => ({ value: r.title, label: r.title }))} />
                   <div className="flex flex-col gap-1.5 w-full">
                      <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Why do you want to join?</label>

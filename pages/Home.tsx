@@ -75,19 +75,41 @@ const NotificationBox = () => {
 };
 
 const SCROLLING_IMAGES = [
-  { url: 'https://drive.google.com/uc?export=view&id=1RFD1MWfnjMPrZ7CV-X0z4pq6Ay3xtVaI', label: 'ABS Talent Test' },
-  { url: 'https://drive.google.com/uc?export=view&id=1u-vEeGJwY373xbL4ZaBGak8BmiwVjNLS', label: 'ABS Talent Test' },
-  { url: 'https://drive.google.com/uc?export=view&id=1-wm39NdMsk2CRhe1rhku8vYNfiaMsgrM', label: 'ABS Talent Test' },
-  { url: 'https://drive.google.com/uc?export=view&id=1O6qOVtpBU93WypHkRlsnf3KZHWecNkd2', label: 'ABS Talent Test' },
-  { url: 'https://drive.google.com/uc?export=view&id=1KiGCS3VrxaTK_hJyMtRJpUWHQ3cGt-R_', label: 'Knowledge Quest' },
-  { url: 'https://drive.google.com/uc?export=view&id=1MJhWz8ZLDoX_mh8TrNrTSVLOtDmLNLm5', label: 'Knowledge Quest' },
-  { url: 'https://drive.google.com/uc?export=view&id=1dS-PdBs9ZG0NoSy3lvuhEMYYa3xhQBos', label: 'Knowledge Quest' },
-  { url: 'https://drive.google.com/uc?export=view&id=1IzKdT1oAKkp3d4mVLrQ1-gBJA6MU8HIt', label: 'Knowledge Quest' },
-  { url: 'https://drive.google.com/uc?export=view&id=1eDQKsp_JdLkRQylY5Am9-FvSlh6GRlKr', label: 'NMMS Coaching' },
-  { url: 'https://drive.google.com/uc?export=view&id=1SURYjjwjS80OPYVI2JamzduMFYyquhVe', label: 'NMMS Coaching' },
-  { url: 'https://drive.google.com/uc?export=view&id=1osKtsJxJIFEbjDZodVh2Vi__U4f1S09f', label: 'Scholarship Distribution' },
-  { url: 'https://drive.google.com/uc?export=view&id=1J4sFsnvUf6i0sxxKOwqcoxCVKHuNhRjB', label: 'Scholarship Distribution' },
-  { url: 'https://drive.google.com/uc?export=view&id=1o8wnICYPM57PDPz_lzxJOydIaZG71YXt', label: 'Scholarship Distribution' },
+  // ABS Talent Test
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.12%20PM%20(1).jpeg', label: 'ABS Talent Test' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.13%20PM%20(3).jpeg', label: 'ABS Talent Test' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.13%20PM.jpeg', label: 'ABS Talent Test' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.14%20PM%20(3).jpeg', label: 'ABS Talent Test' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.15%20PM.jpeg', label: 'ABS Talent Test' },
+
+  // Awareness Program
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM%20(1).jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM.jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.52%20PM.jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.39%20PM%20(1).jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.39%20PM%20(3).jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM%20(2).jpeg', label: 'Awareness Program' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM.jpeg', label: 'Awareness Program' },
+
+  // Knowledge Quest
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0008.jpg', label: 'Knowledge Quest' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0009.jpg', label: 'Knowledge Quest' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0011.jpg', label: 'Knowledge Quest' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0012.jpg', label: 'Knowledge Quest' },
+
+  // NMMS Coaching
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.13%20PM%20(1).jpeg', label: 'NMMS Coaching' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.14%20PM%20(1).jpeg', label: 'NMMS Coaching' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.14%20PM.jpeg', label: 'NMMS Coaching' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.19%20PM.jpeg', label: 'NMMS Coaching' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.22%20PM.jpeg', label: 'NMMS Coaching' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.28%20PM%20(2).jpeg', label: 'NMMS Coaching' },
+
+  // Scholarship Distribution
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Scholoship%20Distribution/WhatsApp%20Image%202026-02-08%20at%201.16.12%20PM%20(1).jpeg', label: 'Scholarship Distribution' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Scholoship%20Distribution/WhatsApp%20Image%202026-02-08%20at%201.16.12%20PM.jpeg', label: 'Scholarship Distribution' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Scholoship%20Distribution/WhatsApp%20Image%202026-02-08%20at%201.16.13%20PM.jpeg', label: 'Scholarship Distribution' },
+  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Scholoship%20Distribution/WhatsApp%20Image%202026-02-08%20at%201.16.14%20PM%20(1).jpeg', label: 'Scholarship Distribution' },
 ];
 
 const Home: React.FC<HomeProps> = ({ contentOverrides }) => {

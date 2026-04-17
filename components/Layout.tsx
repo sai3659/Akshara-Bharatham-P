@@ -53,7 +53,6 @@ const NAV_ITEMS = [
       { label: 'For ABS Talent Test', path: '/register/talent-test' },
       { label: 'For NMMS Coaching', path: '/register/nmms' },
       { label: 'For Knowledge Quest (Quiz)', path: '/register/knowledge-quest' },
-      { label: 'Practice', path: '/practice' },
     ]
   },
   {
@@ -62,6 +61,7 @@ const NAV_ITEMS = [
     children: [
       { label: 'ABS Talent Test', path: '/results/talent-test' },
       { label: 'Knowledge Quest', path: '/results/knowledge-quest' },
+      { label: 'Practice', path: '/practice' },
     ]
   },
   { label: 'Contact Us', path: '/contact' },

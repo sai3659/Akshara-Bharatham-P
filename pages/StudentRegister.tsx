@@ -6,11 +6,13 @@ import { NavLink } from 'react-router-dom';
 
 const StudentRegister: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [registerType, setRegisterType] = useState<'student' | 'school'>('student');
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     dob: '',
+    aadhar: '',
     gender: 'Select Gender',
     schoolName: '',
     grade: 'Select Grade',
@@ -23,7 +25,7 @@ const StudentRegister: React.FC = () => {
     udiseCode: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -32,13 +34,36 @@ const StudentRegister: React.FC = () => {
     setSubmitted(false);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate API call
-    setTimeout(() => {
-      setSubmitted(true);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, 1000);
+    setLoading(true);
+    
+    try {
+      const response = await fetch("/.netlify/functions/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ...formData,
+          registerType
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        setSubmitted(true);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        alert("Registration failed: " + (result.error || "Unknown error"));
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("An error occurred while submitting. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -99,6 +124,7 @@ const StudentRegister: React.FC = () => {
                     <Input label="First Name" name="firstName" placeholder="Enter first name" required onChange={handleChange} />
                     <Input label="Last Name" name="lastName" placeholder="Enter last name" required onChange={handleChange} />
                     <Input label="Date of Birth" name="dob" type="date" required onChange={handleChange} />
+                    <Input label="Aadhar Number *" name="aadhar" placeholder="12-digit UID" required onChange={handleChange} />
                     <Select 
                       label="Gender" 
                       name="gender" 
@@ -175,6 +201,9 @@ const StudentRegister: React.FC = () => {
                        <div className="md:col-span-3">
                          <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Full Address</label>
                          <textarea 
+                           name="address"
+                           value={formData.address}
+                           onChange={handleChange}
                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-[#9C4DFF] focus:border-transparent outline-none transition-all placeholder:text-slate-400 h-24 resize-none"
                            placeholder="House No, Street Name, Landmark..."
                          ></textarea>
@@ -184,8 +213,8 @@ const StudentRegister: React.FC = () => {
                 </div>
 
                 <div className="pt-4">
-                  <Button size="lg" className="w-full shadow-lg text-lg">
-                    {registerType === 'student' ? 'Complete Student Registration' : 'Register with School ID'}
+                  <Button size="lg" className="w-full shadow-lg text-lg" disabled={loading}>
+                    {loading ? 'Submitting...' : (registerType === 'student' ? 'Complete Student Registration' : 'Register with School ID')}
                   </Button>
                   <p className="text-center text-xs text-slate-500 mt-4">
                     By registering, you agree to the <NavLink to="/terms" className="text-[#06B6D4] hover:underline">Terms of Service</NavLink> and <NavLink to="/privacy" className="text-[#06B6D4] hover:underline">Privacy Policy</NavLink>.

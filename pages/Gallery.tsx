@@ -1,13 +1,16 @@
 
 import React, { useEffect, useState } from 'react';
-import { Section, Card, DecorativeShapes, SideNavigation } from '../components/UI';
-import { GALLERY_IMAGES, TESTIMONIALS } from '../constants';
-import { Quote, ImageIcon, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Section, Card, DecorativeShapes, SideNavigation, RGBCard } from '../components/UI';
+import { GALLERY_IMAGES, TESTIMONIALS, EVENTS, BLOG_POSTS, STUDENT_ACHIEVEMENTS } from '../constants';
+import { Calendar, Quote, MapPin, ImageIcon, Trophy, User, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 
 const MEDIA_SECTIONS = [
   { id: 'photo-gallery', label: 'Photo Gallery' },
   { id: 'impact-stories', label: 'Impact Stories' },
+  { id: 'events', label: 'Upcoming Events' },
+  { id: 'blog', label: 'Blog & News' },
+  { id: 'achievements', label: 'Hall of Fame' },
 ];
 
 const Gallery: React.FC = () => {
@@ -168,6 +171,104 @@ const Gallery: React.FC = () => {
                    </div>
                 </div>
               </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 3. Upcoming Events Section */}
+      <Section id="events" className="bg-slate-50 dark:bg-dark py-20 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider mb-4">
+              Upcoming Events
+            </div>
+            <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Community Calendar</h2>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">Join our workshops, fairs, and charity events scheduled for the coming months.</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {EVENTS.map((e) => (
+              <Card key={e.id} className="overflow-hidden flex flex-col sm:flex-row h-full group">
+                <div className="w-full sm:w-48 h-48 sm:h-auto overflow-hidden">
+                  <img src={e.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt={e.title} />
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-center">
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-2">{e.title}</h4>
+                  <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-4">
+                    <Calendar size={14} className="text-purple-500" /> {e.date} | <MapPin size={14} className="text-cyan-500" /> {e.location}
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 line-clamp-2">{e.description}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 4. Blog & News Section */}
+      <Section id="blog" className="bg-white dark:bg-[#0b1220] py-20 md:py-32">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 text-xs font-bold uppercase tracking-wider mb-4">
+              Blog & News
+            </div>
+            <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">NGO Updates</h2>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">Latest news, program launches, and insights from our team.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {BLOG_POSTS.map(post => (
+              <Card key={post.id} className="group overflow-hidden flex flex-col">
+                <img src={post.image} className="h-48 w-full object-cover group-hover:scale-105 transition-transform" alt={post.title} />
+                <div className="p-6 flex-1 flex flex-col">
+                   <div className="flex items-center gap-4 text-xs text-slate-400 mb-4">
+                     <span className="flex items-center gap-1"><Calendar size={12} /> {post.date}</span>
+                     <span className="flex items-center gap-1"><User size={12} /> Admin</span>
+                   </div>
+                  <h4 className="font-bold text-slate-900 dark:text-white mb-2 line-clamp-1">{post.title}</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mb-4">{post.excerpt}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* 5. Hall of Fame Section */}
+      <Section id="achievements" className="bg-slate-50 dark:bg-dark py-20 md:py-32">
+        <div className="text-center max-w-4xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400 text-xs font-bold uppercase tracking-wider mb-4">
+            Hall of Fame
+          </div>
+          <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Celebrating Excellence</h2>
+          <p className="text-slate-600 dark:text-slate-400 mb-12 text-lg">Honoring our students who have achieved extraordinary success against all odds.</p>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {STUDENT_ACHIEVEMENTS.map(student => (
+            <RGBCard key={student.id} className="h-full flex flex-col">
+              <div className="h-64 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
+                <img 
+                  src={student.image} 
+                  alt={student.name} 
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                   <h3 className="text-white font-bold font-heading text-2xl mb-1">{student.name}</h3>
+                </div>
+              </div>
+              
+              <div className="p-6 flex flex-col flex-1 bg-white/50 dark:bg-dark-card/50 backdrop-blur-sm">
+                 <div className="flex items-start gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-full bg-yellow-50 dark:bg-yellow-900/20 flex items-center justify-center text-yellow-600 shrink-0">
+                      <Trophy size={18} />
+                    </div>
+                    <h4 className="font-bold text-slate-900 dark:text-white text-lg leading-tight pt-1">{student.achievement}</h4>
+                 </div>
+                 
+                 <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">
+                   {student.description}
+                 </p>
+              </div>
+            </RGBCard>
             ))}
           </div>
         </div>

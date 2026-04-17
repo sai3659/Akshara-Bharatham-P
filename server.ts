@@ -4,6 +4,9 @@ import { createServer as createViteServer } from "vite";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import dotenv from "dotenv";
+import { createRequire } from "module";
+
+const require = createRequire(import.meta.url);
 
 dotenv.config();
 
@@ -12,6 +15,23 @@ const PORT = 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// Proxy for Netlify Function local testing
+app.post("/.netlify/functions/register", async (req, res) => {
+  try {
+    const { handler } = require("./netlify/functions/register.js");
+    const event = {
+      httpMethod: req.method,
+      body: JSON.stringify(req.body),
+      headers: req.headers,
+    };
+    const response = await handler(event);
+    res.status(response.statusCode).send(response.body);
+  } catch (error) {
+    console.error("Netlify Function Proxy Error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // Initialize Google Sheets
 let doc: GoogleSpreadsheet | null = null;
@@ -96,7 +116,6 @@ app.post("/api/register/talent-test", async (req, res) => {
     
     const rowData = {
       "Application ID": uniqueId,
-      "Password": data.password,
       "Full Name": data.fullName,
       "Date of Birth": data.dob,
       "Aadhar Number": data.aadhar,
@@ -137,13 +156,13 @@ app.post("/api/register/nmms", async (req, res) => {
     
     const rowData = {
       "Registration ID": uniqueId,
-      "Password": data.password,
       "School Name": data.schoolName,
       "Full Address": data.address,
       "Teacher 1 Name": data.teacher1Name,
       "Teacher 1 Phone": data.teacher1Phone,
       "Teacher 2 Name": data.teacher2Name,
       "Teacher 2 Phone": data.teacher2Phone,
+      "Aadhar Number": data.aadhar,
       "Student Count": data.studentCount,
       "Preferred Date": data.date,
       "Preferred Time": data.time,
@@ -175,13 +194,13 @@ app.post("/api/register/knowledge-quest", async (req, res) => {
 
     const rowData = {
       "Registration ID": uniqueId,
-      "Password": data.password,
       "School Name": data.schoolName,
       "Full Address": data.address,
       "Teacher 1 Name": data.teacher1Name,
       "Teacher 1 Phone": data.teacher1Phone,
       "Teacher 2 Name": data.teacher2Name,
       "Teacher 2 Phone": data.teacher2Phone,
+      "Aadhar Number": data.aadhar,
       "Student Count": data.studentCount,
       "Students List": studentsList,
       "Registration Date": new Date().toISOString()

@@ -24,9 +24,10 @@ const TalentTestRegister: React.FC = () => {
     if (occupation === 'Other') {
       data.otherOccupation = otherOccupation;
     }
+    data.registerType = 'TalentTest';
 
     try {
-      const response = await fetch('/api/register/talent-test', {
+      const response = await fetch('/.netlify/functions/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -36,8 +37,8 @@ const TalentTestRegister: React.FC = () => {
       
       const result = await response.json();
       
-      if (result.success) {
-        setApplicationId(result.applicationId);
+      if (response.ok) {
+        setApplicationId(result.applicationId || `TT-${Math.floor(Math.random() * 10000)}`);
         setSubmitted(true);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
@@ -80,8 +81,7 @@ const TalentTestRegister: React.FC = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <Input label="Student Full Name *" name="fullName" placeholder="As per school records" required />
                     <Input label="Date of Birth *" name="dob" type="date" required />
-                    <Input label="Aadhar Number" name="aadhar" placeholder="12-digit UID" />
-                    <Input label="Password *" name="password" type="password" placeholder="Create a password" required />
+                    <Input label="Aadhar Number *" name="aadhar" placeholder="12-digit UID" required />
                     <Input label="School Name *" name="schoolName" placeholder="Current School Name" required />
                     <div className="md:col-span-2">
                         <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Residential Address *</label>

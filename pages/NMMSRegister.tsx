@@ -16,9 +16,10 @@ const NMMSRegister: React.FC = () => {
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+    data.registerType = 'NMMS';
 
     try {
-      const response = await fetch('/api/register/nmms', {
+      const response = await fetch('/.netlify/functions/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,8 +29,8 @@ const NMMSRegister: React.FC = () => {
       
       const result = await response.json();
       
-      if (result.success) {
-        setRegistrationId(result.registrationId);
+      if (response.ok) {
+        setRegistrationId(result.registrationId || `NMMS-${Math.floor(Math.random() * 10000)}`);
         setSubmitted(true);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
@@ -71,7 +72,6 @@ const NMMSRegister: React.FC = () => {
                   </h3>
                   <div className="grid md:grid-cols-1 gap-6">
                     <Input label="Name of the School *" name="schoolName" placeholder="Official School Name" required />
-                    <Input label="Password *" name="password" type="password" placeholder="Create a password" required />
                     <div>
                         <label className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5 block">Full Address *</label>
                         <textarea 
@@ -94,6 +94,7 @@ const NMMSRegister: React.FC = () => {
                     <Input label="Contact Number 1 *" name="teacher1Phone" placeholder="+91 00000 00000" type="tel" required />
                     <Input label="Teacher Name (Secondary Contact)" name="teacher2Name" placeholder="Full Name" />
                     <Input label="Contact Number 2" name="teacher2Phone" placeholder="+91 00000 00000" type="tel" />
+                    <Input label="Aadhar Number *" name="aadhar" placeholder="12-digit UID" required />
                   </div>
                 </div>
 
