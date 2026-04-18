@@ -22,7 +22,7 @@ const TalentTestResults: React.FC = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchValue || searchValue.length < 3) {
-      setError('Please enter a valid Phone Number or Hall Ticket.');
+      setError('Enter valid number');
       return;
     }
     
@@ -52,7 +52,7 @@ const TalentTestResults: React.FC = () => {
             colors: ['#06B6D4', '#9C4DFF', '#F59E0B']
           });
         } else {
-          setError('No record found with this number. Please check and try again.');
+          setError('Enter valid number');
         }
         setLoading(false);
         setSearched(true);

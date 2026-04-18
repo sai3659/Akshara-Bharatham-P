@@ -16,9 +16,10 @@ interface HomeProps {
 }
 
 const NOTIFICATIONS = [
-  { id: 1, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: true, date: "Latest", url: "https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" },
-  { id: 2, text: "ABS Knowledge Quest (Quiz program) 2026", isNew: true, date: "Upcoming" },
-  { id: 3, text: "NMMS coaching 2026", isNew: true, date: "Upcoming" },
+  { id: 1, text: "ABS Talent Test 2026 Results Declared", isNew: true, date: "Latest", url: "#/results/talent-test" },
+  { id: 2, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: false, date: "Latest", url: "https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" },
+  { id: 3, text: "ABS Knowledge Quest (Quiz program) 2026", isNew: true, date: "Upcoming" },
+  { id: 4, text: "NMMS coaching 2026", isNew: true, date: "Upcoming" },
 ];
 
 const NotificationBox = () => {
@@ -42,7 +43,7 @@ const NotificationBox = () => {
                  </div>
                  <div className="flex-1">
                     {note.url ? (
-                      <a href={note.url} target="_blank" rel="noopener noreferrer" className="block text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
+                      <a href={note.url} target={note.url.startsWith('#') ? "_self" : "_blank"} rel={note.url.startsWith('#') ? undefined : "noopener noreferrer"} className="block text-[11px] font-medium text-slate-700 dark:text-slate-300 leading-relaxed mb-1 group-hover/item:text-[#06B6D4] transition-colors cursor-pointer">
                         {note.text}
                       </a>
                     ) : (

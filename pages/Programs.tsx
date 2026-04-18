@@ -320,7 +320,7 @@ const Programs: React.FC = () => {
                                   </div>
                              ))}
                          </div>
-                         <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                         <div className="mt-8 flex flex-col sm:flex-row gap-4 flex-wrap">
                            <div className="relative inline-block group">
                               <NewBadge />
                               <div className="absolute inset-0 bg-amber-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
@@ -331,11 +331,20 @@ const Programs: React.FC = () => {
                               </NavLink>
                            </div>
                            <div className="relative inline-block group">
-                              <a href="https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
-                                  <Button className="w-full sm:w-auto shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
-                                      <Bell size={18} className="mr-2" /> Notification
+                               <a href="https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+                                   <Button className="w-full sm:w-auto shadow-xl shadow-blue-500/30 bg-gradient-to-r from-blue-500 to-cyan-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
+                                       <Bell size={18} className="mr-2" /> Notification
+                                   </Button>
+                               </a>
+                           </div>
+                           <div className="relative inline-block group">
+                              <NewBadge />
+                              <div className="absolute inset-0 bg-emerald-500 blur-lg opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                              <NavLink to="/results/talent-test">
+                                  <Button className="w-full sm:w-auto shadow-xl shadow-emerald-500/30 bg-gradient-to-r from-emerald-500 to-green-600 border-none text-white relative z-0 transform hover:scale-105 transition-all">
+                                      <Trophy size={18} className="mr-2" /> View Results
                                   </Button>
-                              </a>
+                              </NavLink>
                            </div>
                          </div>
                      </div>
