@@ -22,7 +22,7 @@ const TalentTestResults: React.FC = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!searchValue || searchValue.length < 3) {
-      setError('Enter valid number');
+      setError('Please enter correct number.');
       return;
     }
     
@@ -52,7 +52,7 @@ const TalentTestResults: React.FC = () => {
             colors: ['#06B6D4', '#9C4DFF', '#F59E0B']
           });
         } else {
-          setError('Enter valid number');
+          setError('No record found. Please enter correct number.');
         }
         setLoading(false);
         setSearched(true);
