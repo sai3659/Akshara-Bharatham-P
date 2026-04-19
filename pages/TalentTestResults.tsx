@@ -7,7 +7,7 @@ import { jsPDF } from 'jspdf';
 import { Section, Card, Button, Input, DecorativeShapes } from '../components/UI';
 import { ChevronLeft } from 'lucide-react';
 
-const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/13Fi0_2Ypcjru4aW9kV_Y3btqD8fRtqJ_d6KqjG28AGw/export?format=csv&gid=1723745535';
+const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/13bLOZMjZ1lBWj6Gawqg5LUf5KbPiAnKI/export?format=csv&gid=355564504';
 
 const TalentTestResults: React.FC = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -36,10 +36,12 @@ const TalentTestResults: React.FC = () => {
       header: true,
       complete: (results) => {
         const data = results.data;
-        // Check for either Phone Number or SSC Hall Ticket Number matching exactly
+        // Check for Phone Number or varying formats of Hall Ticket Number matching exactly
         const student = data.find((row: any) => 
           (row['Phone Number'] && row['Phone Number'] === searchValue) || 
-          (row['SSC Hall Ticket Number'] && row['SSC Hall Ticket Number'] === searchValue)
+          (row['SSC Hallticket Number'] && row['SSC Hallticket Number'] === searchValue) ||
+          (row['SSC Hall Ticket Number'] && row['SSC Hall Ticket Number'] === searchValue) ||
+          (row['Hall Ticket Number'] && row['Hall Ticket Number'] === searchValue)
         );
         
         if (student) {
@@ -175,7 +177,7 @@ const TalentTestResults: React.FC = () => {
                        <ChevronLeft size={24} />
                      </span>
                      <h2 className="text-lg md:text-xl font-bold tracking-wide">
-                        <span className="text-amber-500">ABS</span> Talent Test Results 2024
+                        <span className="text-amber-500">ABS</span> Talent Test Results 2026
                      </h2>
                   </div>
                   
@@ -183,12 +185,12 @@ const TalentTestResults: React.FC = () => {
                   <div className="bg-[#404b40]/80 backdrop-blur-sm rounded-xl p-5 mb-8 shadow-inner border border-white/5 mx-2">
                      <div className="grid grid-cols-[100px_auto] gap-y-3 gap-x-2 text-[15px]">
                         <div className="text-slate-300">Hall Ticket</div>
-                        <div className="font-bold font-mono tracking-wide">: {result['SSC Hall Ticket Number'] || '-'}</div>
+                        <div className="font-bold font-mono tracking-wide">: {result['SSC Hallticket Number'] || result['SSC Hall Ticket Number'] || result['Hall Ticket Number'] || '-'}</div>
                         
                         <div className="text-slate-300">Name</div>
                         <div className="font-bold">: {result['Student Name'] || result['Full Name'] || '-'}</div>
                         
-                        <div className="text-slate-300">District/Village</div>
+                        <div className="text-slate-300">Village</div>
                         <div className="font-bold">: {result['Village'] || result['District'] || '-'}</div>
                         
                         <div className="text-slate-300">Total</div>
