@@ -21,8 +21,8 @@ const TalentTestResults: React.FC = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!searchValue || searchValue.length < 3) {
-      setError('Please enter correct number.');
+    if (!searchValue || searchValue.trim().length < 5) {
+      setError('Invalid Hall Ticket Number or Phone Number.');
       return;
     }
     
@@ -46,6 +46,7 @@ const TalentTestResults: React.FC = () => {
         
         if (student) {
           setResult(student);
+          setSearched(true);
           
           confetti({
             particleCount: 150,
@@ -54,15 +55,15 @@ const TalentTestResults: React.FC = () => {
             colors: ['#06B6D4', '#9C4DFF', '#F59E0B']
           });
         } else {
-          setError('No record found. Please enter correct number.');
+          setError('Invalid Hall Ticket Number or Phone Number. Please try again.');
+          setSearched(false);
         }
         setLoading(false);
-        setSearched(true);
       },
       error: (err) => {
         setError('Failed to fetch data. Please try again later.');
         setLoading(false);
-        setSearched(true);
+        setSearched(false);
       }
     });
   };
