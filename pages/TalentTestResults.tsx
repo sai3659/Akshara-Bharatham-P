@@ -191,11 +191,11 @@ const TalentTestResults: React.FC = () => {
                         <div className="text-slate-300">Name</div>
                         <div className="font-bold">: {result['Student Name'] || result['Full Name'] || '-'}</div>
                         
-                        <div className="text-slate-300">Village</div>
-                        <div className="font-bold">: {result['Village'] || result['District'] || '-'}</div>
+                        <div className="text-slate-300">School Name</div>
+                        <div className="font-bold">: {result['School Name'] || result['School'] || '-'}</div>
                         
                         <div className="text-slate-300">Total</div>
-                        <div className="font-bold">: {result['Total Marks'] || '-'} <span className="text-green-400 font-medium ml-1 text-sm">( PASS )</span></div>
+                        <div className="font-bold">: {result['Total Marks'] || '-'}</div>
                      </div>
                   </div>
 
@@ -213,8 +213,7 @@ const TalentTestResults: React.FC = () => {
                            <tr>
                               <th className="w-8 text-center py-3 px-1 border-r border-[#2a3c2a] text-slate-400"></th>
                               <th className="text-left py-3 px-3 border-r border-[#2a3c2a] text-white font-bold tracking-wider text-xs">SUBJECT</th>
-                              <th className="text-center py-3 px-3 border-r border-[#2a3c2a] text-white font-bold tracking-wider text-xs w-16">marks</th>
-                              <th className="text-center py-3 px-3 tracking-wider text-white font-bold text-xs w-16">status</th>
+                              <th className="text-center py-3 px-3 tracking-wider text-white font-bold text-xs w-16">marks</th>
                            </tr>
                         </thead>
                         <tbody>
@@ -222,11 +221,8 @@ const TalentTestResults: React.FC = () => {
                               <tr key={sub.id} className="border-b border-[#2a3c2a] last:border-0 hover:bg-[#1a2d1a] transition-colors">
                                  <td className="text-center py-2.5 px-1 border-r border-[#2a3c2a] text-[#556955] font-black">{sub.id}</td>
                                  <td className="text-left py-2.5 px-3 border-r border-[#2a3c2a] font-bold text-slate-200">{sub.name}</td>
-                                 <td className="text-center py-2.5 px-3 border-r border-[#2a3c2a] font-bold text-white text-base">
+                                 <td className="text-center py-2.5 px-3 font-bold text-white text-base">
                                    {result[sub.key] && result[sub.key] !== '' ? result[sub.key] : '-'}
-                                 </td>
-                                 <td className="text-center py-2.5 px-3 font-bold text-green-500">
-                                   {result[sub.key] && result[sub.key] !== '' ? 'P' : '-'}
                                  </td>
                               </tr>
                            ))}
