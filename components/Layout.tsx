@@ -394,7 +394,7 @@ export const Footer: React.FC = () => {
               <li><NavLink to="/programs" className="hover:text-[#9C4DFF] transition-colors">Our Programs</NavLink></li>
               <li><NavLink to="/gallery" className="hover:text-[#9C4DFF] transition-colors">Media Gallery</NavLink></li>
               <li><NavLink to="/volunteer" className="hover:text-[#9C4DFF] transition-colors">Volunteer</NavLink></li>
-              <li><NavLink to="/donate" className="hover:text-[#9C4DFF] transition-colors">Donate</NavLink></li>
+              <li><NavLink to="/donate" className="hover:text-[#9C4DFF] transition-colors">Contribute</NavLink></li>
             </ul>
           </div>
 
