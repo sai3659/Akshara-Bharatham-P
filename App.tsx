@@ -25,6 +25,8 @@ import KnowledgeQuestRegister from './pages/KnowledgeQuestRegister';
 import Practice from './pages/Practice';
 import TalentTestResults from './pages/TalentTestResults';
 import KnowledgeQuestResults from './pages/KnowledgeQuestResults';
+import Anniversary from './pages/Anniversary';
+import Alumni from './pages/Alumni';
 
 // Wrapper to conditionally render Layout (Header/Footer)
 const LayoutWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => {
@@ -86,6 +88,9 @@ const App: React.FC = () => {
           <Route path="/terms" element={<Legal type="terms" />} />
           <Route path="/cookie-policy" element={<Legal type="cookies" />} />
           <Route path="/financial-reports" element={<Legal type="financials" />} />
+          
+          <Route path="/anniversary" element={<Anniversary />} />
+          <Route path="/alumni" element={<Alumni />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

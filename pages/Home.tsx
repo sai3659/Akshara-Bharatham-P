@@ -16,6 +16,7 @@ interface HomeProps {
 }
 
 const NOTIFICATIONS = [
+  { id: 0, text: "Akshara Bharatam Society is Celebrating its 5th year Anniversary even on May 30th", isNew: true, date: "Latest", url: "#/anniversary" },
   { id: 1, text: "ABS Talent Test 2026 Results Declared", isNew: true, date: "Latest", url: "#/results/talent-test" },
   { id: 2, text: "Akshara Bharatam Society Talent test notification 2025 -2026", isNew: false, date: "Latest", url: "https://drive.google.com/file/d/1OpVDhTeFhn72nLQs5nk21YjYgT-Y1HAC/view?usp=drivesdk" },
   { id: 3, text: "ABS Knowledge Quest (Quiz program) 2026", isNew: true, date: "Upcoming" },

@@ -15,6 +15,7 @@ const NAV_ITEMS = [
       { label: 'Our Mission', path: '/about' },
       { label: 'Leadership', path: '/founders' },
       { label: 'Extended Team', path: '/team' },
+      { label: 'ABS Alumni', path: '/alumni' },
     ]
   },
   { 
