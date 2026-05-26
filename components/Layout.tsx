@@ -34,7 +34,6 @@ const NAV_ITEMS = [
     path: '/gallery',
     children: [
       { label: 'Photo Gallery', path: '/gallery#photo-gallery' },
-      { label: 'Impact Stories', path: '/gallery#impact-stories' },
     ]
   },
   { 
@@ -393,7 +392,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-slate-400 text-sm">
               <li><NavLink to="/about" className="hover:text-[#9C4DFF] transition-colors">About Us</NavLink></li>
               <li><NavLink to="/programs" className="hover:text-[#9C4DFF] transition-colors">Our Programs</NavLink></li>
-              <li><NavLink to="/gallery" className="hover:text-[#9C4DFF] transition-colors">Impact Gallery</NavLink></li>
+              <li><NavLink to="/gallery" className="hover:text-[#9C4DFF] transition-colors">Media Gallery</NavLink></li>
               <li><NavLink to="/volunteer" className="hover:text-[#9C4DFF] transition-colors">Volunteer</NavLink></li>
               <li><NavLink to="/donate" className="hover:text-[#9C4DFF] transition-colors">Donate</NavLink></li>
             </ul>

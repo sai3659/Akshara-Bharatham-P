@@ -104,27 +104,26 @@ const Alumni: React.FC = () => {
                     {images.map((img, idx) => (
                       <div 
                         key={idx} 
-                        className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
+                        className="group cursor-pointer transform hover:-translate-y-2 transition-transform duration-500"
                         onClick={() => setSelectedImage(img.url)}
                       >
-                        <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse" />
-                        <img 
-                          src={img.url} 
-                          alt={`Alumni ${year} - ${img.name}`} 
-                          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                          loading="lazy"
-                          onLoad={(e) => {
-                            (e.target as HTMLElement).previousElementSibling?.remove(); // remove loader
-                          }}
-                        />
-                        {/* Elegant hover overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                           <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                              <span className="inline-block bg-white/20 backdrop-blur-md text-white/90 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full mb-2">
-                                Class of {year}
-                              </span>
-                              <h3 className="text-white text-lg font-bold leading-tight">{img.name}</h3>
-                           </div>
+                        <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-md hover:shadow-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 mb-3">
+                          <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse" />
+                          <img 
+                            src={img.url} 
+                            alt={`Alumni ${year} - ${img.name}`} 
+                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
+                            onLoad={(e) => {
+                              (e.target as HTMLElement).previousElementSibling?.remove(); // remove loader
+                            }}
+                          />
+                        </div>
+                        <div className="text-center px-1">
+                          <h3 className="text-slate-900 dark:text-white text-lg font-bold leading-tight">{img.name}</h3>
+                          <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mt-1">
+                            Class of {year}
+                          </p>
                         </div>
                       </div>
                     ))}
