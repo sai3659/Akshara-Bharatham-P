@@ -10,16 +10,28 @@ interface GitHubFile {
   type: string;
 }
 
+interface AlumniImage {
+  url: string;
+  name: string;
+}
+
 const Alumni: React.FC = () => {
-  const [imagesByYear, setImagesByYear] = useState<Record<number, string[]>>({});
+  const [imagesByYear, setImagesByYear] = useState<Record<number, AlumniImage[]>>({});
   const [loading, setLoading] = useState(true);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchImages = async () => {
       setLoading(true);
-      const newImages: Record<number, string[]> = {};
+      const newImages: Record<number, AlumniImage[]> = {};
       
+      const extractName = (filename: string) => {
+        let name = filename.replace(/\.(jpg|jpeg|png|gif|webp)$/i, '');
+        name = name.replace(/\(\d{4}\)|\d{4}/g, '');
+        name = name.replace(/[_-]/g, ' ');
+        return name.trim();
+      };
+
       try {
         await Promise.all(YEARS.map(async (year) => {
           try {
@@ -28,7 +40,10 @@ const Alumni: React.FC = () => {
               const data: GitHubFile[] = await res.json();
               newImages[year] = data
                 .filter(file => file.type === 'file' && file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-                .map(file => file.download_url);
+                .map(file => ({
+                  url: file.download_url,
+                  name: extractName(file.name)
+                }));
             } else {
               newImages[year] = [];
             }
@@ -86,16 +101,16 @@ const Alumni: React.FC = () => {
                   </div>
                   
                   <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                    {images.map((imgUrl, idx) => (
+                    {images.map((img, idx) => (
                       <div 
                         key={idx} 
                         className="group relative aspect-[4/5] rounded-3xl overflow-hidden cursor-pointer shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800"
-                        onClick={() => setSelectedImage(imgUrl)}
+                        onClick={() => setSelectedImage(img.url)}
                       >
                         <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 animate-pulse" />
                         <img 
-                          src={imgUrl} 
-                          alt={`Alumni ${year} - ${idx + 1}`} 
+                          src={img.url} 
+                          alt={`Alumni ${year} - ${img.name}`} 
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           loading="lazy"
                           onLoad={(e) => {
@@ -103,11 +118,12 @@ const Alumni: React.FC = () => {
                           }}
                         />
                         {/* Elegant hover overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                            <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                              <span className="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-2">
+                              <span className="inline-block bg-white/20 backdrop-blur-md text-white/90 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full mb-2">
                                 Class of {year}
                               </span>
+                              <h3 className="text-white text-lg font-bold leading-tight">{img.name}</h3>
                            </div>
                         </div>
                       </div>
