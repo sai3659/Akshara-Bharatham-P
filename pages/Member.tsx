@@ -5,7 +5,6 @@ import { BadgeCheck, Users, Vote, Star, CheckCircle2 } from 'lucide-react';
 
 const MEMBER_SECTIONS = [
   { id: 'why-join', label: 'Why Join?' },
-  { id: 'tiers', label: 'Membership Tiers' },
   { id: 'register', label: 'Register' },
 ];
 
@@ -54,62 +53,6 @@ const Member: React.FC = () => {
         </div>
       </Section>
 
-      {/* Membership Tiers */}
-      <Section id="tiers" className="bg-white dark:bg-[#0b1220] py-24">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-4">Choose Your Membership</h2>
-          <p className="text-slate-600 dark:text-slate-400">Annual memberships help cover our administrative overheads, ensuring 100% of donations go to students.</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {/* Student Tier */}
-          <Card className="p-8 flex flex-col hover:border-indigo-400 transition-all">
-             <div className="mb-4">
-               <span className="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full text-xs font-bold uppercase">Student</span>
-             </div>
-             <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">₹500<span className="text-lg text-slate-500 font-normal">/year</span></h3>
-             <p className="text-slate-500 text-sm mb-6">For school and college students who want to contribute.</p>
-             <ul className="space-y-3 mb-8 flex-1">
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Digital Membership Card</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Volunteer Priority</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Certificate of Association</li>
-             </ul>
-             <Button variant="outline" className="w-full">Apply as Student</Button>
-          </Card>
-
-          {/* Active Member Tier (Highlight) */}
-          <Card className="p-8 flex flex-col border-2 border-indigo-500 relative transform md:-translate-y-4 shadow-2xl bg-indigo-50/50 dark:bg-indigo-900/10">
-             <div className="absolute top-0 right-0 bg-indigo-500 text-white text-xs font-bold px-3 py-1 rounded-bl-xl">POPULAR</div>
-             <div className="mb-4">
-               <span className="bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-bold uppercase">Active Member</span>
-             </div>
-             <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">₹2,000<span className="text-lg text-slate-500 font-normal">/year</span></h3>
-             <p className="text-slate-500 text-sm mb-6">For professionals dedicated to the cause.</p>
-             <ul className="space-y-3 mb-8 flex-1">
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> <strong>Voting Rights</strong> in AGM</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Quarterly Strategy Calls</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Merchandise Kit</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-indigo-500"/> Access to Annual Gala</li>
-             </ul>
-             <Button className="w-full bg-indigo-600 hover:bg-indigo-700 shadow-indigo-500/20 text-white border-none">Become a Member</Button>
-          </Card>
-
-          {/* Patron Tier */}
-          <Card className="p-8 flex flex-col hover:border-indigo-400 transition-all">
-             <div className="mb-4">
-               <span className="bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 px-3 py-1 rounded-full text-xs font-bold uppercase">Patron</span>
-             </div>
-             <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">₹10,000<span className="text-lg text-slate-500 font-normal">/year</span></h3>
-             <p className="text-slate-500 text-sm mb-6">For philanthropists driving major impact.</p>
-             <ul className="space-y-3 mb-8 flex-1">
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> All Active Member Benefits</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> Named Scholarship</li>
-               <li className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300"><CheckCircle2 size={16} className="text-amber-500"/> Private Dinner with Founders</li>
-             </ul>
-             <Button variant="outline" className="w-full">Become a Patron</Button>
-          </Card>
-        </div>
-      </Section>
 
       {/* Registration Form */}
       <Section id="register" className="bg-slate-50 dark:bg-dark py-24">

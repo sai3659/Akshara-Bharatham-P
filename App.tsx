@@ -23,6 +23,7 @@ import TalentTestRegister from './pages/TalentTestRegister';
 import NMMSRegister from './pages/NMMSRegister';
 import KnowledgeQuestRegister from './pages/KnowledgeQuestRegister';
 import Practice from './pages/Practice';
+import JoinUs from './pages/JoinUs';
 import TalentTestResults from './pages/TalentTestResults';
 import KnowledgeQuestResults from './pages/KnowledgeQuestResults';
 import Anniversary from './pages/Anniversary';
@@ -91,6 +92,7 @@ const App: React.FC = () => {
           
           <Route path="/anniversary" element={<Anniversary />} />
           <Route path="/alumni" element={<Alumni />} />
+          <Route path="/join-us" element={<JoinUs />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

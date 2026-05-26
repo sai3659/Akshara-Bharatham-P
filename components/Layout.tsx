@@ -202,7 +202,7 @@ export const Header: React.FC = () => {
              
              {/* Desktop Join Us Button - Moved to Top Row Right */}
              <div className="hidden md:block pl-8 shrink-0 relative z-[60]">
-               <NavLink to="/donate">
+               <NavLink to="/join-us">
                   <Button size="lg" className="shadow-[#9C4DFF]/20 bg-[#9C4DFF] hover:bg-[#7c3aed] text-white font-bold tracking-wide whitespace-nowrap px-6 py-2 text-lg h-12 rounded-xl">
                     Join Us
                   </Button>
@@ -302,7 +302,7 @@ export const Header: React.FC = () => {
                 
                 {/* Mobile Join Us Button (Hidden on Desktop) */}
                 <div className="md:hidden">
-                  <NavLink to="/donate">
+                  <NavLink to="/join-us">
                     <Button size="sm" className="shadow-[#9C4DFF]/20 bg-[#9C4DFF] hover:bg-[#7c3aed] text-white font-bold tracking-wide whitespace-nowrap px-3 py-1.5 text-xs">
                       Join Us
                     </Button>
