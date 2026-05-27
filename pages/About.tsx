@@ -90,7 +90,7 @@ const About: React.FC = () => {
               { 
                 year: '2026', 
                 title: 'Scaling Excellence', 
-                desc: 'Number of Mandals Covered: 3, Number of Students Selected for Scholarship: 17, Total Number of Students Getting Scholarship (Cumulative): 57. We also extended our program to Private Schools in 2026.' 
+                desc: 'Number of Mandals Covered: 3, Number of Students Selected for Scholarship: 18, Total Number of Students Getting Scholarship (Cumulative): 58. We also extended our program to Private Schools in 2026.' 
               }
             ].map((milestone, i) => (
               <div key={i} className="relative">
