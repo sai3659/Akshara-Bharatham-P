@@ -64,7 +64,7 @@ const Member: React.FC = () => {
                </p>
                <div className="p-6 rounded-2xl bg-indigo-50 dark:bg-indigo-900/10 border border-indigo-100 dark:border-indigo-800/30">
                  <h4 className="font-bold text-indigo-800 dark:text-indigo-400 mb-2">Note</h4>
-                 <p className="text-sm text-indigo-700 dark:text-indigo-300">Membership fees are eligible for tax deduction under section 80G.</p>
+                 <p className="text-sm text-indigo-700 dark:text-indigo-300">All applications are subject to approval by the executive committee.</p>
                </div>
             </div>
             <div className="flex-1 w-full">
@@ -80,14 +80,14 @@ const Member: React.FC = () => {
                         <Input placeholder="Aadhar Number *" required />
                     </div>
                     <div className="flex flex-col gap-1.5 w-full">
-                       <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Membership</label>
+                       <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Select Membership Level</label>
                        <select className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none">
-                          <option>Student (₹500/yr)</option>
-                          <option>Active Member (₹2,000/yr)</option>
-                          <option>Patron (₹10,000/yr)</option>
+                          <option>Student Member</option>
+                          <option>Active Member</option>
+                          <option>Patron / Supporter</option>
                        </select>
                     </div>
-                    <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-500/20">Proceed to Payment</Button>
+                    <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white shadow-indigo-500/20">Submit Application</Button>
                  </form>
                </Card>
             </div>

@@ -61,25 +61,6 @@ const About: React.FC = () => {
           </Card>
         </div>
 
-        <div className="max-w-4xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-8 flex items-center gap-3">
-            <History className="text-[#06B6D4]" /> Our Journey
-          </h2>
-          <div className="space-y-8 border-l-2 border-slate-200 dark:border-slate-700 pl-8 relative">
-            {[
-              { year: '2010', title: 'The Beginning', desc: 'Started with 5 volunteers teaching in one village school.' },
-              { year: '2015', title: 'Scaling Up', desc: 'Reached 50 schools and launched our first major scholarship program.' },
-              { year: '2023', title: 'State Recognition', desc: 'Recognized for excellence in rural education by the government.' }
-            ].map((milestone, i) => (
-              <div key={i} className="relative">
-                <span className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[#06B6D4] border-4 border-white dark:border-dark" />
-                <span className="text-sm font-bold text-[#06B6D4] mb-1 block">{milestone.year}</span>
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{milestone.title}</h4>
-                <p className="text-slate-500 dark:text-slate-400">{milestone.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
       </Section>
 
       {/* 2. Leadership Team Section */}

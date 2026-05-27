@@ -188,25 +188,6 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
         </div>
       </section>
 
-      {/* 2. Stats Section */}
-      <section className="py-12 md:py-20 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-cyan-500/5 dark:from-cyan-900/10 dark:via-purple-900/10 dark:to-cyan-900/10 backdrop-blur-md border-y border-white/30 dark:border-slate-800/50 relative z-20 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-            {displayStats.map((stat, i) => (
-              <div key={i} className="text-center space-y-4 group">
-                <div className="inline-flex p-4 md:p-5 rounded-3xl bg-white/80 dark:bg-slate-800/80 text-[#06B6D4] mb-2 shadow-lg border border-white/50 dark:border-slate-700/50 group-hover:bg-[#06B6D4] group-hover:text-white transition-all duration-300">
-                  <stat.icon size={32} className="md:w-10 md:h-10" />
-                </div>
-                <h3 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">
-                  <CountUp end={stat.value} duration={2000} suffix="+" />
-                </h3>
-                <p className="text-slate-500 dark:text-slate-400 font-bold tracking-widest uppercase text-[10px] md:text-xs">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Programs - Horizontal Scroll Layout */}
       <Section className="py-16 md:py-24">
         <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
