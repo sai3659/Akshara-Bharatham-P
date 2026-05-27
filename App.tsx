@@ -28,6 +28,9 @@ import TalentTestResults from './pages/TalentTestResults';
 import KnowledgeQuestResults from './pages/KnowledgeQuestResults';
 import Anniversary from './pages/Anniversary';
 import Alumni from './pages/Alumni';
+import GetInvolved from './pages/GetInvolved';
+import Registration from './pages/Registration';
+import Results from './pages/Results';
 
 // Wrapper to conditionally render Layout (Header/Footer)
 const LayoutWrapper: React.FC<{children: React.ReactNode}> = ({ children }) => {
@@ -58,12 +61,14 @@ const App: React.FC = () => {
           <Route path="/contact" element={<Contact />} />
           
           {/* Get Involved Routes */}
+          <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/volunteer" element={<Volunteer />} />
           <Route path="/member" element={<Member />} />
           <Route path="/partner" element={<Partner />} />
 
           {/* Registration Routes */}
+          <Route path="/registration" element={<Registration />} />
           <Route path="/register/talent-test" element={<TalentTestRegister />} />
           <Route path="/register/nmms" element={<NMMSRegister />} />
           <Route path="/register/knowledge-quest" element={<KnowledgeQuestRegister />} />
@@ -76,6 +81,7 @@ const App: React.FC = () => {
           <Route path="/school-login" element={<SchoolLogin />} />
 
           {/* Result Routes */}
+          <Route path="/results" element={<Results />} />
           <Route path="/results/talent-test" element={<TalentTestResults />} />
           <Route path="/results/knowledge-quest" element={<KnowledgeQuestResults />} />
 

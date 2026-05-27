@@ -38,7 +38,7 @@ const NAV_ITEMS = [
   },
   { 
     label: 'Get Involved', 
-    path: '/volunteer', // Default path, but children are specific
+    path: '/get-involved',
     children: [
       { label: 'As a Volunteer', path: '/volunteer' },
       { label: 'As a Member', path: '/member' },
@@ -48,7 +48,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'Registration',
-    path: '/register/talent-test', // Default to first item
+    path: '/registration',
     children: [
       { label: 'For ABS Talent Test', path: '/register/talent-test' },
       { label: 'For NMMS Coaching', path: '/register/nmms' },
@@ -57,7 +57,7 @@ const NAV_ITEMS = [
   },
   {
     label: 'Results',
-    path: '/results/talent-test',
+    path: '/results',
     children: [
       { label: 'ABS Talent Test', path: '/results/talent-test' },
       { label: 'Knowledge Quest', path: '/results/knowledge-quest' },
@@ -320,11 +320,14 @@ export const Header: React.FC = () => {
                     <NavLink 
                       to={item.path}
                       onClick={() => !item.children && setIsMobileMenuOpen(false)}
-                      className={({ isActive }) => 
-                        `block py-3 px-4 text-lg font-bold ${
-                          isActive ? 'text-[#9C4DFF]' : 'text-slate-800 dark:text-white'
-                        }`
-                      }
+                      className={({ isActive }) => {
+                        const isChildActive = item.children 
+                          ? item.children.some(child => child.path.split('#')[0] === location.pathname) 
+                          : false;
+                        return `block py-3 px-4 text-lg font-bold ${
+                          (isActive || isChildActive) ? 'text-[#9C4DFF]' : 'text-slate-800 dark:text-white'
+                        }`;
+                      }}
                     >
                       {item.label}
                     </NavLink>
