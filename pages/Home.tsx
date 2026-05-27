@@ -79,7 +79,6 @@ const NotificationBox = () => {
 const SCROLLING_IMAGES = [
   // ABS Talent Test
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.12%20PM%20(1).jpeg', label: 'ABS Talent Test' },
-  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.13%20PM%20(3).jpeg', label: 'ABS Talent Test' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.13%20PM.jpeg', label: 'ABS Talent Test' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.14%20PM%20(3).jpeg', label: 'ABS Talent Test' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/ABS%20Talent%20Test/WhatsApp%20Image%202026-02-08%20at%201.15.15%20PM.jpeg', label: 'ABS Talent Test' },
@@ -88,7 +87,6 @@ const SCROLLING_IMAGES = [
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM%20(1).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM.jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.52%20PM.jpeg', label: 'Awareness Program' },
-  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.39%20PM%20(1).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.39%20PM%20(3).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM%20(2).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM.jpeg', label: 'Awareness Program' },
@@ -100,7 +98,6 @@ const SCROLLING_IMAGES = [
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0012.jpg', label: 'Knowledge Quest' },
 
   // NMMS Coaching
-  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.13%20PM%20(1).jpeg', label: 'NMMS Coaching' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.14%20PM%20(1).jpeg', label: 'NMMS Coaching' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.14%20PM.jpeg', label: 'NMMS Coaching' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/NMMS%20Coaching/WhatsApp%20Image%202026-02-08%20at%201.40.19%20PM.jpeg', label: 'NMMS Coaching' },
