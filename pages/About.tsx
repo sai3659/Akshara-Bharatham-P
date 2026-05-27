@@ -3,7 +3,7 @@ import React from 'react';
 import { Section, Card, Button, DecorativeShapes, SideNavigation } from '../components/UI';
 import { Target, Eye, ShieldCheck, Download, FileText, Users, GraduationCap, ArrowRight, History } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
-import { TEAM_MEMBERS } from '../constants';
+import { TEAM_MEMBERS, FOUNDERS } from '../constants';
 
 const ABOUT_SECTIONS = [
   { id: 'mission-history', label: 'Mission & History' },
@@ -107,30 +107,39 @@ const About: React.FC = () => {
 
       {/* 2. Leadership Team Section */}
       <Section id="leadership" className="bg-white dark:bg-[#0b1220]">
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 text-[#06B6D4] text-xs font-bold uppercase tracking-wider">
-              Leadership Team
-            </div>
-            <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white">Our Leadership</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-              Akshara Bharatam is guided by a team of visionaries with decades of experience in social work, policy-making, and community building.
-            </p>
-            <NavLink to="/founders">
-              <Button size="lg" className="group">
-                Meet the Leadership <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
-              </Button>
-            </NavLink>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 text-[#06B6D4] text-xs font-bold uppercase tracking-wider mb-4">
+            Leadership Team
           </div>
-          <div className="flex-1 w-full max-w-md">
-            <div className="relative aspect-square rounded-[40px] overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl">
-              <img src="https://lh3.googleusercontent.com/d/1Qex-Yk22TH-SyM44lSt5IuMA1hCxz7CS" alt="President" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent flex flex-col justify-end p-8">
-                <p className="text-white italic text-lg mb-2">"Education is the key to unlocking the potential of our rural communities."</p>
-                <p className="text-cyan-400 font-bold">- Ramana Mylappali, President</p>
+          <h2 className="text-4xl font-bold font-heading text-slate-900 dark:text-white mb-6">Our Leadership</h2>
+          <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+            Akshara Bharatam is guided by a team of visionaries with decades of experience in social work, policy-making, and community building.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {FOUNDERS.map((founder, index) => (
+            <Card key={index} className="flex flex-col h-full group p-6 text-center">
+              <div className="mx-auto w-32 h-32 mb-6 rounded-full overflow-hidden border-4 border-slate-100 dark:border-slate-800 shadow-xl group-hover:border-[#06B6D4] transition-colors">
+                <img 
+                  src={founder.image} 
+                  alt={founder.name} 
+                  className="w-full h-full object-cover" 
+                />
               </div>
-            </div>
-          </div>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-1">{founder.name}</h3>
+              <p className="text-[#06B6D4] font-bold text-sm uppercase tracking-widest mb-4">{founder.role}</p>
+              <blockquote className="italic text-slate-600 dark:text-slate-400 text-sm mb-6 flex-grow">
+                "{founder.quote}"
+              </blockquote>
+            </Card>
+          ))}
+        </div>
+        <div className="text-center">
+          <NavLink to="/founders">
+            <Button size="lg" className="group">
+              View Detailed Profiles <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
+            </Button>
+          </NavLink>
         </div>
       </Section>
 

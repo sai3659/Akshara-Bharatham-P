@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { ArrowRight, Star, Quote, ChevronLeft, ChevronRight, ExternalLink, Trophy } from 'lucide-react';
 import { Section, Button, Card, RGBCard, Typewriter, CountUp } from '../components/UI';
@@ -116,11 +116,22 @@ const SCROLLING_IMAGES = [
 
 const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentHeroImage, setCurrentHeroImage] = useState(0);
 
   // Use overrides if provided, else defaults
   const heroTitle = contentOverrides?.heroTitle || "Bring Quality in";
   const heroWords = contentOverrides?.heroWords || ["Education", "Life", "Society", "Rural India"];
   const displayStats = contentOverrides?.stats || STATS;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroImage(prev => (prev + 1) % SCROLLING_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const nextHeroImage = () => setCurrentHeroImage(prev => (prev + 1) % SCROLLING_IMAGES.length);
+  const prevHeroImage = () => setCurrentHeroImage(prev => (prev - 1 + SCROLLING_IMAGES.length) % SCROLLING_IMAGES.length);
 
   const nextTestimonial = () => {
     setCurrentTestimonial(prev => (prev + 1) % TESTIMONIALS.length);
@@ -132,57 +143,66 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
 
   return (
     <>
-      {/* Hero Section - Colorful static background with Typewriter animation */}
-      {/* Optimized padding for mobile */}
-      <section className="relative min-h-[95vh] flex items-center justify-center overflow-x-clip bg-transparent pt-36 md:pt-60 pb-16 md:pb-24 transition-colors duration-500">
-        {/* Layered Colorful Static Background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute top-[-10%] left-[-10%] w-[400px] md:w-[600px] h-[400px] md:h-[600px] bg-cyan-400/20 dark:bg-cyan-900/10 rounded-full blur-[80px] md:blur-[120px] mix-blend-multiply dark:mix-blend-overlay" />
-          <div className="absolute top-[20%] right-[-5%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-400/20 dark:bg-purple-900/10 rounded-full blur-[70px] md:blur-[100px] mix-blend-multiply dark:mix-blend-overlay" />
-          <div className="absolute bottom-[-10%] left-[20%] w-[500px] md:w-[700px] h-[500px] md:h-[700px] bg-pink-300/20 dark:bg-pink-900/10 rounded-full blur-[90px] md:blur-[130px] mix-blend-multiply dark:mix-blend-overlay" />
-          <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-indigo-200/10 dark:bg-indigo-900/5 rounded-full blur-[100px] md:blur-[150px] mix-blend-multiply dark:mix-blend-overlay" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-white/30 dark:bg-slate-900/20 rounded-[100px] blur-[60px] md:blur-[80px]" />
+      {/* Hero Section - Image Slider Background */}
+      <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-36 md:pt-40 pb-16 md:pb-24">
+        {/* Background Image Slider */}
+        <div className="absolute inset-0 z-0">
+          {SCROLLING_IMAGES.map((img, idx) => (
+             <div 
+               key={idx}
+               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentHeroImage ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+             >
+                <img src={img.url} alt={img.label} className="w-full h-full object-cover brightness-[0.95]" referrerPolicy="no-referrer" />
+                {/* Dark overlay for text readability */}
+                <div className="absolute inset-0 bg-black/20" />
+             </div>
+          ))}
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-start lg:items-center">
+        {/* Navigation Arrows for Slider */}
+        <button onClick={prevHeroImage} className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full text-white transition-colors" aria-label="Previous image">
+          <ChevronLeft size={24} />
+        </button>
+        <button onClick={nextHeroImage} className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 md:p-3 bg-white/20 hover:bg-white/40 backdrop-blur-sm rounded-full text-white transition-colors" aria-label="Next image">
+          <ChevronRight size={24} />
+        </button>
+
+        {/* Dots for Slider */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex gap-2 overflow-x-auto max-w-[80vw] py-2 px-4 scrollbar-hide flex-wrap justify-center">
+          {SCROLLING_IMAGES.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentHeroImage(idx)}
+              aria-label={`Go to image ${idx + 1}`}
+              className={`w-2 h-2 rounded-full transition-all ${idx === currentHeroImage ? 'bg-[#06B6D4] w-6' : 'bg-white/70 hover:bg-white'}`}
+            />
+          ))}
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-20 grid lg:grid-cols-2 gap-12 items-center w-full mt-10 md:mt-0">
           <div className="text-center lg:text-left space-y-6 md:space-y-8 min-w-0">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-slate-800/80 backdrop-blur-md border border-white/50 dark:border-slate-700/50 text-slate-800 dark:text-cyan-300 font-bold text-xs md:text-sm shadow-xl uppercase tracking-widest border-l-4 border-l-[#06B6D4]">
-              <Star size={14} className="text-amber-400 fill-amber-400 animate-[spin_3s_linear_infinite]" /> Empowering Rural India
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-white font-bold text-xs md:text-sm shadow-xl uppercase tracking-widest relative">
+              <span className="absolute left-[16px] top-1/2 -translate-y-1/2 w-4 h-4 bg-amber-400 rounded-full blur-[8px] animate-pulse"></span>
+              <Star size={14} className="text-amber-400 fill-amber-400 animate-[spin_3s_linear_infinite] drop-shadow-[0_0_8px_rgba(251,191,36,0.8)] relative z-10" /> <span className="relative z-10">Empowering Rural India</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading text-slate-900 dark:text-white leading-[1.1] drop-shadow-md">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold font-heading text-white leading-[1.2] drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]">
               {heroTitle} <br/>
-              <Typewriter 
-                words={heroWords} 
-                speed={100} 
-                delay={2500} 
-              />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-[#9C4DFF] to-pink-400 drop-shadow-[0_2px_10px_rgba(156,77,255,0.5)]">
+                <Typewriter 
+                  words={heroWords} 
+                  speed={100} 
+                  delay={2500} 
+                />
+              </span>
             </h1>
 
-            <div className="relative w-full mt-8 -mx-4 px-4 md:mx-0 md:px-0 max-w-[100vw] md:max-w-full overflow-hidden group">
-              {/* Fade edges */}
-              <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 z-20 bg-gradient-to-r from-white/50 dark:from-slate-950/50 to-transparent pointer-events-none" />
-              <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 z-20 bg-gradient-to-l from-white/50 dark:from-slate-950/50 to-transparent pointer-events-none" />
-              
-              <div className="flex w-max gap-4 pb-4 animate-horizontal-scroll [animation-direction:reverse] group-hover:[animation-play-state:paused]">
-                {[...SCROLLING_IMAGES, ...SCROLLING_IMAGES].map((img, idx) => (
-                  <div 
-                    key={idx} 
-                    className="relative w-64 h-40 md:w-80 md:h-48 rounded-2xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-800 flex-shrink-0 group/img bg-slate-100 dark:bg-slate-800"
-                  >
-                    <img src={img.url} alt={img.label} className="w-full h-full object-cover transition-transform duration-500 group-hover/img:scale-105" referrerPolicy="no-referrer" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90" />
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <span className="text-white text-sm font-semibold tracking-wide">{img.label}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <p className="text-2xl md:text-4xl font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-white tracking-wide uppercase">
+              {SCROLLING_IMAGES[currentHeroImage]?.label}
+            </p>
           </div>
           
           <div className="relative mt-8 lg:mt-0 lg:transform lg:translate-x-[140px] lg:translate-y-[2cm]">
-             <div className="absolute inset-0 bg-cyan-400/20 dark:bg-cyan-900/30 blur-[60px] rounded-full scale-125 -z-10" />
              <NotificationBox />
           </div>
         </div>
