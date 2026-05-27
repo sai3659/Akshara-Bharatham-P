@@ -152,7 +152,7 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
                key={idx}
                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === currentHeroImage ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
              >
-                <img src={img.url} alt={img.label} className="w-full h-full object-cover brightness-[0.95]" referrerPolicy="no-referrer" />
+                <img src={img.url} alt={img.label} className="w-full h-full object-cover contrast-[1.1] saturate-[1.1]" referrerPolicy="no-referrer" />
                 {/* Dark overlay for text readability */}
                 <div className="absolute inset-0 bg-black/20" />
              </div>
@@ -196,10 +196,6 @@ const Home: React.FC<HomeProps> = ({ contentOverrides }) => {
                 />
               </span>
             </h1>
-
-            <p className="text-2xl md:text-4xl font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] text-white tracking-wide uppercase">
-              {SCROLLING_IMAGES[currentHeroImage]?.label}
-            </p>
           </div>
           
           <div className="relative mt-8 lg:mt-0 lg:transform lg:translate-x-[140px] lg:translate-y-[2cm]">
