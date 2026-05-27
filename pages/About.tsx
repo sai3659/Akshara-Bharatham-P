@@ -61,6 +61,43 @@ const About: React.FC = () => {
           </Card>
         </div>
 
+        <div className="max-w-4xl mx-auto mb-20">
+          <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-8 flex items-center gap-3">
+            <History className="text-[#06B6D4]" /> Our Journey
+          </h2>
+          <div className="space-y-8 border-l-2 border-slate-200 dark:border-slate-700 pl-8 relative">
+            {[
+              { 
+                year: '2022', 
+                title: 'Initial Expansion', 
+                desc: 'Number of Mandals Covered: 1, Number of Students Selected for Scholarship: 7, Total Number of Students Getting Scholarship (Cumulative): 7.' 
+              },
+              { 
+                year: '2023', 
+                title: 'Growing Reach', 
+                desc: 'Number of Mandals Covered: 1, Number of Students Selected for Scholarship: 5, Total Number of Students Getting Scholarship (Cumulative): 12.' 
+              },
+              { 
+                year: '2024', 
+                title: 'Broadening Horizons', 
+                desc: 'Number of Mandals Covered: 2, Number of Students Selected for Scholarship: 12, Total Number of Students Getting Scholarship (Cumulative): 24.' 
+              },
+              { 
+                year: '2025', 
+                title: 'Continued Impact', 
+                desc: 'Number of Mandals Covered: 3, Number of Students Selected for Scholarship: 16, Total Number of Students Getting Scholarship (Cumulative): 40.' 
+              }
+            ].map((milestone, i) => (
+              <div key={i} className="relative">
+                <span className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[#06B6D4] border-4 border-white dark:border-dark" />
+                <span className="text-sm font-bold text-[#06B6D4] mb-1 block">{milestone.year}</span>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{milestone.title}</h4>
+                <p className="text-slate-500 dark:text-slate-400">{milestone.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </Section>
 
       {/* 2. Leadership Team Section */}
@@ -137,11 +174,8 @@ const About: React.FC = () => {
                 <FileText size={32} />
               </div>
               <div className="flex-1">
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white">Annual Report 2023-24</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Audited financial statements and auditor's notes.</p>
-                <NavLink to="/financial-reports">
-                  <Button variant="ghost" className="p-0 text-amber-600 hover:bg-transparent font-bold">Download PDF <Download size={16} className="ml-2" /></Button>
-                </NavLink>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Annual Report 2023-24</h4>
+                <Button variant="ghost" className="p-0 text-amber-600 hover:bg-transparent font-bold" onClick={(e) => e.preventDefault()}>Download PDF <Download size={16} className="ml-2" /></Button>
               </div>
             </Card>
             <Card className="p-8 flex items-center gap-6 group hover:border-[#06B6D4] transition-colors">
@@ -149,11 +183,8 @@ const About: React.FC = () => {
                 <ShieldCheck size={32} />
               </div>
               <div className="flex-1">
-                <h4 className="text-xl font-bold text-slate-900 dark:text-white">FCRA Compliance</h4>
-                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">Foreign contribution regulation filings and permits.</p>
-                <NavLink to="/financial-reports">
-                  <Button variant="ghost" className="p-0 text-[#06B6D4] hover:bg-transparent font-bold">View Documentation <ArrowRight size={16} className="ml-2" /></Button>
-                </NavLink>
+                <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">FCRA Compliance</h4>
+                <Button variant="ghost" className="p-0 text-[#06B6D4] hover:bg-transparent font-bold" onClick={(e) => e.preventDefault()}>View Documentation <ArrowRight size={16} className="ml-2" /></Button>
               </div>
             </Card>
           </div>
