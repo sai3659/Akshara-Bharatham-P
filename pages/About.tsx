@@ -26,7 +26,7 @@ const About: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white mb-6">Empowering Rural India</h1>
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 leading-relaxed">
-            Founded in 2010, we are a non-profit organization dedicated to bridging the educational gap in rural India. 
+            Founded in 2022, we are a non-profit organization dedicated to bridging the educational gap in rural India. 
             We believe that quality education is not a privilege, but a fundamental right.
           </p>
         </div>
