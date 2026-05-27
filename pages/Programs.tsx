@@ -32,6 +32,7 @@ const TALENT_TEST_STATS = [
   { year: '2023', mandals: 1, selected: 5, cumulative: 12 },
   { year: '2024', mandals: 2, selected: 12, cumulative: 24 },
   { year: '2025', mandals: 3, selected: 16, cumulative: 40 },
+  { year: '2026', selected: 17 },
 ];
 
 const TalentTestMetrics = () => {
