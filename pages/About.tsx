@@ -38,7 +38,7 @@ const About: React.FC = () => {
             </div>
             <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white mb-4">Mission</h3>
             <p className="text-slate-500 dark:text-slate-400">
-              To empower students in rural communities by providing access to quality education and mentorship.
+              To identify, nurture, and empower academically gifted students from economically disadvantaged backgrounds by providing scholarships, competitive exposure, NMMS coaching, and education awareness — ensuring no deserving student is denied the opportunity to grow beyond SSC due to financial hardship or lack of awareness.
             </p>
           </Card>
           <Card className="p-8 text-center border-t-4 border-[#06B6D4]">
@@ -47,7 +47,7 @@ const About: React.FC = () => {
             </div>
             <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white mb-4">Vision</h3>
             <p className="text-slate-500 dark:text-slate-400">
-              A future where every child has the opportunity to realize their full potential.
+              A society where every talented child, regardless of economic background, has equal access to quality education — transforming lives, families, and communities from the roots up.
             </p>
           </Card>
           <Card className="p-8 text-center border-t-4 border-amber-500">
