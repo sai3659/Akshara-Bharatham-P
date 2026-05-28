@@ -181,27 +181,49 @@ const Programs: React.FC = () => {
   };
 
   const KNOWLEDGE_QUEST_IMAGES = [
-    "https://lh3.googleusercontent.com/d/1KiGCS3VrxaTK_hJyMtRJpUWHQ3cGt-R_",
-    "https://lh3.googleusercontent.com/d/1MJhWz8ZLDoX_mh8TrNrTSVLOtDmLNLm5",
-    "https://lh3.googleusercontent.com/d/1-PnwKSzDbBXq1tWPNL2zBk8r879vIL0X",
-    "https://lh3.googleusercontent.com/d/1dS-PdBs9ZG0NoSy3lvuhEMYYa3xhQBos",
-    "https://lh3.googleusercontent.com/d/1IzKdT1oAKkp3d4mVLrQ1-gBJA6MU8HIt"
-  ];
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.14%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.16%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.18%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.20%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.22%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.24%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.26%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.28%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.29%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.31%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.33%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.35%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.37%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.39%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.41%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.43%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.46%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.48%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.51%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.53%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.56%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.53.58%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.54.01%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.54.05%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.54.07%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.54.09%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/Quiz%20Images/WhatsApp%20Image%202026-05-28%20at%201.54.11%20PM.jpeg"
+];
 
   const TALENT_TEST_IMAGES = [
-    "https://lh3.googleusercontent.com/d/1-wm39NdMsk2CRhe1rhku8vYNfiaMsgrM",
-    "https://lh3.googleusercontent.com/d/1206CSiGBOUf5JKyJFX05GTbQff6_b3ri",
-    "https://lh3.googleusercontent.com/d/1MBARnXejoNj7ncisYuZkghk0xSsnKR3S",
-    "https://lh3.googleusercontent.com/d/1O2Uzcr_VsaMz_w8-xUDmG5cWwFLADyhc",
-    "https://lh3.googleusercontent.com/d/1O6qOVtpBU93WypHkRlsnf3KZHWecNkd2",
-    "https://lh3.googleusercontent.com/d/1OTMDLcZiQeXqIe6laXQDBhBPgtP2xi5d",
-    "https://lh3.googleusercontent.com/d/1RFD1MWfnjMPrZ7CV-X0z4pq6Ay3xtVaI",
-    "https://lh3.googleusercontent.com/d/1TvBmyYnfEdzSrJ1TITSNY6UQUzFnbc7u",
-    "https://lh3.googleusercontent.com/d/1d4J6o7_WOPoha49xcPuwHT3CwyT4hGYP",
-    "https://lh3.googleusercontent.com/d/1h5XJzdpt_UJIOic9juGcExjS1TyfIm8e",
-    "https://lh3.googleusercontent.com/d/1u-vEeGJwY373xbL4ZaBGak8BmiwVjNLS",
-    "https://lh3.googleusercontent.com/d/1xc_5XnCs3-40kTlG7DaIt6xfNJLdmSZB"
-  ];
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.43.26%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.43.28%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.43.29%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.43.31%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.43.32%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.42%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.44%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.46%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.48%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.50%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.52%20PM.jpeg",
+  "https://raw.githubusercontent.com/sai3659/ABS_Images/main/ABS%20Talent%20Test%20Latest/WhatsApp%20Image%202026-05-28%20at%201.46.54%20PM.jpeg"
+];
 
   const NMMS_IMAGES = [
     "https://lh3.googleusercontent.com/d/11nFhR1CdDRT691YQJSvGpOAAbuSDylkz",
@@ -298,7 +320,7 @@ const Programs: React.FC = () => {
                              We conduct Talent tests at the end of every academic year as part of our primary objective to encourage talented and poor students to pursue their higher education.
                          </p>
                          <p>
-                             Atchutapuram and Rambilli Mandal High schools participated in 2024 ABS talent test. We selected 12 students for the scholarship after interviewing the multiple qualified students along with their parents and provided scholarships of 10000 rupees to them. The scholarships would be given to them until they finish their graduation with terms and conditions.
+                             Rambilli, Atchutapuram and Yelamanchili Mandal High schools participated in 2026 ABS talent test. We selected 18 students for the scholarship after interviewing the multiple qualified students along with their parents and provided scholarships of 10000 rupees to them. The scholarships would be given to them until they finish their graduation with terms and conditions.
                          </p>
                      </div>
                      
@@ -355,8 +377,8 @@ const Programs: React.FC = () => {
                  <div className="grid grid-cols-2 gap-4">
                      <div className="col-span-2 bg-gradient-to-br from-amber-500 to-orange-600 rounded-3xl p-8 text-white shadow-xl shadow-amber-500/20 transform hover:-translate-y-1 transition-transform">
                          <Trophy size={48} className="mb-4 text-white/90" />
-                         <h3 className="text-5xl font-bold font-heading mb-2">12</h3>
-                         <p className="text-lg font-medium text-amber-100">Meritorious Students Selected in 2024</p>
+                         <h3 className="text-5xl font-bold font-heading mb-2">18</h3>
+                         <p className="text-lg font-medium text-amber-100">Meritorious Students Selected in 2026</p>
                      </div>
                      <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-lg border border-slate-100 dark:border-slate-700 flex flex-col justify-center text-center group hover:border-amber-500/50 transition-colors">
                          <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Scholarship Value</p>
@@ -378,7 +400,7 @@ const Programs: React.FC = () => {
              <div className="relative group/gallery mt-16">
                   <div className="flex items-center justify-between mb-6 px-2">
                       <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
-                         <ImageIcon size={20} className="text-amber-500"/> 2024 Highlights
+                         <ImageIcon size={20} className="text-amber-500"/> Highlights
                       </h3>
                       <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
                   </div>
@@ -458,60 +480,26 @@ const Programs: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Gallery Side - Custom Collage Full Width */}
+                {/* Gallery Side - Horizontal Scrolling */}
                 <div className="w-full">
-                    <div className="grid grid-cols-2 md:grid-cols-6 grid-rows-2 gap-3 md:gap-4 h-[400px] md:h-[500px]">
-                        {/* Main Featured Image */}
-                        <div className="col-span-2 md:col-span-4 row-span-2 relative rounded-2xl overflow-hidden shadow-xl group cursor-pointer border-4 border-white dark:border-slate-800">
-                           <img 
-                             src={KNOWLEDGE_QUEST_IMAGES[0]} 
-                             alt="Knowledge Quest Main" 
-                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                           />
-                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                             <div className="text-white">
-                               <p className="font-bold text-lg">Active Participation</p>
-                               <p className="text-xs text-white/80">Students engaged in quiz rounds</p>
-                             </div>
-                           </div>
-                        </div>
-
-                        {/* Side Column Top */}
-                        <div className="col-span-1 md:col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
-                           <img 
-                             src={KNOWLEDGE_QUEST_IMAGES[1]} 
-                             alt="Knowledge Quest 2" 
-                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                           />
-                        </div>
-
-                        {/* Side Column Bottom */}
-                        <div className="col-span-1 md:col-span-2 row-span-1 relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
-                           <img 
-                             src={KNOWLEDGE_QUEST_IMAGES[2]} 
-                             alt="Knowledge Quest 3" 
-                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                           />
-                        </div>
-                    </div>
-                    
-                    {/* Bottom Row Strip */}
-                    <div className="grid grid-cols-2 gap-3 md:gap-4 mt-3 md:mt-4 h-[120px] md:h-[150px]">
-                        <div className="relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
-                           <img 
-                             src={KNOWLEDGE_QUEST_IMAGES[3]} 
-                             alt="Knowledge Quest 4" 
-                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                           />
-                        </div>
-                        <div className="relative rounded-2xl overflow-hidden shadow-lg group border border-slate-100 dark:border-slate-800">
-                           <img 
-                             src={KNOWLEDGE_QUEST_IMAGES[4]} 
-                             alt="Knowledge Quest 5" 
-                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                           />
-                        </div>
-                    </div>
+                     <div className="relative group/gallery mt-8">
+                          <div className="flex items-center justify-between mb-6 px-2">
+                              <h3 className="font-bold text-xl text-slate-900 dark:text-white flex items-center gap-2">
+                                 <ImageIcon size={20} className="text-purple-500"/> Highlights
+                              </h3>
+                              <span className="text-xs text-slate-500 font-medium bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full">Swipe to explore</span>
+                          </div>
+                          <div className="flex overflow-x-auto gap-4 pb-8 -mx-4 px-4 md:-mx-0 md:px-0 snap-x hide-scrollbar scroll-smooth">
+                             {KNOWLEDGE_QUEST_IMAGES.map((img, idx) => (
+                                 <div key={idx} className="min-w-[280px] md:min-w-[360px] h-[220px] rounded-2xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 snap-center relative group cursor-pointer hover:shadow-xl transition-all">
+                                     <img src={img} alt={`Knowledge Quest Highlight ${idx+1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" />
+                                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                        <ImageIcon className="text-white/80" size={24} />
+                                     </div>
+                                 </div>
+                             ))}
+                          </div>
+                     </div>
                 </div>
              </div>
           </div>
@@ -606,7 +594,7 @@ const Programs: React.FC = () => {
                     <h2 className="text-3xl md:text-5xl font-bold font-heading text-slate-900 dark:text-white">Student Mentorship</h2>
                     <div className="prose dark:prose-invert prose-lg text-slate-600 dark:text-slate-400">
                         <p>
-                           We are providing mentorships to the students who wrote ABS talent test-2024. Mentorship is for shaping their education career in better way. The best guidance would be given to choose the right path to reach their goals based on their interests.
+                           We are providing mentorships to the students who wrote ABS talent test-2026. Mentorship is for shaping their education career in better way. The best guidance would be given to choose the right path to reach their goals based on their interests.
                         </p>
                     </div>
 

@@ -13,6 +13,7 @@ interface GitHubFile {
 interface AlumniImage {
   url: string;
   name: string;
+  school?: string;
 }
 
 const Alumni: React.FC = () => {
@@ -26,10 +27,50 @@ const Alumni: React.FC = () => {
       const newImages: Record<number, AlumniImage[]> = {};
       
       const extractName = (filename: string) => {
-        let name = filename.replace(/\.(jpg|jpeg|png|gif|webp)$/i, '');
-        name = name.replace(/\(\d{4}\)|\d{4}/g, '');
-        name = name.replace(/[_-]/g, ' ');
-        return name.trim();
+        let cleanName = filename.replace(/\.(jpg|jpeg|png|gif|webp)$/i, '');
+        // Remove class of XXXX variations
+        cleanName = cleanName.replace(/classs?\s+of\s+\d{4}/gi, '');
+        
+        // Sometimes the year is standalone, try to avoid stripping but it's okay mostly.
+        cleanName = cleanName.replace(/\(\d{4}\)|\b202[2-6]\b/g, '');
+        cleanName = cleanName.replace(/\(\s*\)/g, ''); // remove empty braces
+        
+        let school = '';
+        if (/IMG.*WA/i.test(cleanName)) {
+            cleanName = "P. Madhu sri";
+        } else {
+            cleanName = cleanName.replace(/_/g, ' ');
+
+            // Find school names inside the filename
+            const schoolPatterns = [
+                /AP Residential\s*(School)?\s*\(\s*Girls\s*\)\s*A(?:tc|ct)hutapuram/i,
+                /Z\.?P\.?\s*Girls\s*High\s*School\s*Yell?amanchili/i,
+                /MSME\s*Pudimadaka/i,
+                /KGBV\s*A(?:tc|ct)hutapuram/i,
+                /(ZPHS?|APRS)[-\s]+[\w()\s]+/i
+            ];
+
+            for (const pattern of schoolPatterns) {
+                const schoolMatch = cleanName.match(pattern);
+                if (schoolMatch) {
+                    school = schoolMatch[0].trim();
+                    cleanName = cleanName.replace(schoolMatch[0], '').trim();
+                    break;
+                }
+            }
+
+            cleanName = cleanName.replace(/\(\s*\)/g, '').trim();
+            cleanName = cleanName.replace(/^[-,\s_]+|[-,\s_]+$/g, '').trim();
+            school = school.replace(/^[-,\s_]+|[-,\s_]+$/g, '').trim();
+            
+            // Further cleanup if name is empty
+            if (!cleanName) cleanName = "Student";
+        }
+
+        // Capitalize first letters
+        cleanName = cleanName.replace(/\b\w/g, char => char.toUpperCase());
+
+        return { name: cleanName, school };
       };
 
       try {
@@ -40,10 +81,14 @@ const Alumni: React.FC = () => {
               const data: GitHubFile[] = await res.json();
               newImages[year] = data
                 .filter(file => file.type === 'file' && file.name.match(/\.(jpg|jpeg|png|gif|webp)$/i))
-                .map(file => ({
-                  url: file.download_url,
-                  name: extractName(file.name)
-                }));
+                .map(file => {
+                  const extracted = extractName(file.name);
+                  return {
+                    url: file.download_url,
+                    name: extracted.name,
+                    school: extracted.school
+                  };
+                });
             } else {
               newImages[year] = [];
             }
@@ -121,9 +166,11 @@ const Alumni: React.FC = () => {
                         </div>
                         <div className="text-center px-1">
                           <h3 className="text-slate-900 dark:text-white text-lg font-bold leading-tight">{img.name}</h3>
-                          <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider mt-1">
-                            Class of {year}
-                          </p>
+                          {img.school && (
+                            <p className="text-slate-500 dark:text-slate-400 text-xs font-semibold capitalize mt-1">
+                              {img.school.toLowerCase()}
+                            </p>
+                          )}
                         </div>
                       </div>
                     ))}
