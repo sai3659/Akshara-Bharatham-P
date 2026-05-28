@@ -87,9 +87,7 @@ const SCROLLING_IMAGES = [
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM%20(1).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.51%20PM.jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.16.52%20PM.jpeg', label: 'Awareness Program' },
-  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.39%20PM%20(3).jpeg', label: 'Awareness Program' },
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM%20(2).jpeg', label: 'Awareness Program' },
-  { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Awareness%20Program/WhatsApp%20Image%202026-02-08%20at%201.17.40%20PM.jpeg', label: 'Awareness Program' },
 
   // Knowledge Quest
   { url: 'https://raw.githubusercontent.com/sai3659/ABS_Images/main/Scrolling1/Knowledge%20Quest/IMG-20260210-WA0008.jpg', label: 'Knowledge Quest' },

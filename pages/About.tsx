@@ -63,35 +63,35 @@ const About: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left mb-10">
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Equal Opportunity</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">No child left behind</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"Every child deserves a chance, regardless of where they are born or how much their family earns."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Merit & Excellence</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Reward hard work fairly</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"We identify and celebrate the true potential hidden in every deserving student."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Compassion & Care</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Empathy first</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"We see the child before we see the circumstance."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Competitive Spirit</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Prepare for life</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"We prepare students not just for exams, but for life."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Awareness & Enlightenment</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Educate the family too</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"An informed family never lets their child drop out."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Commitment to Completion</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Stay until graduation</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"A scholarship is not just money — it is a promise to walk with the student until graduation."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Social Transformation</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Change the whole society</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"One educated child transforms an entire generation."</p>
             </div>
             <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
               <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Integrity & Transparency</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Earn and keep trust</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">"We earn trust through honest action."</p>
             </div>
           </div>
           <p className="text-lg md:text-xl font-medium text-slate-800 dark:text-white">
