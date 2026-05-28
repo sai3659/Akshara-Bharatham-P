@@ -31,7 +31,7 @@ const About: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           <Card className="p-8 text-center border-t-4 border-purple-500">
             <div className="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-full flex items-center justify-center mb-6">
               <Target size={32} />
@@ -50,16 +50,54 @@ const About: React.FC = () => {
               A society where every talented child, regardless of economic background, has equal access to quality education — transforming lives, families, and communities from the roots up.
             </p>
           </Card>
-          <Card className="p-8 text-center border-t-4 border-amber-500">
-            <div className="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 text-amber-500 rounded-full flex items-center justify-center mb-6">
-              <ShieldCheck size={32} />
-            </div>
-            <h3 className="text-2xl font-bold font-heading text-slate-900 dark:text-white mb-4">Values</h3>
-            <p className="text-slate-500 dark:text-slate-400">
-              Integrity, Transparency, and Community-First approach in everything we do.
-            </p>
-          </Card>
         </div>
+
+        <Card className="p-8 md:p-12 text-center border-t-4 border-amber-500 mb-20 bg-white dark:bg-slate-900">
+          <div className="w-16 h-16 mx-auto bg-amber-100 dark:bg-amber-900/30 text-amber-500 rounded-full flex items-center justify-center mb-6">
+            <ShieldCheck size={32} />
+          </div>
+          <h3 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-2">Core Values</h3>
+          <p className="text-lg text-slate-700 dark:text-slate-300 font-bold mb-10 italic">
+            "Empowering Talent. Erasing Poverty. Transforming Tomorrow."
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 text-left mb-10">
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Equal Opportunity</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">No child left behind</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Merit & Excellence</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Reward hard work fairly</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Compassion & Care</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Empathy first</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Competitive Spirit</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Prepare for life</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Awareness & Enlightenment</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Educate the family too</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Commitment to Completion</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Stay until graduation</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Social Transformation</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Change the whole society</p>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-800/80 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/50 hover:border-amber-200 transition-colors">
+              <h4 className="font-bold text-amber-600 dark:text-amber-500 mb-1">Integrity & Transparency</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Earn and keep trust</p>
+            </div>
+          </div>
+          <p className="text-lg md:text-xl font-medium text-slate-800 dark:text-white">
+            "Together, these values make Our NGO not just an organisation — but a movement for change."
+          </p>
+        </Card>
 
         <div className="max-w-4xl mx-auto mb-20">
           <h2 className="text-3xl font-bold font-heading text-slate-900 dark:text-white mb-8 flex items-center gap-3">
